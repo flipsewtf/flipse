@@ -1,91 +1,58 @@
 ---
 // ThemeToggle.astro
-import { MoonIcon, SunMediumIcon } from '@lucide/astro';
 ---
 
-<button
-    class="theme-toggle"
-    type="button"
-    data-tooltip="Toggle theme"
-    aria-label="Toggle theme"
-    aria-pressed="false">
-    <SunMediumIcon class="sun" />
-    <MoonIcon class="moon" />
+<button class="theme-toggle" type="button" aria-label="Toggle theme">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path class="toggle-inner" d="M16 9c3.9 0 7 3.1 7 7s-3.1 7-7 7"></path>
+        <path
+            class="toggle-outer"
+            d="M16 .5C7.4.5.5 7.4.5 16S7.4 31.5 16 31.5 31.5 24.6 31.5 16 24.6.5 16 .5zm0 28.1V23c-3.9 0-7-3.1-7-7s3.1-7 7-7V3.4C23 3.4 28.6 9 28.6 16S23 28.6 16 28.6z"
+        ></path>
+    </svg>
 </button>
 
 <style>
     button.theme-toggle {
-        color: var(--text-alt);
-        display: inline-flex;
-        position: relative;
+        color: var(--text);
+        position: fixed;
+        top: calc((var(--layout--header) - var(--svg-size)) / 2);
+        right: max(
+            var(--layout--padding),
+            calc((100vw - var(--layout--width)) / 2 + var(--layout--padding))
+        );
+        z-index: 200;
+        display: flex;
         align-items: center;
         justify-content: center;
-        width: calc(var(--svg-size) + var(--px8) * 2);
-        height: calc(var(--svg-size) + var(--px8) * 2);
         transition: color var(--transition--smooth);
-        border-radius: var(--radius--full);
-        border: var(--px1) solid var(--border);
-        background-color: var(--bg-alt);
-        backdrop-filter: blur(10px);
+        color: var(--text-alt);
     }
 
-    button.theme-toggle:hover {
-        color: var(--accent);
-    }
-    button.theme-toggle[data-tooltip]::after {
-        bottom: auto;
-        top: calc(100% + var(--space-3));
+    button.theme-toggle svg {
+        width: var(--toggle-size: );
+        height: var(--toggle-size: );
+        fill: currentColor;
+        stroke: none;
     }
 
-    .sun,
-    .moon {
-        position: absolute;
+    button.theme-toggle svg path {
         transform-origin: center;
-        transition: none;
-        transform-box: fill-box;
-        width: calc(var(--svg-size) - var(--px2));
-        height: calc(var(--svg-size) - var(--px2));
+
+        transition: transform 0.5s ease;
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-        html[data-ready='true'] .sun,
-        html[data-ready='true'] .moon {
-            transition:
-                opacity 0.2s ease,
-                transform 0.3s cubic-bezier(0.8, -0.5, 0.2, 1.4);
-        }
+    :global(html[data-theme='dark']) button.theme-toggle .toggle-inner {
+        transform: rotate(180deg);
     }
 
-    /* Light mode */
-    .sun {
-        opacity: 1;
-        transform: rotate(0deg) scale(1);
+    :global(html[data-theme='dark']) button.theme-toggle .toggle-outer {
+        transform: rotate(-180deg);
     }
-
-    .moon {
-        opacity: 0;
-        transform: rotate(-180deg) scale(0.5);
-    }
-
-    :global([data-theme='dark']) .sun {
-        opacity: 0;
-        transform: rotate(180deg) scale(0.5);
-    }
-
-    :global([data-theme='dark']) .moon {
-        opacity: 1;
-        transform: rotate(0deg) scale(1);
-    }
-
     :global(html.no-transition *:not(.theme-toggle *)) {
         transition: none !important;
         animation: none !important;
     }
-    /* DESKTOP*/
-    @media (min-width: 48rem) {
-        button.theme-toggle {
-            width: calc(var(--svg-size) + var(--space-2) * 2);
-        }
-    }
 </style>
+
 <script src="/scripts/theme-toggle.js" is:inline></script>

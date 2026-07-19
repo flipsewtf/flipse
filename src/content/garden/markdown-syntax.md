@@ -54,7 +54,7 @@ if you need a `<br>` make two spacings after.
 
 If the image doesn’t load, at least the alt text will politely explain what _should_ have been there. For garden posts use /public folder for images.
 
-## Blockquotes
+## Blockquote
 
 The fancy blockquote. With a citation, within a `cite` element.
 
@@ -201,8 +201,6 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
 ### Output
 
 <abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
-
-<abbr data-tooltip="Abbreviation">Data-tooltip test</abbr>.
 
 H<sub>2</sub>O
 

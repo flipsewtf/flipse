@@ -1,99 +1,47 @@
 ---
 //about.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
-const pageTitle = 'About';
 import ExternalLink from '@/components/base/ExternalLink.astro';
-
-const birthDate = new Date('1988-03-04');
-const today = new Date();
-
-let age = today.getFullYear() - birthDate.getFullYear();
-
-const hasHadBirthdayThisYear =
-    today.getMonth() > birthDate.getMonth() ||
-    (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
-
-if (!hasHadBirthdayThisYear) {
-    age -= 1;
-}
+const pageTitle = 'About Flipse';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <div slot="upper-section">
-        <p>
-            <em
-                >I realise this is not an interesting way of getting to know me. I will make
-                something.. better.</em
-            >
-        </p>
-        <p>
-            You can also check out my <a class="page-link" href="/uses">What I use</a> page until then.
-        </p>
+    <div class="intro-wrapper">
+        <div class="portrait">
+            <img class="bio-light" src="/assets/images/bio.gif" alt="" />
+        </div>
 
-        <hr />
+        <article class="flow">
+            <p>
+                Flipse is a late 30s autistic & bi musichead, disability pensioner, occasionally
+                doing NASA's <ExternalLink
+                    href="https://science.nasa.gov/citizen-science/"
+                    label="homework"
+                />.
+            </p>
+
+            <p>
+                Lover of concerts, Doctor Who, D&D and <a class="page-link" href="/uses"
+                    >desk setups</a
+                >.
+            </p>
+
+            <p>
+                I've been releasing accessibility-first <ExternalLink
+                    href="https://mournstera.tumblr.com/"
+                    label="Tumblr themes"
+                /> for 15+ years and been a fandom girl since the early Livejournal days.
+            </p>
+        </article>
     </div>
-    <div class="portrait" slot="sidebar">
-        <img class="bio-light" src="/assets/images/bio.gif" alt="" />
-    </div>
-
-    <article class="flow">
-        <p>
-            My name is Flipse and my pronouns are she/her. I'm a {age}-year-old Danish, bi,
-            autistic, and cis woman. My special subject is music and data, so I thoroughly enjoyed
-            discovering
-
-            <ExternalLink href="https://record.club/mournstera/" label="Record.Club" /> last year.
-        </p>
-
-        <p>
-            I have a good handful of… <em>interesting</em> diagnoses, including bipolar and late-diagnosed
-            autism—that one explained the yearly burnouts—both frame most of my everyday life. I am now
-            an early disability retiree (2022), navigating all of this in a meaningful way.
-        </p>
-
-        <p>I love concerts, watermelon, Doctor Who, and D&D.</p>
-
-        <h2>Early Web Days</h2>
-        <p>
-            Like many others, I clicked "view source" on a website somewhere around 1999, and later
-            found b2/cafelog and <em>online diaries</em>. That Christmas, my parents got their
-            12-year-old her own domain and web host.. Y'know, a totally normal gift for a kid who
-            made her own database of licence plates (started that one in 1993, was informed it was
-            in fact illegal to keep a records as such in 1998), and films she had watched (IMDb
-            wasn’t great at the time). I experienced LiveJournal through Lord of the Rings Fandom..
-        </p>
-
-        <h2>Tumblr</h2>
-        <p>
-            ..and Doctor who through Tumblr. I found Tumblr in 2009, and began releasing my own
-            Tumblr themes around 2012 while attempting to wrangle their <em>interesting</em> choices of
-            code. I carefully built my audience (18k followers) and a lot of happy users and friends over
-            the years.
-        </p>
-
-        <p>
-            In late 2025, I decided that Tumblr was neither my circus nor my monkeys anymore. The
-            reasons for stepping back were primarily influenced by the behaviour of <ExternalLink
-                href="https://techcrunch.com/2024/02/22/tumblr-ceo-publicly-spars-with-trans-user-over-account-ban-revealing-private-account-names-in-the-process/"
-                label="Matt"
-            /> (that one is an on-going issue) and <ExternalLink
-                href="https://changes.tumblr.com/post/797397804182044672/"
-                label="this enshittification"
-            />
-
-            of its users. I am currently just watching the ship burn and sink, while maintaining my
-            codes over there, and build my online community elsewhere in the meantime.
-        </p>
-
-        <p>
-            If you want to have a sad laugh, read the comments on Tumblr's own posts on
-            <ExternalLink href="https://changes.tumblr.com" label="changes.tumblr.com" />. I promise
-            it's worth it.
-        </p>
-    </article>
 </BaseLayout>
 
 <style>
+    .intro-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+        gap: var(--space--lg) var(--space--xl);
+    }
     .portrait {
         margin-inline: auto;
         width: fit-content;

@@ -4,7 +4,7 @@ import { XIcon } from '@lucide/astro';
 ---
 
 <dialog id="lightbox" aria-label="Image lightbox" aria-modal="true">
-    <button id="lightbox-close" aria-label="Close lightbox" autofocus><XIcon /></button>
+    <button id="lightbox-close" aria-label="Close lightbox"><XIcon /></button>
     <figure>
         <img id="lightbox-img" src="" alt="" />
         <figcaption id="lightbox-caption"></figcaption>
@@ -48,14 +48,14 @@ import { XIcon } from '@lucide/astro';
         background: var(--bg);
         border: 1px solid var(--border);
         border-radius: var(--radius--xl);
-        padding: var(--space-2);
+        padding: var(--space--sm);
         max-width: 92vw;
         max-height: 92vh;
         margin: auto;
     }
 
     dialog::backdrop {
-        background-color: var(--bg-trans);
+        background-color: var(--bg);
         backdrop-filter: blur(12px);
     }
 
@@ -69,19 +69,19 @@ import { XIcon } from '@lucide/astro';
     figcaption {
         color: var(--text-alt);
         font-size: var(--text--sm);
-        margin-block: var(--space-3) var(--space-1);
+        margin-block: var(--space--sm) var(--space--xs);
         text-align: center;
     }
 
     #lightbox-close {
         position: absolute;
-        top: var(--space-2);
-        right: var(--space-2);
+        top: var(--space--sm);
+        right: var(--space--sm);
         background-color: var(--text-alt);
         color: var(--bg);
         cursor: pointer;
         border-radius: var(--radius--md);
-        padding: var(--space-1);
+        padding: var(--space--xs);
         display: inline-flex;
     }
 

@@ -90,9 +90,9 @@ import { MusicIcon } from '@lucide/astro';
     }
 
     footer {
-        background-color: var(--bg-warm);
+        background-color: var(--bg-alt);
         width: 100%;
-        padding-block: var(--space-9);
+        padding-block: var(--space--xxxl);
         display: block;
 
         background-size: 100% var(--px1);
@@ -107,7 +107,7 @@ import { MusicIcon } from '@lucide/astro';
 
     .footer-inner {
         display: flex;
-        gap: var(--space-4);
+        gap: var(--space--lg);
         justify-content: space-between;
         align-items: flex-start;
         flex-wrap: wrap;
@@ -120,13 +120,13 @@ import { MusicIcon } from '@lucide/astro';
     nav.footer-links {
         display: flex;
         justify-items: start;
-        gap: 0 var(--space-3);
+        gap: 0 var(--space--sm);
     }
 
     nav.footer-links ul {
         display: flex;
         justify-items: start;
-        gap: var(--space-1);
+        gap: var(--space--xs);
         flex-direction: column;
     }
     nav.footer-links a {
@@ -140,7 +140,7 @@ import { MusicIcon } from '@lucide/astro';
         justify-content: flex-end;
         align-items: center;
         gap: var(--px8);
-        font-size: var(--text--xs);
+        font-size: var(--text--space--xs);
 
         svg {
             width: 1.125rem;
@@ -152,12 +152,9 @@ import { MusicIcon } from '@lucide/astro';
         line-height: var(--line-height--heading);
         text-align: right;
         font-family: var(--font--mono);
-        max-width: 23rem;
-        font-size: var(--text--xs);
+        max-width: 20rem;
+        font-size: var(--text--space--xs);
         color: var(--text-alt);
-        white-space: pre;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
     @keyframes bop {
         from,
@@ -185,8 +182,7 @@ import { MusicIcon } from '@lucide/astro';
     }
 
     .listened :global(svg) {
-        animation: bop 0.8s ease-in-out infinite;
-        animation: bop 1.3s var(--transition--snappy) infinite;
+        animation: bop 1.3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 </style>
 <script src="/scripts/scrobble.js" defer></script>

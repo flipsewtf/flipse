@@ -10,7 +10,7 @@
     font-size: var(--h3);
     font-weight: 700;
     display: flex;
-    gap: var(--space-2);
+    gap: var(--space--sm);
     text-transform: capitalize;
 
     svg {
@@ -18,7 +18,7 @@
     }
 }
 section.garden-kind-group .garden-heading {
-    margin-block: var(--space-7) var(--space-4);
+    margin-block: var(--space--xxl) var(--space--lg);
 }
 section.main-content > section.garden-kind-group:first-child h3.garden-heading {
     margin-block-start: 0;
@@ -26,7 +26,7 @@ section.main-content > section.garden-kind-group:first-child h3.garden-heading {
 
 ul.garden-list {
     display: flex;
-    gap: var(--space-3);
+    gap: var(--space--sm);
     flex-direction: column;
 }
 
@@ -58,12 +58,12 @@ ul.garden-list li {
 
 @media (min-width: 35rem) {
     ul.garden-list {
-        gap: var(--space-2);
+        gap: var(--space--sm);
     }
     ul.garden-list li {
         flex-direction: row;
         align-items: flex-end;
-        gap: var(--space-3);
+        gap: var(--space--sm);
     }
 }
 
@@ -76,9 +76,9 @@ h2.garden-tags-title {
     text-transform: uppercase;
 }
 ul.garden-tags {
-    margin-top: var(--space-4);
+    margin-top: var(--space--lg);
     display: flex;
-    gap: var(--space-2);
+    gap: var(--space--sm);
     flex-wrap: wrap;
 
     li {
@@ -88,7 +88,7 @@ ul.garden-tags {
     a {
         font-weight: 500;
         padding-block: var(--px8);
-        padding-inline: var(--space-1);
+        padding-inline: var(--space--xs);
         color: var(--text);
         background-color: var(--bg-alt);
         border: var(--px1) solid var(--border);

@@ -3,6 +3,7 @@
 import BaseHead from '@/components/base/BaseHead.astro';
 import Header from '@/components/base/Header.astro';
 import Footer from '@/components/base/Footer.astro';
+import ThemeToggle from '@/components/base/ThemeToggle.astro';
 import { siteDescription } from '@/assets/data/site-desc';
 
 const {
@@ -12,12 +13,7 @@ const {
     pageImage = '/social-default.png',
     mainClass = '',
     isPost = false,
-    hasSidebar: hasSidebarProp,
 } = Astro.props;
-
-const hasUpper = Astro.slots.has('upper-section');
-
-const hasSidebar = hasSidebarProp !== undefined ? hasSidebarProp : Astro.slots.has('sidebar');
 ---
 
 <html lang="en">
@@ -25,35 +21,13 @@ const hasSidebar = hasSidebarProp !== undefined ? hasSidebarProp : Astro.slots.h
         <BaseHead title={seoTitle ?? pageTitle} description={pageDescription} image={pageImage} />
     </head>
     <body>
+        <ThemeToggle />
         <Header />
 
-        <main
-            class:list={[
-                mainClass,
-                {
-                    'has-upper': hasUpper,
-                    'has-sidebar': hasSidebar,
-                },
-            ]}>
+        <main class:list={[mainClass]}>
             {!isPost && pageTitle && <h1>{pageTitle}</h1>}
 
             <div class="layout-container">
-                {
-                    hasUpper && (
-                        <section class="upper-section">
-                            <slot name="upper-section" />
-                        </section>
-                    )
-                }
-
-                {
-                    hasSidebar && (
-                        <aside class="sidebar">
-                            <slot name="sidebar" />
-                        </aside>
-                    )
-                }
-
                 <section class="main-content">
                     <slot />
                 </section>

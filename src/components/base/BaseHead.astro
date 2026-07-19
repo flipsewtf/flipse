@@ -15,13 +15,11 @@ const ogImage = image ? new URL(image, Astro.site) : new URL('/social-default.pn
 ---
 
 <script is:inline>
-    // 2nd level spell to make the theme appear correctly before the page screams at you.
-    // Initial paint spell: no flashes, respects stored or system preference
-    const stored = localStorage.getItem('monstera-theme');
+    const stored = localStorage.getItem('theme-mode');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const theme = stored || (prefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
-    document.documentElement.classList.add('no-transition'); // prevent transitions on first paint
+    document.documentElement.classList.add('no-transition');
     document.documentElement.dataset.ready = 'true';
 </script>
 
