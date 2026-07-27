@@ -2,182 +2,130 @@
 // uses.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import Desk1 from '@/assets/images/desksetup01.webp';
-import Desk2 from '@/assets/images/desksetup02.webp';
+import Desk1 from '@/assets/images/desk01.webp';
+import Desk2 from '@/assets/images/desk02.webp';
 import ExternalLink from '@/components/base/ExternalLink.astro';
 
 const pageTitle = 'Uses';
 const pageDescription = `A list of the gear I currently use for my cozy workspace.`;
 ---
 
-<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+<BaseLayout hasOwnTitle={true} pageTitle={pageTitle} pageDescription={pageDescription}>
     <article class="flow">
-        <p>
-            {pageDescription} I usually do ball on a budget, but have the privilege of nice gifts from family members
-            for christmas or my birthday.
-        </p>
+        <h1>Desk setup & gear</h1>
+
+        <p>I love a good desk setup, and here is my own attempt.</p>
         <div class="photo-box">
-            <Image src={Desk1} loading="eager" alt="Cozy desk setup from left angle" />
-            <Image src={Desk2} loading="eager" alt="Cozy desk setup from right angle" />
+            <a href={Desk1.src} target="_blank" rel="noopener noreferrer">
+                <Image src={Desk1} loading="eager" alt="Cozy desk setup from left angle" />
+            </a>
+            <a href={Desk2.src} target="_blank" rel="noopener noreferrer">
+                <Image src={Desk2} loading="eager" alt="Cozy desk setup from right angle" />
+            </a>
         </div>
     </article>
 
-    <hr class="accent" />
+    <ul class="item-list">
+        <li class="item">
+            <strong>Computer</strong>
+            <ExternalLink
+                href="https://www.omen.com/us/en/desktops/omen-25l.html"
+                label="HP Omen 25L i5-12/16/2048/3070"
+            />
+        </li>
 
-    <div class="item-list">
-        <article class="item" aria-labelledby="item-computer-title" aria-describedby="item-computer-desc">
-            <h2 id="item-computer-title" class="item-title">Computer</h2>
-
-            <ExternalLink href="https://www.omen.com/us/en/desktops/omen-25l.html" label="HP Omen 25L" />
-
-            <p id="item-computer-desc" class="item-desc">
-                i5-12/16/2048/3070. Having a white PC is real nice. I'm a happy camper.
-            </p>
-        </article>
-
-        <article class="item" aria-labelledby="item-desk-title" aria-describedby="item-desk-desc">
-            <h2 id="item-desk-title" class="item-title">Desk</h2>
-
+        <li class="item">
+            <strong>Desk</strong>
             <ExternalLink
                 href="https://www.ikea.com/gb/en/p/mittzon-desk-walnut-veneer-white-s49528057/"
                 label="IKEA Mittzon"
             />
+        </li>
 
-            <p id="item-desk-desc" class="item-desc">
-                I had my worries about potentially wobbly legs, but there's no issues. I'm very happy about
-                how easy my cable management has become.
-            </p>
-        </article>
-
-        <article
-            class="item"
-            aria-labelledby="item-headphones-title"
-            aria-describedby="item-headphones-desc">
-            <h2 id="item-headphones-title" class="item-title">Headphones</h2>
-
+        <li class="item">
+            <strong>Headphones</strong>
             <ExternalLink
                 href="https://www.jlab.com/products/go-pop-anc-true-wireless-earbuds-black"
                 label="JLab Go Pop ANC"
             />
+        </li>
 
-            <p id="item-headphones-desc" class="item-desc">
-                I am very particular about my ears (hi autism!) and fear in-ears.. but I have adjusted to
-                these.
-            </p>
-        </article>
-
-        <article class="item" aria-labelledby="item-keyboard-title" aria-describedby="item-keyboard-desc">
-            <h2 id="item-keyboard-title" class="item-title">Keyboard</h2>
-
+        <li class="item">
+            <strong>Keyboard</strong>
             <ExternalLink
                 href="https://www.keychron.com/products/keychron-k10-he-wireless-magnetic-switch-keyboard?variant=42362366951513"
-                label="Keychron K10 HE"
+                label="Keychron K10 HE Custom"
             />
+        </li>
 
-            <p id="item-keyboard-desc" class="item-desc">
-                My friend had this one and I tried it and I ordered it. Gorgeous.
-            </p>
-        </article>
-
-        <article class="item" aria-labelledby="item-monitor-title" aria-describedby="item-monitor-desc">
-            <h2 id="item-monitor-title" class="item-title">Monitor</h2>
-
+        <li class="item">
+            <strong>Monitor</strong>
             <ExternalLink
                 href="https://arozzi.se/products/nova-34-curved-va-165hz-gaming-monitor?variant=50802657952082"
-                label="Nova 34“ Curved VA 165Hz"
+                label="Nova 34“ Curved VA 165Hz Forest green"
             />
+        </li>
 
-            <p id="item-monitor-desc" class="item-desc">When I saw it came in forest green? I was sold.</p>
-        </article>
-
-        <article class="item" aria-labelledby="item-arm-title" aria-describedby="item-arm-desc">
-            <h2 id="item-stand-title" class="item-title">Monitor Arm</h2>
-
+        <li class="item">
+            <strong>Monitor Arm</strong>
             <ExternalLink
                 href="https://arozzi.se/products/alzare-neo-single-gas-spring-monitor-arm?variant=50803666813266"
-                label="Alzare Neo Single"
+                label="Alzare Neo Single Forest green"
             />
+        </li>
 
-            <p id="item-arm-desc" class="item-desc">matching my forest green monitor arm? YES PLEASE.</p>
-        </article>
-
-        <article class="item" aria-labelledby="item-mouse-title" aria-describedby="item-mouse-desc">
-            <h2 id="item-mouse-title" class="item-title">Mouse</h2>
-
+        <li class="item">
+            <strong>Mouse</strong>
             <ExternalLink
                 href="https://www.logitech.com/en-eu/products/mice/lift-vertical-ergonomic-mouse.html"
                 label="Logitech Vertical Ergonomic Lift"
             />
+        </li>
 
-            <p id="item-mouse-desc" class="item-desc">
-                I <em>cannot</em> live without this. Best purchase I've ever made.
-            </p>
-        </article>
-
-        <article class="item" aria-labelledby="item-phone-title" aria-describedby="item-phone-desc">
-            <h2 id="item-phone-title" class="item-title">Phone</h2>
-
+        <li class="item">
+            <strong>Phone</strong>
             <ExternalLink
                 href="https://www.samsung.com/uk/smartphones/galaxy-s25/"
                 label="Samsung Galaxy S25"
             />
+        </li>
 
-            <p id="item-phone-desc" class="item-desc">
-                I'm not loyal to any android brand - it was 70% off on a Black friday sale. Because of my
-                hypermobile fingers, I don't do big phones anyways.
-            </p>
-        </article>
-
-        <article class="item" aria-labelledby="item-tablet-title" aria-describedby="item-tablet-desc">
-            <h2 id="item-tablet-title" class="item-title">Tablet</h2>
-
+        <li class="item">
+            <strong>Tablet</strong>
             <ExternalLink
                 href="https://www.samsung.com/uk/tablets/galaxy-tab-s/galaxy-tab-s9-plus-5g-graphite-256gb-sm-x816bzaaeub/"
                 label="Samsung Galaxy Tab S9+"
             />
-
-            <p id="item-tablet-desc" class="item-desc">
-                I have practiced the <a
-                    class="page-link"
-                    href="https://bulletjournal.com/blogs/faq/what-is-the-bullet-journal-method"
-                    aria-label="See Bulletjournal.com's FAQ and video (opens in new tab)"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    bullet journal method
-                </a> since 2013 but went "digital" in 2023 with a hybrid tablet format that benefits my life specifically.
-                I also use it as a tiny TV in bed.
-            </p>
-        </article>
-    </div>
+        </li>
+    </ul>
 </BaseLayout>
 
 <style>
     .photo-box {
-        display: flex;
-        gap: var(--space-4px);
-        max-width: var(--layout--width);
+        display: grid;
+        gap: var(--space-1px);
         overflow: hidden;
-        border-radius: var(--radius-lg);
-
-        img {
-            max-width: calc(50% - var(--space-2px) / 2);
-        }
+        border-radius: var(--radius-img);
+        grid-template-columns: 1fr 1fr;
+        margin-inline: var(--offset-margin);
     }
     .item-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
-        gap: var(--space-2xl);
-    }
-
-    article.item {
         display: flex;
         flex-direction: column;
-        gap: var(--space-xs);
+        gap: var(--flow-space);
+        margin-block-start: var(--space-2xl);
+    }
+
+    .item-list strong {
+        font-weight: 500;
+    }
+
+    .item-list strong::after {
+        content: ': ';
     }
 
     :global(.external-link) {
-        display: block;
-        line-height: var(--leading-sub);
         font-family: var(--font-mono);
+        font-size: var(--text-sm);
     }
 </style>
