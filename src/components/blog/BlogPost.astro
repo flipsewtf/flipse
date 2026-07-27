@@ -11,7 +11,7 @@ interface Props {
 const { url, title, pubDate } = Astro.props;
 ---
 
-<li class="garden-title">
+<li class="blog-title">
     {
         pubDate && (
             <time datetime={pubDate.toISOString()} class="post-date">

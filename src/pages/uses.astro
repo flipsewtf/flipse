@@ -1,10 +1,10 @@
 ---
+// uses.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import Desk1 from '@/assets/images/desksetup01.webp';
 import Desk2 from '@/assets/images/desksetup02.webp';
 import ExternalLink from '@/components/base/ExternalLink.astro';
-import Lightbox from '@/components/base/Lightbox.astro';
 
 const pageTitle = 'Uses';
 const pageDescription = `A list of the gear I currently use for my cozy workspace.`;
@@ -13,34 +13,22 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
     <article class="flow">
         <p>
-            {pageDescription} I usually do ball on a budget, but have the privilege of nice gifts from
-            family members for christmas or my birthday.
+            {pageDescription} I usually do ball on a budget, but have the privilege of nice gifts from family members
+            for christmas or my birthday.
         </p>
         <div class="photo-box">
-            <Image src={Desk1} loading="eager" alt="Cozy desk setup from left angle" class="lbox" />
-            <Image
-                src={Desk2}
-                loading="eager"
-                alt="Cozy desk setup from right angle"
-                class="lbox"
-            />
+            <Image src={Desk1} loading="eager" alt="Cozy desk setup from left angle" />
+            <Image src={Desk2} loading="eager" alt="Cozy desk setup from right angle" />
         </div>
-        <Lightbox />
     </article>
 
     <hr class="accent" />
 
     <div class="item-list">
-        <article
-            class="item"
-            aria-labelledby="item-computer-title"
-            aria-describedby="item-computer-desc">
+        <article class="item" aria-labelledby="item-computer-title" aria-describedby="item-computer-desc">
             <h2 id="item-computer-title" class="item-title">Computer</h2>
 
-            <ExternalLink
-                href="https://www.omen.com/us/en/desktops/omen-25l.html"
-                label="HP Omen 25L"
-            />
+            <ExternalLink href="https://www.omen.com/us/en/desktops/omen-25l.html" label="HP Omen 25L" />
 
             <p id="item-computer-desc" class="item-desc">
                 i5-12/16/2048/3070. Having a white PC is real nice. I'm a happy camper.
@@ -56,8 +44,8 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
             />
 
             <p id="item-desk-desc" class="item-desc">
-                I had my worries about potentially wobbly legs, but there's no issues. I'm very
-                happy about how easy my cable management has become.
+                I had my worries about potentially wobbly legs, but there's no issues. I'm very happy about
+                how easy my cable management has become.
             </p>
         </article>
 
@@ -73,15 +61,12 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
             />
 
             <p id="item-headphones-desc" class="item-desc">
-                I am very particular about my ears (hi autism!) and fear in-ears.. but I have
-                adjusted to these.
+                I am very particular about my ears (hi autism!) and fear in-ears.. but I have adjusted to
+                these.
             </p>
         </article>
 
-        <article
-            class="item"
-            aria-labelledby="item-keyboard-title"
-            aria-describedby="item-keyboard-desc">
+        <article class="item" aria-labelledby="item-keyboard-title" aria-describedby="item-keyboard-desc">
             <h2 id="item-keyboard-title" class="item-title">Keyboard</h2>
 
             <ExternalLink
@@ -94,10 +79,7 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
             </p>
         </article>
 
-        <article
-            class="item"
-            aria-labelledby="item-monitor-title"
-            aria-describedby="item-monitor-desc">
+        <article class="item" aria-labelledby="item-monitor-title" aria-describedby="item-monitor-desc">
             <h2 id="item-monitor-title" class="item-title">Monitor</h2>
 
             <ExternalLink
@@ -105,9 +87,7 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
                 label="Nova 34“ Curved VA 165Hz"
             />
 
-            <p id="item-monitor-desc" class="item-desc">
-                When I saw it came in forest green? I was sold.
-            </p>
+            <p id="item-monitor-desc" class="item-desc">When I saw it came in forest green? I was sold.</p>
         </article>
 
         <article class="item" aria-labelledby="item-arm-title" aria-describedby="item-arm-desc">
@@ -118,9 +98,7 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
                 label="Alzare Neo Single"
             />
 
-            <p id="item-arm-desc" class="item-desc">
-                matching my forest green monitor arm? YES PLEASE.
-            </p>
+            <p id="item-arm-desc" class="item-desc">matching my forest green monitor arm? YES PLEASE.</p>
         </article>
 
         <article class="item" aria-labelledby="item-mouse-title" aria-describedby="item-mouse-desc">
@@ -145,15 +123,12 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
             />
 
             <p id="item-phone-desc" class="item-desc">
-                I'm not loyal to any android brand - it was 70% off on a Black friday sale. Because
-                of my hypermobile fingers, I don't do big phones anyways.
+                I'm not loyal to any android brand - it was 70% off on a Black friday sale. Because of my
+                hypermobile fingers, I don't do big phones anyways.
             </p>
         </article>
 
-        <article
-            class="item"
-            aria-labelledby="item-tablet-title"
-            aria-describedby="item-tablet-desc">
+        <article class="item" aria-labelledby="item-tablet-title" aria-describedby="item-tablet-desc">
             <h2 id="item-tablet-title" class="item-title">Tablet</h2>
 
             <ExternalLink
@@ -167,9 +142,10 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
                     href="https://bulletjournal.com/blogs/faq/what-is-the-bullet-journal-method"
                     aria-label="See Bulletjournal.com's FAQ and video (opens in new tab)"
                     target="_blank"
-                    rel="noopener noreferrer">bullet journal method</a
-                > since 2013 but went "digital" in 2023 with a hybrid tablet format that benefits my life
-                specifically. I also use it as a tiny TV in bed.
+                    rel="noopener noreferrer">
+                    bullet journal method
+                </a> since 2013 but went "digital" in 2023 with a hybrid tablet format that benefits my life specifically.
+                I also use it as a tiny TV in bed.
             </p>
         </article>
     </div>
@@ -178,30 +154,30 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
 <style>
     .photo-box {
         display: flex;
-        gap: var(--px4);
+        gap: var(--space-4px);
         max-width: var(--layout--width);
         overflow: hidden;
-        border-radius: var(--radius--lg);
+        border-radius: var(--radius-lg);
 
         img {
-            max-width: calc(50% - var(--px3) / 2);
+            max-width: calc(50% - var(--space-2px) / 2);
         }
     }
     .item-list {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
-        gap: var(--space--xxl);
+        gap: var(--space-2xl);
     }
 
     article.item {
         display: flex;
         flex-direction: column;
-        gap: var(--space--xs);
+        gap: var(--space-xs);
     }
 
     :global(.external-link) {
         display: block;
-        line-height: var(--line-height--sub);
-        font-family: var(--font--mono);
+        line-height: var(--leading-sub);
+        font-family: var(--font-mono);
     }
 </style>

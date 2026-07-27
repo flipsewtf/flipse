@@ -1,0 +1,30 @@
+---
+// blog.astro
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const pageTitle = 'Blog posts';
+
+const allGarden = (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <ul class="blog-list">
+        {
+            allGarden.map((post) => (
+                <li class="blog-title">
+                    <time datetime={post.data.pubDate.toISOString()}>
+                        {new Intl.DateTimeFormat('en-GB', {
+                            day: '2-digit',
+                            month: 'short',
+                            year: 'numeric',
+                        }).format(post.data.pubDate)}
+                    </time>
+                    <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                </li>
+            ))
+        }
+    </ul>
+</BaseLayout>

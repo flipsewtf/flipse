@@ -1,12 +1,18 @@
 ---
 //index.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
-
-import '@/assets/styles/garden.css';
+import ExternalLink from '@/components/base/ExternalLink.astro';
+import {
+    IconHeadphones,
+    IconBrandBluesky,
+    IconBrandInstagram,
+    IconBrandTumblr,
+    IconBrandGithub,
+} from '@tabler/icons-astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 const MAX_POSTS = 5;
-const posts: CollectionEntry<'garden'>[] = await getCollection('garden');
+const posts: CollectionEntry<'blog'>[] = await getCollection('blog');
 
 const latestPosts = posts
     .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
@@ -14,80 +20,224 @@ const latestPosts = posts
 const pageTitle = ``;
 ---
 
-<BaseLayout isPost={true} pageTitle={pageTitle} mainClass="homepage">
-    <div class="hero flow">
-        <h1>mournstera</h1>
-        <p>
-            Hi, I'm Flipse <svg
-                role="img"
-                aria-label="metal-hand sign"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                ><path d="M11 11.5v-1a1.5 1.5 0 0 1 3 0v1.5"></path><path
-                    d="M17 12v-6.5a1.5 1.5 0 0 1 3 0v10.5a6 6 0 0 1 -6 6h-2h.208a6 6 0 0 1 -5.012 -2.7a69.74 69.74 0 0 1 -.196 -.3c-.312 -.479 -1.407 -2.388 -3.286 -5.728a1.5 1.5 0 0 1 .536 -2.022a1.867 1.867 0 0 1 2.28 .28l1.47 1.47"
-                ></path><path d="M14 10.5a1.5 1.5 0 0 1 3 0v1.5"></path><path
-                    d="M8 13v-8.5a1.5 1.5 0 0 1 3 0v7.5"></path></svg
-            >
+<BaseLayout hasOwnTitle={true} pageTitle={pageTitle} mainClass="homepage">
+    <div class="listened fade-in">
+        <IconHeadphones aria-hidden="true" />
 
-            I have generally been making Tumblr themes for 16 years, but it was time to set sail
-            elsewhere as well. I started my first blog in 2000 and have now returned to the old
-            ship. I am very much not a trust-the-process type of person, but I guess this is kind of
-            that.
-        </p>
-        <svg class="plant" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <path
-                d="M87.051,45.542c-0.33-3.297-3.627-7.583-10.551-5.935c-6.924,1.649-11.54,3.957-11.54,2.638  c0-1.319,5.028-7.007,12.612-7.007s8.82,3.051,9.15,1.072c0.33-1.978-0.989-13.436-13.848-12.859  c-13.114,0.589-13.601,6.842-15.826,5.605c-2.226-1.236,5.275-11.21,13.518-10.551c8.243,0.659,14.507,5.935,14.507,5.935  S81.034,1.114,58.778,5.565c-10.352,2.07-10.304,9.645-9.645,16.898c0.66,7.254,1.319,9.562,0,10.552  c-1.319,0.989-3.297,1.648-3.297-1.648c0-3.298,0-10.552-9.891-11.541c-9.892-0.989-19.783,4.617-22.091,12.53  c-2.308,7.912,0.33,12.529,0.33,12.529s5.605-6.595,9.891-8.243c4.286-1.648,7.253-1.648,7.583-0.329  c0.33,1.318-3.957,3.956-8.243,6.594c-4.286,2.638-6.583,10.448-4.275,16.053c2.308,5.605,7.913,8.408,7.913,8.408  s-1.66-11.602,3.286-15.888c4.946-4.286,7.913-5.275,8.243-3.296c0.33,1.978-4.44,3.853-6.924,8.902  c-2.26,4.593-2.979,12.139-1.814,15.003c1.165,2.864,7.254,5.934,7.254,5.934s2.143-24.564,7.419-24.564  c5.275,0-7.902,19.021-3.286,26.109c3.493,5.365,9.88,6.863,9.88,6.863s-2.968-16.156-0.33-17.475  c2.637-1.319,1.319,5.935,1.978,10.551c0.659,4.615,2.968,11.539,7.913,12.859C65.62,93.681,67.927,95,67.927,95  s2.638-4.286,7.584-6.594c4.946-2.309,0-15.167-3.956-18.464c-3.957-3.296-4.946-8.903-0.33-7.583  c4.616,1.319,8.243,13.848,8.243,13.848s7.254-12.529,2.967-16.156c-4.286-3.628-14.837-5.936-12.859-8.902  c1.978-2.968,10.221,0.329,13.188,3.296C85.732,57.412,87.38,48.839,87.051,45.542z"
-            ></path>
-        </svg>
+        <a
+            class="track"
+            href="https://listenbrainz.org/user/flipse"
+            aria-label="See my latest scrobbled songs on my ListenBrainz profile (opens in new tab)"
+            target="_blank"
+            rel="noopener noreferrer">
+            Loading last played track…
+        </a>
     </div>
-    <hr />
-    <section class="latest-posts">
-        <h2>Latest words</h2>
-        <ul class="garden-list">
+    <div class="flow">
+        <h1 class="fade-in">Hey, so I'm Flipse, or whatever.</h1>
+        <p class="intro fade-in">
+            <span class="bold">Just kidding, there's nothing nonchalant about me.</span> I have created Tumblr
+            themes for 15+ years, but right-clicked <em>view source</em> in 1999. Autistic & bi musichead. Disabled/retired,
+            but occasionally doing NASA's <ExternalLink
+                href="https://science.nasa.gov/citizen-science/"
+                label="homework"
+            />. I will recite the entire script of the 1998 hit movie <em>Armageddon</em> if I like you. The 'tism
+            is strong with this one.
+        </p>
+    </div>
+
+    <nav class="socials fade-in" aria-label="Social media">
+        <a
+            href="https://bsky.app/profile/mournstera.wtf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow on Bluesky (opens in new tab)">
+            <IconBrandBluesky />
+        </a>
+
+        <a
+            href="https://instagram.com/mournstera"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow on Instagram (opens in new tab)">
+            <IconBrandInstagram />
+        </a>
+
+        <a
+            href="https://mournstera.tumblr.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow on Tumblr (opens in new tab)">
+            <IconBrandTumblr />
+        </a>
+
+        <a
+            href="https://github.com/flipsewtf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow on Github (opens in new tab)">
+            <IconBrandGithub />
+        </a>
+    </nav>
+
+    <section class="blog">
+        <h2 class="sr-only">Latest posts</h2>
+        <ul class="post-list fade-in">
             {
                 latestPosts.map((post) => (
-                    <li class="garden-title">
+                    <li>
                         <time datetime={post.data.pubDate.toISOString()}>
                             {new Intl.DateTimeFormat('en-GB', {
                                 day: '2-digit',
-                                month: 'short',
-                                year: 'numeric',
-                            }).format(post.data.pubDate)}
+                                month: '2-digit',
+                                year: '2-digit',
+                            })
+                                .formatToParts(post.data.pubDate)
+                                .filter((part) => part.type !== 'literal')
+                                .map((part) => part.value)
+                                .join('.')}
                         </time>
-                        <a href={`/garden/${post.id}`}>{post.data.title}</a>
+                        <div>
+                            <h3>
+                                <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                            </h3>
+                            <p class="desc">{post.data.description}</p>
+                        </div>
                     </li>
                 ))
             }
         </ul>
     </section>
-
-    <style>
-        h1 {
-            text-transform: none;
-            font-weight: 400;
-            font-size: clamp(3.5rem, 8vw, 6rem);
-        }
-        svg.plant {
-            width: 7rem;
-            height: 7rem;
-            stroke: none;
-            fill: currentColor;
-        }
-        .hero {
-            max-width: var(--layout--section);
-
-            svg {
-                vertical-align: text-bottom;
-            }
-        }
-        hr {
-            margin-block: 0 var(--space--xl);
-        }
-        h2 {
-            margin-bottom: var(--space--lg);
-        }
-        time {
-            color: var(--text);
-        }
-    </style>
 </BaseLayout>
+
+<style>
+    .listened {
+        animation-delay: 0.1s;
+        display: flex;
+        align-items: center;
+        gap: var(--space-4px);
+        font-size: var(--text-xs);
+        margin-left: var(--space-2px);
+    }
+    .listened svg {
+        height: 1.125rem;
+        width: 1.125rem;
+        stroke-width: 2;
+        stroke: var(--accent);
+    }
+    a.track {
+        line-height: var(--leading-heading);
+        font-family: var(--font-mono);
+        color: var(--text-muted);
+    }
+    a.track:hover {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: var(--underline-offset);
+        text-decoration-thickness: var(--underline-thickness);
+    }
+
+    h1 {
+        font-size: 3.25rem;
+        line-height: 1;
+        margin-block: var(--space-lg);
+        letter-spacing: -0.125rem;
+        margin-left: var(--offset-margin);
+        animation-delay: 0.5s;
+    }
+
+    p.intro {
+        animation-delay: 0.15s;
+    }
+
+    span.bold {
+        font-weight: 550;
+        color: var(--text-alt);
+    }
+    nav.socials {
+        animation-delay: 0.15s;
+        margin: var(--space-lg);
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2px);
+    }
+    nav.socials svg {
+        position: absolute;
+        transition: transform var(--transition--smooth);
+    }
+
+    nav.socials a {
+        color: var(--accent);
+        display: inline-flex;
+        width: var(--space-xl);
+        height: var(--space-xl);
+        align-items: center;
+        justify-content: center;
+    }
+
+    nav.socials a:hover {
+        color: var(--accent);
+    }
+
+    nav.socials a:hover svg {
+        transform: scale(1.2);
+    }
+
+    section.blog {
+        border-top: var(--space-1px) solid var(--lines);
+        margin-block: var(--space-xl);
+        padding-block: var(--space-xl);
+    }
+    ul.post-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        animation-delay: 0.25s;
+    }
+    ul.post-list li {
+        display: grid;
+        grid-template-columns: 5rem 1fr;
+        align-items: start;
+        gap: var(--space-md);
+    }
+    ul.post-list li time {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        padding: var(--space-xs);
+        background-color: var(--bg-alt);
+        border-radius: var(--radius-sm);
+        text-align: center;
+        margin-left: var(--offset-margin);
+    }
+    ul.post-list li h3 {
+        font-family: var(--font-body);
+        font-weight: 630;
+    }
+    ul.post-list li h3 a {
+        text-decoration: underline;
+        text-decoration-color: var(--text-muted);
+        color: var(--text-alt);
+        overflow-wrap: anywhere;
+        text-decoration-skip-ink: auto;
+        text-decoration-style: dotted;
+        text-underline-offset: var(--underline-offset);
+        text-decoration-thickness: var(--underline-thickness);
+    }
+    ul.post-list li h3 a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: var(--underline-offset);
+        text-decoration-thickness: var(--underline-thickness);
+    }
+    ul.post-list li p.desc {
+        color: var(--text-muted);
+        margin-top: var(--space-4px);
+        font-size: var(--text-sm);
+    }
+
+    @media (min-width: 48rem) {
+    }
+</style>
+
+<script src="/scripts/scrobble.js" defer></script>

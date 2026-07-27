@@ -3,12 +3,10 @@ import { getCollection } from 'astro:content';
 import { siteDescription } from '@/assets/data/site-desc';
 
 export async function GET(context) {
-    const posts = await getCollection('garden');
+    const posts = await getCollection('blog');
 
     // Sort posts by pubDate, newest first
-    const sortedPosts = posts.sort(
-        (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
-    );
+    const sortedPosts = posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
     return rss({
         title: 'Flipse | Mournstera',
@@ -20,7 +18,7 @@ export async function GET(context) {
             updated: post.data.lastUpdated || post.data.pubDate,
             description: post.data.description || '',
             content: post.body,
-            link: `/garden/${post.id}/`,
+            link: `/blog/${post.id}/`,
         })),
         customData: `<language>en-US</language>`,
     });

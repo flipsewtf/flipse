@@ -4,7 +4,8 @@
         {
             "files": "*.astro",
             "options": {
-                "parser": "astro"
+                "parser": "astro",
+                "htmlWhitespaceSensitivity": "ignore"
             }
         }
     ],
@@ -13,6 +14,6 @@
     "trailingComma": "all",
     "semi": true,
     "bracketSpacing": true,
-    "printWidth": 100,
+    "printWidth": 109,
     "bracketSameLine": true
 }

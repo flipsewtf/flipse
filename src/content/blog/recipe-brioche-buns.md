@@ -2,7 +2,7 @@
 title: Brioche buns recipe
 pubDate: 2026-03-31T22:25:00+01:00
 author: Flipse
-description: 'Perfecting my brioche buns bun recipe'
+description: 'Perfecting my brioche buns bun recipe.'
 kind: notes
 tags:
     - recipe

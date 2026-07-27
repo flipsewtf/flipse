@@ -1,10 +1,10 @@
 ---
-// GARDEN's [...slug].astro
+// BLOG's [...slug].astro
 import { getCollection, render } from 'astro:content';
 import MarkdownPostLayout from '@/layouts/MarkdownPostLayout.astro';
 
 export async function getStaticPaths() {
-    const posts = await getCollection('garden');
+    const posts = await getCollection('blog');
     return posts.map((post) => ({
         params: { slug: post.id },
         props: { post },
@@ -21,8 +21,8 @@ const readingTime = Math.ceil(wordCount / 200);
 
 <MarkdownPostLayout
     frontmatter={post.data}
-    backHref="/garden"
-    section="garden"
+    backHref="/blog"
+    section="blog"
     readingTime={readingTime}
     headings={headings}
     hasToC={hasToC}>

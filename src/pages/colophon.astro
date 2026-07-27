@@ -6,16 +6,17 @@ import ExternalLink from '@/components/base/ExternalLink.astro';
 const pageTitle = `Colophon`;
 ---
 
-<BaseLayout isPost={false} pageTitle={pageTitle}>
-    <article class="flow" slot="sidebar">
+<BaseLayout hasOwnTitle={true} pageTitle={pageTitle}>
+    <h1 class="sr-only">Colophon</h1>
+    <article class="flow">
         <dl class="definition flow">
-            <dt>Mournstera</dt>
+            <h2><dt>Mournstera</dt></h2>
             <dd class="flow">
                 <span class="pronunciation ipa">/ˈmɔːn.stə.rə/</span>
                 <span class="pronunciation simple">(“morn-ster-uh”)</span>
                 <span class="definition-description">
-                    From <i>monstera</i> + <i>mourn</i>. Blending grief and growth.</span
-                >
+                    From <i>monstera</i> + <i>mourn</i>. Blending grief and growth.
+                </span>
             </dd>
         </dl>
     </article>
@@ -24,73 +25,48 @@ const pageTitle = `Colophon`;
         <h2>Design & Build</h2>
 
         <p>
-            This site is built with Astro, served as static files via Cloudflare, with the source
-            hosted on GitHub. Set in Editorial Old, Inter, and Roboto Mono. Icons courtesy of the
-            Lucide icon library. Monstera SVG sourced from The Noun Project.
+            This site is built with Astro, served as static files via Cloudflare, with the source hosted on
+            GitHub. Set in Inter, Roboto Condensed, Roboto Mono. Icons courtesy of the Tabler icon library.
         </p>
         <p>
-            This is very much a personal project, archiving and going back to owning my content. I'm
-            leaning into learning with transparency around my explorations. Mournstera.wtf aims to
-            meet WCAG 2.1 AA accessibility standards.
+            This is a personal project, archiving and going back to owning my content like in the noughties.
+            I'm leaning into learning with transparency around my explorations. Mournstera.wtf aims to meet
+            WCAG 2.1 AA accessibility standards. Mournstera.wtf went live in April 2026 and is very much a
+            work in progress.
         </p>
     </article>
 
     <article class="flow page">
         <h2>Policy</h2>
         <p>
-            No personal data, no cookies. The only analytics are Cloudflare's basic traffic metrics,
-            and honestly I couldn't care less about those. Mournstera.wtf went live in April 2026
-            and is very much a work in progress.
+            No personal data, no cookies. The only analytics are Cloudflare's basic traffic metrics, and
+            honestly I couldn't care less about those.
         </p>
     </article>
-
-    <div class="divider"></div>
 
     <article class="flow page">
         <h2>Credits</h2>
 
         <p>
-            <em>I plan to make a bookmark list for inspo and helpful guidance I've been given.</em>
-        </p>
-
-        <p>
-            The idea of treating this site like an open journal and digital garden is inspired by
-            <ExternalLink href="https://maggieappleton.com/" label="Maggie Appleton" /> work on knowledge
-            gardening and personal websites.
-        </p>
-
-        <p>
-            <ExternalLink
-                href="https://piccalil.li/blog/my-favourite-3-lines-of-css/"
-                label="piccalil.li"
-            /> saved my flow margin-ass.
+            <ExternalLink href="https://piccalil.li/blog/my-favourite-3-lines-of-css/" label="piccalil.li" /> saved
+            my flow margin-ass.
         </p>
     </article>
 </BaseLayout>
 
 <style>
     article:not(:last-of-type) {
-        margin-bottom: var(--space--xxl);
+        margin-bottom: var(--space-2xl);
     }
     .definition {
-        dt {
-            font-size: var(--h2);
-            color: var(--text-alt);
-            font-family: var(--font--display);
-            font-weight: 400;
-            font-style: italic;
-            text-transform: lowercase;
-        }
-
         dd {
-            border-left: var(--px1) solid var(--accent-border);
-            padding-left: var(--space--sm);
+            padding-left: var(--space-sm);
         }
 
         .pronunciation {
             display: block;
-            font-family: var(--font--mono);
-            font-size: var(--text--sm);
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
             color: var(--text);
 
             &.simple {

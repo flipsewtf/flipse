@@ -1,10 +1,8 @@
 ---
 // MarkdownPostLayout.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
-// import TableOfContents from '@/components/garden/TableOfContents.astro';
-import Lightbox from '@/components/base/Lightbox.astro';
+
 import '@/assets/styles/post.css';
-import { Clock2Icon, ShovelIcon, RefreshCcwIcon } from '@lucide/astro';
 
 const {
     // use the value passed from [...slug].astro
@@ -17,8 +15,8 @@ const {
     mainClass="is-post"
     pageTitle={frontmatter.title}
     pageDescription={frontmatter.description}
-    isPost={true}>
-    <div class="flow" slot="upper-section">
+    hasOwnTitle={true}>
+    <div class="flow">
         <h1 id="post-title">{frontmatter.title}</h1>
 
         <p class="entry-desc">{frontmatter.description}</p>
@@ -31,8 +29,7 @@ const {
                     day: 'numeric',
                     month: 'long',
                     year: 'numeric',
-                })}`}
-                ><ShovelIcon />
+                })}`}>
                 {
                     frontmatter.pubDate.toLocaleDateString('en-GB', {
                         day: 'numeric',
@@ -43,7 +40,6 @@ const {
             </time>
 
             <div class="reading" aria-label={`Estimated reading time: ${readingTime} minutes`}>
-                <Clock2Icon />
                 {readingTime} min read
             </div>
 
@@ -52,11 +48,11 @@ const {
                     <time
                         class="updated"
                         datetime={frontmatter.lastUpdated.toISOString()}
-                        aria-label={`Updated: ${frontmatter.lastUpdated.toLocaleDateString(
-                            'en-GB',
-                            { day: 'numeric', month: 'long', year: 'numeric' },
-                        )}`}>
-                        <RefreshCcwIcon />
+                        aria-label={`Updated: ${frontmatter.lastUpdated.toLocaleDateString('en-GB', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric',
+                        })}`}>
                         {frontmatter.lastUpdated.toLocaleDateString('en-GB', {
                             day: 'numeric',
                             month: 'short',
@@ -82,6 +78,5 @@ const {
 
     <article class="post" aria-labelledby="post-title">
         <slot />
-        <Lightbox />
     </article>
 </BaseLayout>

@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import '@/assets/styles/log.css';
-import { FeatherIcon } from '@lucide/astro';
+import { IconFeather } from '@tabler/icons-astro';
 
 const pageTitle = `Now`;
 
@@ -18,7 +18,7 @@ const sortedEntries = entries.sort((a, b) => b.data.pubDate.getTime() - a.data.p
                 return (
                     <article class="log-entry flow">
                         <time datetime={entry.data.pubDate.toISOString()}>
-                            <FeatherIcon class="log-icon" />
+                            <IconFeather class="log-icon" />
                             {entry.data.pubDate.toLocaleDateString('en-GB', {
                                 day: 'numeric',
                                 month: 'short',

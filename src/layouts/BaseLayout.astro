@@ -1,9 +1,9 @@
 ---
 // BaseLayout.astro
 import BaseHead from '@/components/base/BaseHead.astro';
-import Header from '@/components/base/Header.astro';
-import Footer from '@/components/base/Footer.astro';
 import ThemeToggle from '@/components/base/ThemeToggle.astro';
+import Sidebar from '@/components/base/Sidebar.astro';
+import Updates from '@/components/base/Updates.astro';
 import { siteDescription } from '@/assets/data/site-desc';
 
 const {
@@ -12,7 +12,7 @@ const {
     pageDescription = siteDescription,
     pageImage = '/social-default.png',
     mainClass = '',
-    isPost = false,
+    hasOwnTitle = false,
 } = Astro.props;
 ---
 
@@ -22,18 +22,28 @@ const {
     </head>
     <body>
         <ThemeToggle />
-        <Header />
+
+        <div class="grid-line grid-far-left"></div>
+        <div class="grid-line grid-left"></div>
+        <div class="grid-line grid-right"></div>
+        <div class="grid-line grid-far-right"></div>
 
         <main class:list={[mainClass]}>
-            {!isPost && pageTitle && <h1>{pageTitle}</h1>}
+            <aside class:list={['sidebars', 'links', { 'fade-in': mainClass === 'homepage' }]}>
+                <div class="sidebars-inner">
+                    <Sidebar />
+                </div>
+            </aside>
+            <section class="main-content">
+                {!hasOwnTitle && pageTitle && <h1>{pageTitle}</h1>}
+                <slot />
+            </section>
 
-            <div class="layout-container">
-                <section class="main-content">
-                    <slot />
-                </section>
-            </div>
+            <aside class:list={['sidebars', 'updates', { 'fade-in': mainClass === 'homepage' }]}>
+                <div class="sidebars-inner">
+                    <Updates />
+                </div>
+            </aside>
         </main>
-
-        <Footer />
     </body>
 </html>

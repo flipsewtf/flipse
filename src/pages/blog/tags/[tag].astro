@@ -1,27 +1,26 @@
 ---
-// src/pages/garden/tags/[tag].astro
+// src/pages/blog/tags/[tag].astro
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import GardenSidebar from '@/components/garden/GardenSidebar.astro';
-import GardenPost from '@/components/garden/GardenPost.astro';
-import { gardenMeta } from '@/assets/data/garden-meta';
-import '@/assets/styles/garden.css';
+import GardenSidebar from '@/components/blog/GardenSidebar.astro';
+import GardenPost from '@/components/blog/GardenPost.astro';
+
+import '@/assets/styles/blog.css';
 
 import { SproutIcon, ShovelIcon, BrainIcon, ChevronRightIcon } from '@lucide/astro';
 
 // Generate static paths for all tags
 export async function getStaticPaths() {
-    const allGarden = await getCollection('garden');
+    const allGarden = await getCollection('blog');
     const uniqueTags = [...new Set(allGarden.flatMap((p) => p.data.tags))];
     return uniqueTags.map((tag) => ({ params: { tag } }));
 }
 
 const { tag } = Astro.params;
-const allGarden = await getCollection('garden');
+const allGarden = await getCollection('blog');
 
 // Filter posts for this tag
-const filteredPosts =
-    tag === 'all' ? allGarden : allGarden.filter((post) => post.data.tags.includes(tag));
+const filteredPosts = tag === 'all' ? allGarden : allGarden.filter((post) => post.data.tags.includes(tag));
 filteredPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
 // Sidebar tags
@@ -45,10 +44,7 @@ const kindIcons = {
 };
 ---
 
-<BaseLayout
-    pageTitle={gardenMeta.title}
-    seoTitle={tag !== 'all' ? `${gardenMeta.title}: #${formattedTag}` : undefined}
-    pageDescription={gardenMeta.description}>
+<BaseLayout pageTitle={pageTitle}>
     <GardenSidebar slot="sidebar" tags={tags} currentTag={tag} />
 
     {
@@ -65,15 +61,15 @@ const kindIcons = {
             const Icon = kindIcons[kind as keyof typeof kindIcons]; // ← ADD THIS
 
             return (
-                <section class="garden-kind-group">
-                    <h3 class="garden-heading">
+                <section class="blog-kind-group">
+                    <h3 class="blog-heading">
                         {Icon && <Icon />}
                         {kind}
                     </h3>
-                    <ul class="garden-list">
+                    <ul class="blog-list">
                         {posts.map((post) => (
                             <GardenPost
-                                url={`/garden/${post.id}/`}
+                                url={`/blog/${post.id}/`}
                                 title={post.data.title}
                                 pubDate={post.data.pubDate}
                                 tags={post.data.tags}
@@ -88,8 +84,8 @@ const kindIcons = {
 
 <style>
     .current-tag-p {
-        font-size: var(--text--sm);
-        font-family: var(--font--mono);
+        font-size: var(--text-sm);
+        font-family: var(--font-mono);
     }
     svg.current-tag {
         vertical-align: middle;

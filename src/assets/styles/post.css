@@ -20,7 +20,7 @@ p.entry-desc {
 .entry-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space--sm);
+    gap: var(--space-sm);
     align-items: center;
     justify-content: center;
 }
@@ -35,24 +35,22 @@ p.entry-desc {
 .entry-meta .reading {
     display: flex;
     align-items: center;
-    gap: var(--px4);
+    gap: var(--space-4px);
 }
 time.updated {
-    border: var(--px1) solid var(--accent-border);
-    background-color: var(--accent-bg);
     color: var(--accent);
-    border-radius: var(--radius--full);
-    padding: var(--px6) var(--px8);
-    font-size: var(--text--sm);
+    border-radius: var(--radius-full);
+    padding: var();
+    font-size: var(--text-sm);
     font-weight: 500;
 }
 /* ----- FEATURED PHOTO */
 img.post-feature {
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    border: var(--px1) solid var(--border);
+    border: var(--space-1px) solid var(--border);
     width: 100%;
-    border-radius: var(--radius--lg);
+    border-radius: var(--radius-lg);
 }
 /* ----- DIVIDER */
 
@@ -78,18 +76,16 @@ article.post img {
     max-width: 100%;
     height: auto;
     display: block;
-    border-radius: var(--radius--lg);
+    border-radius: var(--radius-lg);
     margin-block: calc(var(--flow-space) * 2);
 }
 
 /* ----- BLOCKQUOTE */
 article.post blockquote {
-    border-left: var(--px5) solid var(--accent-border);
-    padding: var(--space--xl);
+    padding: var(--space-xl);
     color: var(--text-alt);
     font-style: italic;
-    background-color: var(--accent-bg);
-    border-radius: 0 var(--radius--md) var(--radius--md) 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
     overflow: hidden;
 }
 
@@ -98,19 +94,19 @@ article.post pre {
     max-width: 100%;
     background-color: var(--bg-alt);
     color: var(--text-alt);
-    padding: var(--space--sm);
+    padding: var(--space-sm);
     overflow-x: auto;
-    border-radius: var(--radius--md);
-    border: var(--px1) solid var(--border);
+    border-radius: var(--radius-md);
+    border: var(--space-1px) solid var(--border);
 }
 
 article.post code {
     background-color: var(--bg-alt);
     color: var(--text-alt);
-    padding: var(--px4) var(--px8);
-    font-size: var(--text--sm);
-    border: var(--px1) solid var(--border);
-    border-radius: var(--radius--sx);
+    padding: var(--space-4px);
+    font-size: var(--text-sm);
+    border: var(--space-1px) solid var(--border);
+    border-radius: var(--radius-sx);
     max-width: 100%;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -129,22 +125,22 @@ article.post table code {
 /* ----- LISTS */
 article.post ul,
 article.post ol {
-    padding-left: var(--space--xl);
+    padding-left: var(--space-xl);
 
     ul,
     ol {
-        padding-left: var(--space--sm);
+        padding-left: var(--space-sm);
     }
 
     li {
-        padding-left: var(--space--sm);
+        padding-left: var(--space-sm);
 
         &:hover::marker {
             color: var(--text-alt);
         }
 
         li {
-            padding-left: var(--space--xs);
+            padding-left: var(--space-xs);
         }
     }
 }
@@ -180,7 +176,7 @@ section.footnotes::before {
     content: '';
     display: block;
     height: 1px;
-    margin-block: var(--space--xl);
+    margin-block: var(--space-xl);
     background-size: auto 100%;
     background-image: repeating-linear-gradient(to right, var(--border) 0 4px, transparent 4px 6px);
 }
@@ -203,7 +199,7 @@ article.post table {
     display: block;
     overflow-x: auto;
     border-collapse: collapse;
-    font-size: var(--text--sm);
+    font-size: var(--text-sm);
 }
 
 article.post thead {
@@ -213,8 +209,8 @@ article.post thead {
 
 article.post th,
 article.post td {
-    border: var(--px1) solid var(--border);
-    padding: var(--space--xs);
+    border: var(--space-1px) solid var(--border);
+    padding: var(--space-xs);
     text-align: left;
 }
 
@@ -227,19 +223,19 @@ article.post abbr[title] {
 
 article.post sup,
 article.post sub {
-    font-size: var(--text--space--xs);
+    font-size: var(--text-xs);
 }
 
 article.post mark {
     background-color: var(--inverse-bg);
-    padding: var(--px2) var(--px4);
+    padding: var(--space-2px) var(--space-4px);
     color: var(--inverse-text);
 }
 
 article.post kbd {
     background-color: var(--bg-alt);
-    border-radius: var(--radius--sm);
-    padding: var(--px1) var(--px5);
+    border-radius: var(--radius-sm);
+    padding: var(--space-1px) var();
     font-family: var(--font-mono);
-    border: var(--px1) solid var(--border);
+    border: var(--space-1px) solid var(--border);
 }

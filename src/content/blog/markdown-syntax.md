@@ -52,7 +52,7 @@ if you need a `<br>` make two spacings after.
 
 ![Alt text](/assets/images/blog/me_blog_test.gif)
 
-If the image doesn’t load, at least the alt text will politely explain what _should_ have been there. For garden posts use /public folder for images.
+If the image doesn’t load, at least the alt text will politely explain what _should_ have been there. For blog posts use /public folder for images.
 
 ## Blockquote
 
