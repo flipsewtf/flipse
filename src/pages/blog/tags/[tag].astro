@@ -2,94 +2,44 @@
 // src/pages/blog/tags/[tag].astro
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import GardenSidebar from '@/components/blog/GardenSidebar.astro';
-import GardenPost from '@/components/blog/GardenPost.astro';
-
 import '@/assets/styles/blog.css';
 
-import { SproutIcon, ShovelIcon, BrainIcon, ChevronRightIcon } from '@lucide/astro';
-
-// Generate static paths for all tags
 export async function getStaticPaths() {
-    const allGarden = await getCollection('blog');
-    const uniqueTags = [...new Set(allGarden.flatMap((p) => p.data.tags))];
+    const allBlog = await getCollection('blog');
+    const uniqueTags = [...new Set(allBlog.flatMap((p) => p.data.tags))];
     return uniqueTags.map((tag) => ({ params: { tag } }));
 }
 
 const { tag } = Astro.params;
-const allGarden = await getCollection('blog');
 
-// Filter posts for this tag
-const filteredPosts = tag === 'all' ? allGarden : allGarden.filter((post) => post.data.tags.includes(tag));
-filteredPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const allBlog = await getCollection('blog');
+const filteredPosts = allBlog
+    .filter((post) => post.data.tags.includes(tag))
+    .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
-// Sidebar tags
-const tags = [
-    'all',
-    ...Array.from(new Set(allGarden.flatMap((p) => p.data.tags))).sort((a, b) =>
-        a.localeCompare(b, 'en', { sensitivity: 'base' }),
-    ),
-];
-
-// Tag display for meta and sidebar
-const formattedTag = tag !== 'all' ? tag : '';
-
-// Group posts by kind
-const postsByKind = Object.groupBy(filteredPosts, (post) => post.data.kind);
-
-const kindIcons = {
-    musings: BrainIcon,
-    notes: ShovelIcon,
-    seedlings: SproutIcon,
-};
+const postsByMonth = Object.groupBy(filteredPosts, (post) =>
+    new Intl.DateTimeFormat('en-GB', { month: 'short', year: 'numeric' }).format(post.data.pubDate),
+);
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-    <GardenSidebar slot="sidebar" tags={tags} currentTag={tag} />
-
+<BaseLayout pageTitle={`#${tag}`}>
     {
-        tag !== 'all' && (
-            <p>
-                Tags <ChevronRightIcon class="current-tag" />{' '}
-                <span class="current-tag-p">#{formattedTag}</span>
-            </p>
-        )
-    }
-
-    {
-        Object.entries(postsByKind).map(([kind, posts]) => {
-            const Icon = kindIcons[kind as keyof typeof kindIcons]; // ← ADD THIS
-
-            return (
-                <section class="blog-kind-group">
-                    <h3 class="blog-heading">
-                        {Icon && <Icon />}
-                        {kind}
-                    </h3>
-                    <ul class="blog-list">
-                        {posts.map((post) => (
-                            <GardenPost
-                                url={`/blog/${post.id}/`}
-                                title={post.data.title}
-                                pubDate={post.data.pubDate}
-                                tags={post.data.tags}
-                            />
-                        ))}
-                    </ul>
-                </section>
-            );
-        })
+        Object.entries(postsByMonth).map(([monthYear, posts]) => (
+            <section class="blog-month-group">
+                <h2 class="blog-heading">{monthYear}</h2>
+                <ul class="blog-list">
+                    {(posts ?? []).map((post) => (
+                        <li class="blog-title">
+                            <h3>
+                                <a class="page-link" href={`/blog/${post.id}`}>
+                                    {post.data.title}
+                                </a>
+                            </h3>
+                            <p class="desc">{post.data.description}</p>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        ))
     }
 </BaseLayout>
-
-<style>
-    .current-tag-p {
-        font-size: var(--text-sm);
-        font-family: var(--font-mono);
-    }
-    svg.current-tag {
-        vertical-align: middle;
-        width: 1em;
-        height: 1em;
-    }
-</style>

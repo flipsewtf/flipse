@@ -1,26 +1,19 @@
 ---
 title: 'Markdown Syntax'
-pubDate: 2026-03-30T19:20:00+02:00
-lastUpdated: 2026-03-31T15:45:00+02:00
+pubDate: 2026-08-02T19:20:00+02:00
+lastUpdated: 2026-08-03T15:45:00+02:00
 description: 'A memory aid for my brain that refuses to retain syntax, at times.'
 author: 'Flipse'
-image:
-    url: '/assets/images/blog/markdown-hero.webp'
-    alt: 'Cozy desk workspace.'
-kind: notes
+# image:
+#     url: '/assets/images/blog/markdown-hero.webp'
+#     alt: 'Cozy desk workspace.'
+
 tags:
     - markdown
     - workflow
 ---
 
-This is a collection of Markdown examples I will forget approximately three minutes after using them.
-
 ## Headings
-
-Markdown supports six levels of headings.
-You will only ever need two of them, but here are all six anyway.
-
-`## H1` hey h1 is only for the big one.
 
 `## H2` — The one you actually use.
 
@@ -28,18 +21,16 @@ You will only ever need two of them, but here are all six anyway.
 
 #### H4 — This is not gonna happen
 
-##### H5 — Why are we here
-
-###### H6 — Please stop
+---
 
 ## Paragraphs
 
-This is a paragraph. It exists to contain thoughts, filler text, and excuses for why this post exists.
+This is a paragraph. It exists to contain excuses for why this post exists.
 
 This text means nothing and exists solely to demonstrate that Markdown paragraphs do not care about your intentions or feelings.
 
 If you leave a blank line, Markdown considers it a new paragraph.
-If you forget the blank line, Markdown silently does not care.
+If you forget the blank line, Markdown silently does not care.  
 if you need a `<br>` make two spacings after.
 
 ## Images
@@ -47,10 +38,10 @@ if you need a `<br>` make two spacings after.
 ### Syntax
 
 ```markdown
-![Alt text](/assets/images/blog/me_blog_test.gif)
+![Desk setup, primarily green and muted colors. forest screen monitor, white PC, tablet and a shelf with greenery decorations above.](/assets/images/blog/markdown-hero.webp)
 ```
 
-![Alt text](/assets/images/blog/me_blog_test.gif)
+![Desk setup, primarily green and muted colors. forest screen monitor, white PC, tablet and a shelf with greenery decorations above.](/assets/images/blog/markdown-hero.webp)
 
 If the image doesn’t load, at least the alt text will politely explain what _should_ have been there. For blog posts use /public folder for images.
 
@@ -58,28 +49,28 @@ If the image doesn’t load, at least the alt text will politely explain what _s
 
 The fancy blockquote. With a citation, within a `cite` element.
 
-#### Syntax
+### Syntax
 
 ```markdown
 > This sounds important.
 > **Note** that you can use _Markdown syntax_ within a blockquote.
 ```
 
-#### Output
+### Output
 
 > This sounds important.
 > **Note** that you can use _Markdown syntax_ within a blockquote.
 
-#### Blockquote with attribution
+### Blockquote with attribution
 
-#### Syntax
+### Syntax
 
 ```markdown
 > I think more people need to make out.<br>
 > — <cite>Josh Homme [^1]</cite>
 ```
 
-#### Output
+### Output
 
 > I think more people need to make out.<br>
 > — <cite>Josh Homme [^1]</cite>
@@ -90,9 +81,17 @@ The fancy blockquote. With a citation, within a `cite` element.
 
 Tables are annoying to maintain.. I will without a doubt not ever need this. unless..
 
-| Thing  | Looks Useful | Actually Is |
-| ------ | ------------ | ----------- |
-| Tables | Yes          | Sometimes   |
+| Ingredient          | Amount  | Notes                |
+| ------------------- | ------- | -------------------- |
+| Whole milk          | 600 ml  | warm to 30C deg      |
+| Yeast               | 40 g    | fresh                |
+| Sugar               | 3 tbsp  |                      |
+| Eggs                | 4       | Room temp            |
+| Wheat flour         | 1200 g  |                      |
+| Salt                | 2.5 tsp |                      |
+| Salted butter       | 200 g   | **almost** room temp |
+| Eggs (for brushing) | 2       |                      |
+| Sesame seeds        |         | for topping          |
 
 ## Code Blocks
 
@@ -104,8 +103,8 @@ Strikethrough (GFM):
 
 Task lists (GFM):
 
-- [x] Pretend to be organised
-- [ ] Actually be organised
+- [x] Look at me checking all the boxes
+- [ ] just kidding
 
 Automatic links:
 
@@ -115,7 +114,7 @@ Automatic links:
 
 ### Syntax Example
 
-we can use 3 backticks ``` in new line and write snippet and close with 3 backticks on new line and to highlight language specific syntax, write one word of language name after first 3 backticks, for eg. html, javascript, css, markdown, typescript, txt, bash
+3 backticks ``` in new line and write snippet and close with 3 backticks on new line and to highlight language specific syntax, write one word of language name after first 3 backticks, for eg. html, javascript, css, markdown, typescript, txt, bash
 
 ````markdown
 ```html
@@ -193,7 +192,7 @@ H<sub>2</sub>O
 
 X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 
-Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
+Press <kbd>CTRL</kbd> + <kbd>C</kbd> to end localhost.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
 ```

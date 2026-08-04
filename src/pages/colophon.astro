@@ -6,11 +6,10 @@ import ExternalLink from '@/components/base/ExternalLink.astro';
 const pageTitle = `Colophon`;
 ---
 
-<BaseLayout hasOwnTitle={true} pageTitle={pageTitle}>
-    <h1 class="sr-only">Colophon</h1>
+<BaseLayout hasOwnTitle={false} pageTitle={pageTitle}>
     <article class="flow">
         <dl class="definition flow">
-            <h2><dt>Mournstera</dt></h2>
+            <dt><h2>Mournstera</h2></dt>
             <dd class="flow">
                 <span class="pronunciation ipa">/ˈmɔːn.stə.rə/</span>
                 <span class="pronunciation simple">(“morn-ster-uh”)</span>
@@ -30,9 +29,9 @@ const pageTitle = `Colophon`;
         </p>
         <p>
             This is a personal project, archiving and going back to owning my content like in the noughties.
-            I'm leaning into learning with transparency around my explorations. Mournstera.wtf aims to meet
-            WCAG 2.1 AA accessibility standards. Mournstera.wtf went live in April 2026 and is very much a
-            work in progress.
+            I'm leaning into learning with transparency around my explorations. Mournstera.wtf went live
+            April 2026 and aims to meet WCAG 2.1 AA accessibility standards but is very much a work in
+            progress.
         </p>
     </article>
 
@@ -59,8 +58,18 @@ const pageTitle = `Colophon`;
         margin-bottom: var(--space-2xl);
     }
     .definition {
+        border-block: var(--space-1px) solid var(--lines);
+        padding: var(--space-lg);
+        background-color: var(--bg-muted);
+        margin-inline: var(--space-1px);
+
         dd {
             padding-left: var(--space-sm);
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: var(--text-xl);
         }
 
         .pronunciation {

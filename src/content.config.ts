@@ -17,7 +17,6 @@ const blog = defineCollection({
             })
             .optional(),
         tags: z.array(z.string()),
-        kind: z.enum(['musings', 'notes', 'seedlings']),
         lastUpdated: z.date().optional(),
     }),
 });

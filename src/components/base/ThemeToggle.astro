@@ -14,12 +14,14 @@
 <style>
     button.theme-toggle {
         color: var(--text-alt);
+        display: inline-flex;
+        color: var(--text-alt);
         position: fixed;
         top: var(--space-lg);
-        right: var(--space-lg);
-        z-index: 200;
+        right: var(--corner-spacing);
+        display: inline-flex;
+        z-index: 3;
     }
-
     button.theme-toggle svg {
         fill: currentColor;
         stroke: none;
@@ -36,6 +38,8 @@
 
     :global(html.no-transition *:not(.theme-toggle *)) {
         transition: none !important;
+    }
+    @media (width > 48rem) {
     }
 </style>
 

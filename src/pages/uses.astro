@@ -5,6 +5,7 @@ import { Image } from 'astro:assets';
 import Desk1 from '@/assets/images/desk01.webp';
 import Desk2 from '@/assets/images/desk02.webp';
 import ExternalLink from '@/components/base/ExternalLink.astro';
+import Lightbox from '@/components/base/Lightbox.astro';
 
 const pageTitle = 'Uses';
 const pageDescription = `A list of the gear I currently use for my cozy workspace.`;
@@ -16,12 +17,9 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
 
         <p>I love a good desk setup, and here is my own attempt.</p>
         <div class="photo-box">
-            <a href={Desk1.src} target="_blank" rel="noopener noreferrer">
-                <Image src={Desk1} loading="eager" alt="Cozy desk setup from left angle" />
-            </a>
-            <a href={Desk2.src} target="_blank" rel="noopener noreferrer">
-                <Image src={Desk2} loading="eager" alt="Cozy desk setup from right angle" />
-            </a>
+            <Image class="lbox" src={Desk1} loading="eager" alt="Cozy desk setup from left angle" />
+
+            <Image class="lbox" src={Desk2} loading="eager" alt="Cozy desk setup from right angle" />
         </div>
     </article>
 
@@ -98,16 +96,20 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
             />
         </li>
     </ul>
+    <Lightbox />
 </BaseLayout>
 
 <style>
     .photo-box {
         display: grid;
-        gap: var(--space-1px);
         overflow: hidden;
         border-radius: var(--radius-img);
         grid-template-columns: 1fr 1fr;
-        margin-inline: var(--offset-margin);
+        margin-inline: var(--offset-margin-img);
+        box-shadow: var(--box-shadow-photo);
+    }
+    .photo-box a {
+        display: inline-flex;
     }
     .item-list {
         display: flex;
@@ -126,6 +128,5 @@ const pageDescription = `A list of the gear I currently use for my cozy workspac
 
     :global(.external-link) {
         font-family: var(--font-mono);
-        font-size: var(--text-sm);
     }
 </style>

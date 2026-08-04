@@ -1,0 +1,183 @@
+---
+//SidebarMobile.astro
+import { IconMenu2, IconX } from '@tabler/icons-astro';
+import { navLinks } from '@/assets/data/navLinks';
+import Monstera from '@/components/base/Monstera.astro';
+
+const current = Astro.url.pathname;
+const isActive = (path: string) => current === path;
+---
+
+<button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="mobile-sidebar">
+    <IconMenu2 class="icon-open" />
+    <IconX class="icon-close" />
+    <span class="sr-only">Toggle navigation</span>
+</button>
+
+<aside id="mobile-sidebar">
+    <div class="mobile-inner">
+        <a
+            class="monstera"
+            href="/"
+            aria-label="Go to homepage"
+            aria-current={isActive('/') ? 'page' : undefined}>
+            <Monstera class:list={'mobile-plant'} />
+        </a>
+
+        <nav class="mobile" aria-label="Main">
+            <ul>
+                {
+                    navLinks.map((link) => (
+                        <li>
+                            <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+                                {link.label}
+                            </a>
+                        </li>
+                    ))
+                }
+                <li>
+                    <a href="/rss.xml" aria-label="Subscribe via RSS">RSS</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+
+<style>
+    .nav-toggle {
+        color: var(--text-alt);
+        position: fixed;
+        top: calc(var(--space-lg) + var(--svg-size) + var(--space-sm));
+        right: var(--corner-spacing);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        z-index: 3;
+    }
+
+    .icon-close {
+        display: none;
+    }
+
+    :global(html:has(body[data-nav-open='true'])) {
+        overflow: hidden;
+    }
+
+    body[data-nav-open='true'] .icon-open {
+        display: none;
+    }
+
+    body[data-nav-open='true'] .icon-close {
+        display: block;
+    }
+
+    #mobile-sidebar {
+        position: fixed;
+        animation: none;
+        top: 0;
+        left: var(--layout-grid-lines);
+        height: 100%;
+        max-height: 100dvh;
+        width: 100%;
+        max-width: calc(100dvw - var(--layout-grid-lines) * 2);
+        overflow-y: auto;
+        background-color: var(--bg);
+        z-index: 2;
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        display: flex;
+    }
+
+    body[data-nav-open='true'] #mobile-sidebar {
+        opacity: 1;
+        pointer-events: unset;
+        visibility: visible;
+    }
+
+    @media (width > 64rem) {
+        .nav-toggle,
+        #mobile-sidebar {
+            display: none;
+        }
+    }
+
+    .mobile-inner {
+        margin-block: auto;
+        margin: auto;
+        text-align: center;
+        padding: var(--space-xl);
+    }
+
+    a.monstera {
+        color: var(--text-alt);
+        display: inline-block;
+        margin-bottom: var(--space-2xl);
+    }
+
+    a.monstera:hover {
+        color: var(--accent);
+    }
+
+    svg.plant.mobile-plant {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    nav.mobile ul {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        font-size: var(--text-xl);
+        font-family: var(--font-heading);
+        font-weight: 500;
+        align-items: center;
+    }
+
+    nav.mobile ul a {
+        color: var(--text);
+    }
+    nav.mobile ul a:hover {
+        color: var(--accent);
+    }
+    nav.mobile ul a[aria-current='page'] {
+        color: var(--text-muted);
+        padding-left: var(--space-xs);
+    }
+
+    @media (width < 28rem) {
+        .mobile-inner {
+            margin: auto 0 0 auto;
+            text-align: right;
+        }
+        nav.mobile ul {
+            align-items: flex-end;
+        }
+    }
+</style>
+<script>
+    const toggle = document.getElementById('nav-toggle');
+    const sidebar = document.getElementById('mobile-sidebar');
+
+    function setOpen(open: boolean) {
+        document.body.dataset.navOpen = String(open);
+        toggle?.setAttribute('aria-expanded', String(open));
+
+        if (open) {
+            sidebar?.querySelector('a')?.focus();
+        } else {
+            toggle?.focus();
+        }
+    }
+
+    toggle?.addEventListener('click', () => {
+        const isOpen = document.body.dataset.navOpen === 'true';
+        setOpen(!isOpen);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.body.dataset.navOpen === 'true') {
+            setOpen(false);
+        }
+    });
+</script>

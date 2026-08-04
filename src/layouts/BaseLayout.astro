@@ -3,7 +3,8 @@
 import BaseHead from '@/components/base/BaseHead.astro';
 import ThemeToggle from '@/components/base/ThemeToggle.astro';
 import Sidebar from '@/components/base/Sidebar.astro';
-import Updates from '@/components/base/Updates.astro';
+import SidebarMobile from '@/components/base/SidebarMobile.astro';
+
 import { siteDescription } from '@/assets/data/site-desc';
 
 const {
@@ -21,6 +22,8 @@ const {
         <BaseHead title={seoTitle ?? pageTitle} description={pageDescription} image={pageImage} />
     </head>
     <body>
+        <SidebarMobile />
+
         <ThemeToggle />
 
         <div class="grid-line grid-far-left"></div>
@@ -29,8 +32,8 @@ const {
         <div class="grid-line grid-far-right"></div>
 
         <main class:list={[mainClass]}>
-            <aside class:list={['sidebars', 'links', { 'fade-in': mainClass === 'homepage' }]}>
-                <div class="sidebars-inner">
+            <aside class:list={['sidebar', { 'fade-in': mainClass === 'homepage' }]}>
+                <div class="sidebar-inner">
                     <Sidebar />
                 </div>
             </aside>
@@ -38,12 +41,6 @@ const {
                 {!hasOwnTitle && pageTitle && <h1>{pageTitle}</h1>}
                 <slot />
             </section>
-
-            <aside class:list={['sidebars', 'updates', { 'fade-in': mainClass === 'homepage' }]}>
-                <div class="sidebars-inner">
-                    <Updates />
-                </div>
-            </aside>
         </main>
     </body>
 </html>
