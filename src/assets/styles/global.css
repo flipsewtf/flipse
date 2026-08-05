@@ -76,6 +76,7 @@
     /* SPACING */
     --space-1px: 0.0625rem;
     --space-2px: 0.125rem;
+    --space-3px: 0.1875rem;
     --space-4px: 0.25rem;
     --space-xs: 0.5rem;
     --space-sm: 0.75rem;
@@ -115,8 +116,8 @@
         --offset-margin-text: -1.5rem;
         --offset-margin-img: -1.25rem;
         --radius-img: var(--radius-md);
-        --layout-grid-lines: calc(var(--svg-size) + var(--space-lg) * 2);
-        --corner-spacing: var(--space-lg);
+        --layout-grid-lines: calc(var(--svg-size) + var(--space-md) * 2);
+        --corner-spacing: var(--space-md);
         --box-shadow-photo: var(--shadow-img);
         --box-shadow-content: var(--shadow-content);
     }
@@ -135,7 +136,7 @@ html[data-theme='light'] {
     --bg-trans: #fcfcfcd9;
     --bg-alt: #eeeeee;
     --bg-muted: #f7f7f7;
-    --border: #cdcdcd;
+    --border: #dcdcdc;
     --accent: #8e9867;
     --accent-alt: #9c705b;
     --accent-light: #f8f3ec;
@@ -282,7 +283,7 @@ a:hover {
 
 a.page-link {
     text-decoration: underline;
-    text-decoration-color: inherit;
+    text-decoration-color: var(--text);
     color: var(--text-muted);
     overflow-wrap: anywhere;
     text-decoration-skip-ink: auto;

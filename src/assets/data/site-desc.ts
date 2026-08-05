@@ -1,3 +1,3 @@
 // src/assets/data/site-desc.ts
 export const siteDescription =
-    'A personal website of Flipse. Eating chaos one derailing train at a time. Choo-choo, respectfully.';
+    "I aim to be a cosmic inconvenience for mediocre folk. It's a post-people-pleaser path, and it's rocky.";

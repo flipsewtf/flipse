@@ -2,7 +2,7 @@
 //index.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ExternalLink from '@/components/base/ExternalLink.astro';
-import { IconHeadphones } from '@tabler/icons-astro';
+import { IconHeadphones, IconWreckingBall } from '@tabler/icons-astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 const MAX_POSTS = 5;
@@ -48,7 +48,8 @@ const pageTitle = ``;
         </p>
 
         <p class="intro fade-in">
-            I am found at {' '}
+            I aim to be a cosmic inconvenience for mediocre folk. It's a post-people-pleaser path, and it's
+            rocky. So anyway, I can be found at {' '}
             <ExternalLink href="https://bsky.app/profile/mournstera.wtf" label="Bluesky" />,{' '}
             <ExternalLink href="https://instagram.com/mournstera" label="Instagram" />, and{' '}
             <ExternalLink href="https://github.com/flipsewtf" label="GitHub" />.
@@ -164,15 +165,16 @@ const pageTitle = ``;
     }
     ul.post-list li time {
         font-family: var(--font-mono);
+        margin-top: var(--space-3px);
         font-size: var(--text-sm);
-        margin-top: var(--space-2px);
+        font-weight: 500;
     }
     ul.post-list li h3 {
         font-weight: 630;
     }
     ul.post-list li h3 a {
         text-decoration: underline;
-        text-decoration-color: var(--text-muted);
+        text-decoration-color: var(--text);
         color: var(--text-alt);
         overflow-wrap: anywhere;
         text-decoration-skip-ink: auto;

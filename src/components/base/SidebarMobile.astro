@@ -26,6 +26,9 @@ const isActive = (path: string) => current === path;
 
         <nav class="mobile" aria-label="Main">
             <ul>
+                <li>
+                    <a href="/" aria-current={isActive('/') ? 'page' : undefined}> Home </a>
+                </li>
                 {
                     navLinks.map((link) => (
                         <li>
