@@ -30,11 +30,11 @@ const postsByMonth = Object.groupBy(filteredPosts, (post) =>
                 <ul class="blog-list">
                     {(posts ?? []).map((post) => (
                         <li class="blog-title">
-                            <h3>
+                            <h2>
                                 <a class="prose-link" href={`/blog/${post.id}`}>
                                     {post.data.title}
                                 </a>
-                            </h3>
+                            </h2>
                             <p class="desc">{post.data.description}</p>
                         </li>
                     ))}

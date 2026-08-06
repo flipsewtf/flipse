@@ -15,6 +15,9 @@ ul.blog-list {
     flex-direction: column;
     gap: var(--space-md);
 }
+li.blog-title h3 {
+    font-size: var(--text-2xl);
+}
 a.prose-link {
     color: var(--text-alt);
 }
@@ -30,9 +33,11 @@ h1#post-title {
     margin-block-end: var(--space-sm);
 }
 
-/* ----- IMAGES */
-figure.post-feature-figure img,
-article.post img {
+/* -------------------- IMAGES */
+article.post figure.feature img {
+    aspect-ratio: 6/4;
+}
+article.post figure img {
     width: calc(var(--layout-section) + var(--layout-grid-lines) * 4);
     height: auto;
     margin-block-start: var(--space-xl);
@@ -41,7 +46,6 @@ article.post img {
     margin-inline: var(--offset-margin-img);
     box-shadow: var(--box-shadow-photo);
     max-width: unset;
-    aspect-ratio: 6/4;
     object-fit: cover;
     transition: transform var(--transition-ease);
     transform-style: preserve-3d;
@@ -49,17 +53,15 @@ article.post img {
 }
 
 @media (width > 48rem) {
-    figure.post-feature-figure img,
-    article.post img {
+    article.post figure img {
         width: calc(var(--layout-section) + var(--space-lg) * 2);
     }
-    figure.post-feature-figure img:hover,
-    article.post img:hover {
-        transform: perspective(250px) rotateX(0deg) rotateY(-1deg);
+
+    article.post figure img:hover {
+        transform: perspective(250px) rotateX(0) rotateY(-1deg);
     }
 
-    figure.post-feature-figure img:active,
-    article.post img:active {
+    article.post figure img:active {
         transform: perspective(250px) rotateX(0) rotateY(0);
 
         transition-duration: 0.2s;
@@ -69,6 +71,7 @@ article.post img {
 figure.post-feature-figure img {
     margin-block-end: 0;
 }
+
 article.post figure figcaption {
     color: var(--text-alt);
     line-height: var(--leading-sub);
@@ -78,7 +81,7 @@ article.post figure figcaption {
     margin-block-end: var(--space-xl);
 }
 
-/* ----- POST META */
+/* --------------------  POST META */
 .entry-meta {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
@@ -125,7 +128,7 @@ ul.tags a:hover {
 
 /* ----- BODY */
 
-article.post :where(* + *):not(dialog, dialog *) {
+article.post :where(* + *):not(dialog, dialog *, .tags, .tags *) {
     margin-block-start: var(--flow-space);
 }
 article.post ul ul,
@@ -185,31 +188,29 @@ article.post table code {
 }
 
 /* ----- LISTS */
-article.post ul,
-article.post ol {
+article.post ol,
+article.post ul:not(.tags) {
     padding-left: var(--space-xl);
+
+    ul,
+    ol {
+        padding-left: var(--space-sm);
+    }
+
+    li {
+        padding-left: var(--space-sm);
+
+        &:hover::marker {
+            color: var(--text-alt);
+        }
+
+        li {
+            padding-left: var(--space-xs);
+        }
+    }
 }
 
-article.post ul ul,
-article.post ul ol,
-article.post ol ul,
-article.post ol ol {
-    padding-left: var(--space-sm);
-}
-
-article.post li {
-    padding-left: var(--space-sm);
-}
-
-article.post li:hover::marker {
-    color: var(--text-alt);
-}
-
-article.post li li {
-    padding-left: var(--space-xs);
-}
-
-article.post ul li::marker {
+article.post ul:not(.tags) li::marker {
     color: var(--accent-alt);
     content: '➜ ';
     transition: color var(--transition--smooth);

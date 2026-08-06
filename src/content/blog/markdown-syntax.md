@@ -1,12 +1,12 @@
 ---
 title: 'Markdown Syntax'
 pubDate: 2026-08-02T19:20:00+02:00
-lastUpdated: 2026-08-03T15:45:00+02:00
+lastUpdated: 2026-08-04T15:45:00+02:00
 description: 'A memory aid for my brain that refuses to retain syntax, at times.'
 author: 'Flipse'
 # image:
-#     url: '/assets/images/blog/markdown-hero.webp'
-#     alt: 'Cozy desk workspace.'
+#     url: '../../assets/images/blog/img-name.webp'
+#     alt: 'description here.'
 
 tags:
     - markdown

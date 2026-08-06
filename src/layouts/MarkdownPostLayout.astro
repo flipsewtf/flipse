@@ -37,73 +37,73 @@ function timeAgo(date: Date) {
     pageTitle={frontmatter.title}
     pageDescription={frontmatter.description}
     hasOwnTitle={true}>
-    <h1 id="post-title">{frontmatter.title}</h1>
+    <article class="post" aria-labelledby="post-title">
+        <h1 id="post-title">{frontmatter.title}</h1>
 
-    <div class="entry-meta" role="group" aria-label="Post metadata">
-        <time
-            class="posted"
-            datetime={frontmatter.pubDate.toISOString()}
-            aria-label={`${frontmatter.pubDate.toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-            })}`}>
-            {
-                frontmatter.pubDate.toLocaleDateString('en-GB', {
+        <div class="entry-meta" role="group" aria-label="Post metadata">
+            <time
+                class="posted"
+                datetime={frontmatter.pubDate.toISOString()}
+                aria-label={`${frontmatter.pubDate.toLocaleDateString('en-GB', {
                     day: 'numeric',
                     month: 'long',
                     year: 'numeric',
-                })
-            }
-        </time>
-
-        {
-            frontmatter.lastUpdated && (
-                <time
-                    class="updated"
-                    datetime={frontmatter.lastUpdated.toISOString()}
-                    aria-label={`Updated: ${frontmatter.lastUpdated.toLocaleDateString('en-GB', {
+                })}`}>
+                {
+                    frontmatter.pubDate.toLocaleDateString('en-GB', {
                         day: 'numeric',
                         month: 'long',
                         year: 'numeric',
-                    })}`}>
-                    {' + '} updated {timeAgo(frontmatter.lastUpdated)}
-                </time>
+                    })
+                }
+            </time>
+
+            {
+                frontmatter.lastUpdated && (
+                    <time
+                        class="updated"
+                        datetime={frontmatter.lastUpdated.toISOString()}
+                        aria-label={`Updated: ${frontmatter.lastUpdated.toLocaleDateString('en-GB', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric',
+                        })}`}>
+                        {' + '} updated {timeAgo(frontmatter.lastUpdated)}
+                    </time>
+                )
+            }
+
+            <div class="reading" aria-label={`Estimated reading time: ${readingTime} minutes`}>
+                {' / '}{readingTime} min read
+            </div>
+        </div>
+
+        {
+            frontmatter.tags && frontmatter.tags.length > 0 && (
+                <ul class="tags" aria-label="Tags">
+                    {frontmatter.tags.map((tag: string) => (
+                        <li>
+                            <a href={`/blog/tags/${tag}`}>{tag}</a>
+                        </li>
+                    ))}
+                </ul>
             )
         }
 
-        <div class="reading" aria-label={`Estimated reading time: ${readingTime} minutes`}>
-            {' / '}{readingTime} min read
-        </div>
-    </div>
+        {
+            frontmatter.image?.url ? (
+                <figure class="feature">
+                    <img
+                        class="post-feature lbox"
+                        src={frontmatter.image.url.src}
+                        alt={frontmatter.image.alt ?? ''}
+                    />
+                </figure>
+            ) : null
+        }
 
-    {
-        frontmatter.tags && frontmatter.tags.length > 0 && (
-            <ul class="tags" aria-label="Tags">
-                {frontmatter.tags.map((tag: string) => (
-                    <li>
-                        <a href={`/blog/tags/${tag}`}>{tag}</a>
-                    </li>
-                ))}
-            </ul>
-        )
-    }
+        <p class="entry-desc">{frontmatter.description}</p>
 
-    {
-        frontmatter.image?.url ? (
-            <figure class="post-feature-figure">
-                <img
-                    class="post-feature lbox"
-                    src={frontmatter.image.url.src}
-                    alt={frontmatter.image.alt ?? ''}
-                />
-            </figure>
-        ) : null
-    }
-
-    <p class="entry-desc">{frontmatter.description}</p>
-
-    <article class="post" aria-labelledby="post-title">
         <slot />
     </article>
 
