@@ -18,10 +18,10 @@ ul.blog-list {
 li.blog-title h3 {
     font-size: var(--text-2xl);
 }
-a.prose-link {
+li.blog-title h3 a.prose-link {
     color: var(--text-alt);
 }
-a.prose-link:hover {
+li.blog-title h3 a.prose-link:hover {
     color: var(--accent);
 }
 
