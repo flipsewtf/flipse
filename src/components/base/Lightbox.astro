@@ -74,13 +74,16 @@ import { IconX } from '@tabler/icons-astro';
         transition:
             opacity var(--transition-ease),
             transform var(--transition-ease);
+        border: none;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    dialog[open] {
         display: flex;
         flex-direction: column;
         gap: var(--space-md);
         align-items: center;
-        border: none;
-        padding: 0;
-        background-color: transparent;
     }
 
     dialog.is-open {
@@ -100,11 +103,9 @@ import { IconX } from '@tabler/icons-astro';
         cursor: zoom-out;
     }
 
-    dialog:not(.is-open) {
-        pointer-events: none;
-    }
-
+    dialog:not(.is-open),
     dialog:not(.is-open)::backdrop {
+        pointer-events: none;
         pointer-events: none;
     }
 

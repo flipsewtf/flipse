@@ -15,10 +15,10 @@ ul.blog-list {
     flex-direction: column;
     gap: var(--space-md);
 }
-a.page-link {
+a.prose-link {
     color: var(--text-alt);
 }
-a.page-link:hover {
+a.prose-link:hover {
     color: var(--accent);
 }
 

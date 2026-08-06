@@ -38,10 +38,10 @@ if you need a `<br>` make two spacings after.
 ### Syntax
 
 ```markdown
-![Desk setup, primarily green and muted colors. forest screen monitor, white PC, tablet and a shelf with greenery decorations above.](/assets/images/blog/markdown-hero.webp)
+![Desk setup, primarily green and muted colors. forest screen monitor, white PC, tablet and a shelf with greenery decorations above.](../../assets/images/blog/markdown-hero.webp)
 ```
 
-![Desk setup, primarily green and muted colors. forest screen monitor, white PC, tablet and a shelf with greenery decorations above.](/assets/images/blog/markdown-hero.webp)
+![Desk setup, primarily green and muted colors. forest screen monitor, white PC, tablet and a shelf with greenery decorations above.](../../assets/images/blog/markdown-hero.webp)
 
 If the image doesn’t load, at least the alt text will politely explain what _should_ have been there. For blog posts use /public folder for images.
 
