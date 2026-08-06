@@ -33,7 +33,7 @@ h1#post-title {
 /* ----- IMAGES */
 figure.post-feature-figure img,
 article.post img {
-    width: 100%;
+    width: calc(var(--layout-section) + var(--layout-grid-lines) * 4);
     height: auto;
     margin-block-start: var(--space-xl);
     overflow: hidden;

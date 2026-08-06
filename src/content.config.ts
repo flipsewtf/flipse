@@ -1,24 +1,26 @@
-//content.config.ts
+// content.config.ts
 // Import the glob loader
 import { glob } from 'astro/loaders';
-import { z, defineCollection } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 
 // BLOG COLLECTION
 const blog = defineCollection({
     loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/blog' }),
-    schema: z.object({
-        title: z.string(),
-        pubDate: z.date(),
-        description: z.string(),
-        image: z
-            .object({
-                url: z.string(),
-                alt: z.string(),
-            })
-            .optional(),
-        tags: z.array(z.string()),
-        lastUpdated: z.date().optional(),
-    }),
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            pubDate: z.date(),
+            description: z.string(),
+            image: z
+                .object({
+                    url: image(),
+                    alt: z.string(),
+                })
+                .optional(),
+            tags: z.array(z.string()),
+            lastUpdated: z.date().optional(),
+        }),
 });
 
 const log = defineCollection({
