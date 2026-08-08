@@ -1,7 +1,7 @@
 ---
 title: 'There you are'
-pubDate: 2026-08-06T22:10:00+02:00
-# lastUpdated: 2026-08-03T15:45:00+02:00
+pubDate: 2026-08-08T23:10:00+02:00
+# lastUpdated: 2026-08-08T23:10:00+02:00
 description: 'I took a selfie and accidentally found myself staring back.'
 author: 'Flipse'
 tags:
@@ -27,6 +27,6 @@ But maybe I have stopped maintaining every single person's opinion of me... Some
 
 I aim to be a cosmic inconvenience for mediocre folk. It's a post-people-pleaser path, and it's rocky.
 
-But there you are, self. There you finally are. I guess, be who you needed as a kid.
+But there you are, self. There you finally are. I guess, be who you needed as a kid kind of worked.
 
 ![Black and white selfie referenced at the beginning of blog post.](../../assets/images/blog/there-you-are.webp)
