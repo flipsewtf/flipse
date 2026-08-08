@@ -15,7 +15,7 @@ const pageTitle = ``;
 ---
 
 <BaseLayout hasOwnTitle={true} pageTitle={pageTitle} mainClass="homepage">
-    <div class="listened fade-in">
+    <div class="listened">
         <IconHeadphones aria-hidden="true" />
 
         <a
@@ -28,9 +28,9 @@ const pageTitle = ``;
         </a>
     </div>
     <div class="flow">
-        <h1 class="fade-in">Hey, so I'm Flipse, or whatever.</h1>
+        <h1>Hey, so I'm Flipse, or whatever.</h1>
 
-        <p class="intro fade-in">
+        <p class="intro">
             <span class="bold">Just kidding, there's nothing nonchalant about me.</span> A late-30s nerd of music
             and [insert current obsession]. Disabled/retired, but occasionally doing NASA's <ExternalLink
                 href="https://science.nasa.gov/citizen-science/"
@@ -39,7 +39,7 @@ const pageTitle = ``;
             hit movie <em>Armageddon</em> if I like you. The 'tism is strong with this one.
         </p>
 
-        <p class="intro fade-in">
+        <p class="intro">
             I have created <ExternalLink href="https://mournstera.tumblr.com/" label="Tumblr" /> themes for 15+
             years, but right-clicked <em>view source</em> on a website sometime around 1999 and got my own domain
             at 12. I dig concerts, D&amp;D, <dfn
@@ -47,7 +47,7 @@ const pageTitle = ``;
             >, and desk setups.
         </p>
 
-        <p class="intro fade-in">
+        <p class="intro">
             I aim to be a cosmic inconvenience for mediocre folk. It's a post-people-pleaser path, and it's
             rocky. So anyway, I can be found at {' '}
             <ExternalLink href="https://bsky.app/profile/mournstera.wtf" label="Bluesky" />,{' '}
@@ -58,7 +58,7 @@ const pageTitle = ``;
 
     <section class="blog">
         <h2 class="sr-only">Latest posts</h2>
-        <ul class="post-list fade-in">
+        <ul class="post-list">
             {
                 latestPosts.map((post) => (
                     <li>
@@ -87,7 +87,6 @@ const pageTitle = ``;
 </BaseLayout>
 <style>
     .listened {
-        animation-delay: 0.1s;
         margin-left: var(--space-2px);
         font-weight: 480;
     }
@@ -115,12 +114,7 @@ const pageTitle = ``;
     h1 {
         line-height: 1;
         margin-block: var(--space-lg);
-        animation-delay: 0.5s;
         text-wrap: balance;
-    }
-
-    p.intro {
-        animation-delay: 0.15s;
     }
 
     span.bold {
@@ -154,7 +148,6 @@ const pageTitle = ``;
         display: flex;
         flex-direction: column;
         gap: var(--space-lg);
-        animation-delay: 0.25s;
     }
     ul.post-list li {
         display: grid;

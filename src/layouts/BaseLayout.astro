@@ -26,13 +26,8 @@ const {
 
         <ThemeToggle />
 
-        <div class="grid-line grid-sidebar"></div>
-        <div class="grid-line grid-content-left"></div>
-        <div class="grid-line grid-content-right"></div>
-        <div class="grid-line grid-bar"></div>
-
         <main class:list={[mainClass]}>
-            <aside class:list={['sidebar', { 'fade-in': mainClass === 'homepage' }]}>
+            <aside class:list={['sidebar', { '': mainClass === 'homepage' }]}>
                 <div class="sidebar-inner">
                     <Sidebar />
                 </div>

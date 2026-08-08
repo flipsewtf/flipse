@@ -34,16 +34,17 @@ h1#post-title {
 }
 
 /* -------------------- IMAGES */
+
 article.post figure.feature img {
     aspect-ratio: 6/4;
 }
 article.post figure img {
-    width: calc(var(--layout-section) + var(--layout-grid-lines) * 4);
+    width: calc(var(--layout-section) + var(--layout-spacing) * 2);
     height: auto;
     margin-block-start: var(--space-xl);
     overflow: hidden;
     border-radius: var(--radius-img);
-    margin-inline: var(--offset-margin-img);
+    margin-inline: calc(-1 * var(--layout-spacing));
     box-shadow: var(--box-shadow-photo);
     max-width: unset;
     object-fit: cover;
@@ -82,6 +83,7 @@ article.post figure figcaption {
 }
 
 /* --------------------  POST META */
+
 .entry-meta {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
@@ -102,7 +104,7 @@ time.updated {
 p.entry-desc {
     margin-block: 0 var(--space-xl);
     border-bottom: 1px solid var(--lines);
-    padding: var(--space-lg);
+    padding: 0 var(--space-lg) var(--space-lg);
 }
 
 ul.tags {
@@ -126,7 +128,7 @@ ul.tags a:hover {
     border-color: inherit;
 }
 
-/* ----- BODY */
+/* FLOW */
 
 article.post :where(* + *):not(dialog, dialog *, .tags, .tags *) {
     margin-block-start: var(--flow-space);
@@ -144,7 +146,8 @@ article.post hr {
     background-image: repeating-linear-gradient(to right, transparent 0 2px, var(--lines) 2px 5px);
 }
 
-/* ----- BLOCKQUOTE */
+/* --------------------  BLOCKQUOTE */
+
 article.post blockquote {
     padding: var(--space-xl);
     font-style: italic;
@@ -154,7 +157,8 @@ article.post blockquote {
     border-left: var(--space-xs) solid var(--accent);
 }
 
-/* ----- CODE BLOCKS & INLINE CODE */
+/* --------------------  CODE BLOCKS & INLINE CODE */
+
 article.post pre {
     max-width: 100%;
     background-color: var(--bg-alt);
@@ -187,7 +191,8 @@ article.post table code {
     border: none;
 }
 
-/* ----- LISTS */
+/* -------------------- LISTS */
+
 article.post ol,
 article.post ul:not(.tags) {
     padding-left: var(--space-xl);
@@ -225,7 +230,8 @@ article.post ol {
     }
 }
 
-/* ----- CHECKLIST */
+/* --------------------  CHECKLIST */
+
 article.post ul.contains-task-list {
     list-style: none;
     padding-left: 0;
@@ -236,7 +242,8 @@ article.post ul.contains-task-list li::marker {
     content: '';
 }
 
-/* ----- FOOTNOTES */
+/* --------------------  FOOTNOTES */
+
 section.footnotes::before {
     content: '';
     display: block;
@@ -256,7 +263,8 @@ a.data-footnote-backref {
     text-decoration: none;
 }
 
-/* ----- TABLES */
+/* --------------------  TABLES */
+
 article.post table {
     width: 100%;
     max-width: 100%;
@@ -278,7 +286,8 @@ article.post td {
     text-align: left;
 }
 
-/* ----- OTHER ELEMENTS */
+/* --------------------  OTHER ELEMENTS */
+
 article.post abbr[title] {
     cursor: help;
     text-decoration: underline dotted;
