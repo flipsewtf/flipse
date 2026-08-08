@@ -1,11 +1,8 @@
 # Mournstera | Astro project
 
-I'm diving into Astro as a complete beginner (my JavaScript skills are basic at best
-and tainted by bad Tumblr habits).
-
 This is basically a playground for learning and figuring out how to make the web bend
 to my will without breaking down crying in the process. It also happens to be my
-personal blog.
+personal blog. I am leaning into my early noughties blogging days.
 
 Built with [Astro](https://astro.build).
 
@@ -42,7 +39,7 @@ Stepping out of the Tumblr sandbox was.. an experience. Here's some stuff to kee
 | `npm run dev`     | Start the dev server at `localhost:4321` |
 | `npm run build`   | Build the site for deployment            |
 | `npm run preview` | Preview the production build locally     |
-| `rm -r -fo dist`     | Delete the build folder                  |
+| `rm -r -fo dist`  | Delete the build folder                  |
 
 > Always preview before pushing updates goddamnit.
 
@@ -54,10 +51,10 @@ If something looks broken and shouldn't be, clear Vite's cache:
 rm -r -fo node_modules/.vite
 ```
 
-#### Lucide icons
+#### Tabler icons
 
 ```astro
-import {HandMetal} from '@lucide/astro';
+import {IconHeadphones} from '@tabler/icons-astro';
 ```
 
 ### Frontmatter
@@ -99,4 +96,4 @@ So `20px ÷ 16 = 1.25rem`.
 
 ## Licence
 
-Do whatever you want with the code. Please don't steal my writing or designs.
+Do whatever you want with the code.
