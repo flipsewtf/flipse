@@ -1,4 +1,4 @@
-# Mournstera | Astro project
+# Flipse.WTF | Astro project
 
 This is basically a playground for learning and figuring out how to make the web bend
 to my will without breaking down crying in the process. It also happens to be my
@@ -25,7 +25,7 @@ Stepping out of the Tumblr sandbox was.. an experience. Here's some stuff to kee
 
 ### Workflow
 
-- Always open **the root folder of the repo** in VSCode (e.g., `GitHub\mournstera`),
+- Always open **the root folder of the repo** in VSCode (e.g., `GitHub\flipse`),
   not the parent GitHub folder.
 - VSCode's Source Control panel will then track only **that repo**, keeping changes,
   commits, and branches isolated. Opening the parent folder with multiple repos can
@@ -86,14 +86,4 @@ title: `My Post: A Fancy Story`
 | `// @ts-nocheck`           | Tells VSCode to ignore TypeScript warnings in a JS file (e.g., "possibly null"). Check the code first before reaching for this. |
 | `<!-- prettier-ignore -->` | Stops Prettier from reformatting the next line. Work towards not needing it.                                                    |
 
-### Convert px to rem
-
-`16px = 1rem`. Formula: divide the px value by 16.
-
-So `20px ÷ 16 = 1.25rem`.
-
 ---
-
-## Licence
-
-Do whatever you want with the code.

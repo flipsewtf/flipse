@@ -43,4 +43,4 @@ User-agent: Webzio-Extended
 User-agent: YouBot
 Disallow: /
 
-Sitemap: https://mournstera.wtf/sitemap-index.xml
+Sitemap: https://flipse.wtf/sitemap-index.xml

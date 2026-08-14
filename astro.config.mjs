@@ -6,7 +6,7 @@ import { unified } from '@astrojs/markdown-remark';
 import rehypeFigure from '@microflash/rehype-figure';
 
 export default defineConfig({
-    site: 'https://mournstera.wtf',
+    site: 'https://flipse.wtf',
 
     integrations: [sitemap(), mdx()],
 

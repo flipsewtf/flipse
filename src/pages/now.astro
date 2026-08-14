@@ -35,6 +35,7 @@ const sortedEntries = entries.sort((a, b) => b.data.pubDate.getTime() - a.data.p
     article.log-entry {
         padding-block: var(--space-xl);
         border-left: var(--space-1px) solid var(--border);
+        margin-left: calc(-1 * var(--space-1px));
     }
     article.log-entry:first-of-type {
         padding-block-start: 0;

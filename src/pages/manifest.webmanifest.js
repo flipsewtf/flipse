@@ -3,8 +3,8 @@ import { siteDescription } from '@/assets/data/site-desc';
 
 export async function GET() {
     const manifest = {
-        name: 'Mournstera.wtf',
-        short_name: 'Mournstera',
+        name: 'Flipse.wtf',
+        short_name: 'Flipse.wtf',
         description: siteDescription,
         icons: [
             {

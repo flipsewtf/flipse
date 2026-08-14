@@ -9,7 +9,7 @@ export async function GET(context) {
     const sortedPosts = posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
     return rss({
-        title: 'Flipse | Mournstera',
+        title: 'Flipse | Flipse.wtf',
         description: siteDescription,
         site: context.site,
         items: sortedPosts.map((post) => ({
