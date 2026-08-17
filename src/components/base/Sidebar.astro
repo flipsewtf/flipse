@@ -9,10 +9,6 @@ const current = Astro.url.pathname;
 const isActive = (path: string) => current === path;
 ---
 
-<a class="monstera" href="/" aria-label="Go to homepage" aria-current={isActive('/') ? 'page' : undefined}>
-    <Monstera />
-</a>
-
 <nav class="main" aria-label="Main">
     <ul>
         {
@@ -54,6 +50,7 @@ const isActive = (path: string) => current === path;
         flex-direction: column;
         gap: var(--space-sm);
         font-size: var(--text-sm);
+        font-weight: 450;
     }
 
     nav ul li {
