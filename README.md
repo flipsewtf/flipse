@@ -1,38 +1,10 @@
-# Flipse.WTF | Astro project
+# Flipse.WTF
 
-This is basically a playground for learning and figuring out how to make the web bend
-to my will without breaking down crying in the process. It also happens to be my
-personal blog. I am leaning into my early noughties blogging days.
+This is me leaning into my early noughties blog days ~~because I broke up with Tumblr~~.
 
-Built with [Astro](https://astro.build).
+### Help for brain
 
----
-
-## Getting started
-
-_Note to self, since I will forget._
-
-```powershell
-npm install
-npm run dev
-```
-
----
-
-## Cheatsheet
-
-Stepping out of the Tumblr sandbox was.. an experience. Here's some stuff to keep me sane.
-
-### Workflow
-
-- Always open **the root folder of the repo** in VSCode (e.g., `GitHub\flipse`),
-  not the parent GitHub folder.
-- VSCode's Source Control panel will then track only **that repo**, keeping changes,
-  commits, and branches isolated. Opening the parent folder with multiple repos can
-  mix changes and make commits confusing.
-- Each repo folder is self-contained: commit, push, pull, etc., only affects that repo.
-
-### Astro commands
+#### Commands
 
 | Command           | What it does                             |
 | ----------------- | ---------------------------------------- |
@@ -41,7 +13,7 @@ Stepping out of the Tumblr sandbox was.. an experience. Here's some stuff to kee
 | `npm run preview` | Preview the production build locally     |
 | `rm -r -fo dist`  | Delete the build folder                  |
 
-> Always preview before pushing updates goddamnit.
+If something looks broken and shouldn't be, clear Vite's cache:
 
 #### Vite cache
 
@@ -50,14 +22,6 @@ If something looks broken and shouldn't be, clear Vite's cache:
 ```powershell
 rm -r -fo node_modules/.vite
 ```
-
-#### Tabler icons
-
-```astro
-import {IconHeadphones} from '@tabler/icons-astro';
-```
-
-### Frontmatter
 
 #### Timestamps
 
@@ -68,22 +32,3 @@ and display dates correctly.
 | ------------- | -------- | --------------------------- |
 | Winter (CET)  | `+01:00` | `2025-12-08T13:30:00+01:00` |
 | Summer (CEST) | `+02:00` | `2025-06-08T13:30:00+02:00` |
-
-#### Strings with colons or special characters
-
-Use template literals (backticks) for frontmatter values that contain colons or
-quotes, otherwise the YAML parser reads the colon as a key/value separator and
-breaks.
-
-```yaml
-title: `My Post: A Fancy Story`
-```
-
-### Code comments
-
-| Comment                    | What it does                                                                                                                    |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `// @ts-nocheck`           | Tells VSCode to ignore TypeScript warnings in a JS file (e.g., "possibly null"). Check the code first before reaching for this. |
-| `<!-- prettier-ignore -->` | Stops Prettier from reformatting the next line. Work towards not needing it.                                                    |
-
----
