@@ -3,7 +3,9 @@
 # ======================
 dist/
 .astro/
-*.tsbuildinfo    # TypeScript incremental build info
+*.tsbuildinfo    
+
+# TypeScript incremental build info
 
 # ======================
 # Dependencies
@@ -23,6 +25,7 @@ pnpm-debug.log*
 # ======================
 .env
 .env.production
+.env.local
 
 # ======================
 # Editor / IDE settings
