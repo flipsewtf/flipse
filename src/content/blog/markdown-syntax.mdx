@@ -31,7 +31,7 @@ This text means nothing and exists solely to demonstrate that Markdown paragraph
 
 If you leave a blank line, Markdown considers it a new paragraph.
 If you forget the blank line, Markdown silently does not care.  
-if you need a `<br>` make two spacings after.
+if you need a `<br   />` make two spacings after.
 
 ## Images
 
@@ -66,13 +66,13 @@ The fancy blockquote. With a citation, within a `cite` element.
 ### Syntax
 
 ```markdown
-> I think more people need to make out.<br>
+> I think more people need to make out.<br  />
 > — <cite>Josh Homme [^1]</cite>
 ```
 
 ### Output
 
-> I think more people need to make out.<br>
+> I think more people need to make out.<br  />
 > — <cite>Josh Homme [^1]</cite>
 
 [^1]: I agree.
@@ -106,11 +106,11 @@ Task lists (GFM):
 - [x] Look at me checking all the boxes
 - [ ] just kidding
 
-Automatic links:
+links:
 
-<https://example.com>
+[https://example.com](https://example.com)
 
-<email@example.com>
+[email@example.com](mailto:email@example.com)
 
 ### Syntax Example
 
