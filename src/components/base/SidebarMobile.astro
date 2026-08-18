@@ -98,21 +98,6 @@ const isActive = (path: string) => current === path;
         padding: var(--space-xl);
     }
 
-    a.monstera {
-        color: var(--text-alt);
-        display: inline-block;
-        margin-bottom: var(--space-2xl);
-    }
-
-    a.monstera:hover {
-        color: var(--accent);
-    }
-
-    svg.plant.mobile-plant {
-        width: 4.5rem;
-        height: 4.5rem;
-    }
-
     nav.mobile ul {
         display: flex;
         flex-direction: column;
@@ -131,7 +116,6 @@ const isActive = (path: string) => current === path;
     }
     nav.mobile ul a[aria-current='page'] {
         color: var(--text-muted);
-        padding-left: var(--space-xs);
     }
 
     @media (width < 28rem) {
