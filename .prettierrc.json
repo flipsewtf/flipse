@@ -13,6 +13,6 @@
     "trailingComma": "all",
     "semi": true,
     "bracketSpacing": true,
-    "printWidth": 109,
+    "printWidth": 100,
     "bracketSameLine": true
 }

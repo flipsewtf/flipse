@@ -5,13 +5,15 @@ lastUpdated: 2026-08-04T15:45:00+02:00
 description: 'A memory aid for my brain that refuses to retain syntax, at times.'
 author: 'Flipse'
 # image:
-#     url: '../../assets/images/blog/img-name.webp'
+#     url: '/assets/images/blog/img-name.webp'
 #     alt: 'description here.'
 
 tags:
     - markdown
     - workflow
 ---
+
+import Figure from '../../components/base/Figure.astro';
 
 ## Headings
 
@@ -31,17 +33,27 @@ This text means nothing and exists solely to demonstrate that Markdown paragraph
 
 If you leave a blank line, Markdown considers it a new paragraph.
 If you forget the blank line, Markdown silently does not care.  
-if you need a `<br>` make two spacings after.
+if you need a `<br   />` make two spacings after.
 
 ## Images
 
 ### Syntax
 
-```markdown
-![Desk setup, primarily green and muted colors. forest screen monitor, white PC, tablet and a shelf with greenery decorations above.](../../assets/images/blog/markdown-hero.webp)
+```mdx
+<Figure
+    src="/assets/images/blog/markdown-hero.webp"
+    alt="Desk setup, primarily green and muted colors. forest screen monitor, white PC, tablet and a shelf with greenery decorations above."
+    caption="Optional caption text."
+/>
 ```
 
-![Desk setup, primarily green and muted colors. forest screen monitor, white PC, tablet and a shelf with greenery decorations above.](../../assets/images/blog/markdown-hero.webp)
+<Figure
+    src="/assets/images/blog/markdown-hero.webp"
+    alt="Desk setup, primarily green and muted colors. forest screen monitor, white PC, tablet and a shelf with greenery decorations above."
+    caption="Optional caption text."
+/>
+
+If the image doesn't load, at least the alt text will politely explain what _should_ have been there. For blog posts use `/assets` inside `/public` for images.
 
 If the image doesn’t load, at least the alt text will politely explain what _should_ have been there. For blog posts use /public folder for images.
 
@@ -66,13 +78,13 @@ The fancy blockquote. With a citation, within a `cite` element.
 ### Syntax
 
 ```markdown
-> I think more people need to make out.<br>
+> I think more people need to make out.<br  />
 > — <cite>Josh Homme [^1]</cite>
 ```
 
 ### Output
 
-> I think more people need to make out.<br>
+> I think more people need to make out.<br  />
 > — <cite>Josh Homme [^1]</cite>
 
 [^1]: I agree.
@@ -106,11 +118,11 @@ Task lists (GFM):
 - [x] Look at me checking all the boxes
 - [ ] just kidding
 
-Automatic links:
+links:
 
-<https://example.com>
+[https://example.com](https://example.com)
 
-<email@example.com>
+[email@example.com](mailto:email@example.com)
 
 ### Syntax Example
 
