@@ -2,7 +2,6 @@
 //SidebarMobile.astro
 import { IconMenu2, IconX } from '@tabler/icons-astro';
 import { navLinks } from '@/assets/data/navLinks';
-import Monstera from '@/components/base/Monstera.astro';
 
 const current = Astro.url.pathname;
 const isActive = (path: string) => current === path;
@@ -16,19 +15,8 @@ const isActive = (path: string) => current === path;
 
 <aside id="mobile-sidebar">
     <div class="mobile-inner">
-        <a
-            class="monstera"
-            href="/"
-            aria-label="Go to homepage"
-            aria-current={isActive('/') ? 'page' : undefined}>
-            <Monstera class:list={'mobile-plant'} />
-        </a>
-
         <nav class="mobile" aria-label="Main">
             <ul>
-                <li>
-                    <a href="/" aria-current={isActive('/') ? 'page' : undefined}> Home </a>
-                </li>
                 {
                     navLinks.map((link) => (
                         <li>

@@ -3,15 +3,10 @@
 
 import { IconRss } from '@tabler/icons-astro';
 import { navLinks } from '@/assets/data/navLinks';
-import Monstera from '@/components/base/Monstera.astro';
 
 const current = Astro.url.pathname;
 const isActive = (path: string) => current === path;
 ---
-
-<a class="monstera" href="/" aria-label="Go to homepage" aria-current={isActive('/') ? 'page' : undefined}>
-    <Monstera />
-</a>
 
 <nav class="main" aria-label="Main">
     <ul>
