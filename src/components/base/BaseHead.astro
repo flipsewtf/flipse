@@ -12,7 +12,13 @@ export interface Props {
 const { title, description, image } = Astro.props;
 
 const ogImage = image ? new URL(image, Astro.site) : new URL('/social-default.png', Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<title>Flipse.WTF{title ? ` | ${title}` : ''}</title>
 
 <script is:inline>
     const stored = localStorage.getItem('theme-mode');
@@ -23,24 +29,22 @@ const ogImage = image ? new URL(image, Astro.site) : new URL('/social-default.pn
     document.documentElement.dataset.ready = 'true';
 </script>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+
+<link rel="canonical" href={canonicalURL} />
+
 <meta name="generator" content={Astro.generator} />
 <meta name="color-scheme" content="dark light" />
-<meta name="view-transition" content="same-origin" />
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
 <link rel="alternate" type="application/rss+xml" title="Flipse.wtf RSS Feed" href="/rss.xml" />
-
-<title>Flipse.WTF{title ? ` | ${title}` : ''}</title>
 
 {description && <meta name="description" content={description} />}
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 {description && <meta property="og:description" content={description} />}
 <meta property="og:image" content={ogImage} />
