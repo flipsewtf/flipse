@@ -27,15 +27,13 @@ const {
         <ThemeToggle />
 
         <main class:list={[mainClass]}>
-            <aside class:list={['sidebar', { '': mainClass === 'homepage' }]}>
-                <div class="sidebar-inner">
-                    <Sidebar />
-                </div>
-            </aside>
             <section class="main-content">
                 {!hasOwnTitle && pageTitle && <h1>{pageTitle}</h1>}
                 <slot />
             </section>
+            <aside class:list={['sidebar', { '': mainClass === 'homepage' }]}>
+                <Sidebar />
+            </aside>
         </main>
     </body>
 </html>

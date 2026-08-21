@@ -1,85 +1,24 @@
 /* =========================================
-   FONT FACES
-========================================= */
-
-@font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url('/assets/fonts/inter.woff2') format('woff2');
-}
-@font-face {
-    font-family: 'Inter';
-    font-style: italic;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url('/assets/fonts/inter-italic.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Roboto Condensed';
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url('/assets/fonts/roboto-condensed.woff2') format('woff2');
-}
-@font-face {
-    font-family: 'Roboto Condensed';
-    font-style: italic;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url('/assets/fonts/roboto-condensed-italic.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Inconsolata';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: url('/assets/fonts/inconsolata-light.woff2') format('woff2');
-}
-@font-face {
-    font-family: 'Inconsolata';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/assets/fonts/inconsolata-regular.woff2') format('woff2');
-}
-@font-face {
-    font-family: 'Inconsolata';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url('/assets/fonts/inconsolata-medium.woff2') format('woff2');
-}
-@font-face {
-    font-family: 'Inconsolata';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url('/assets/fonts/inconsolata-semibold.woff2') format('woff2');
-}
-
-/* =========================================
    ROOT VARIABLES
 ========================================= */
 
 :root {
     /* FONTS */
-    --font-body: 'Inter', system-ui, sans-serif;
-    --font-heading: 'Roboto Condensed', system-ui, sans-serif;
-    --font-mono: 'Inconsolata', ui-monospace, monospace;
+    --font-family--body: 'Inter', system-ui, sans-serif;
+    --font-family--condensed: 'Roboto Condensed', system-ui, sans-serif;
+    --font-family--mono: 'Inconsolata', ui-monospace, monospace;
+    --font-family--hand-thinker: 'Thinker', system-ui, sans-serif;
+    --font-family--hand-nanum: 'Nanum Pen Script', system-ui, sans-serif;
+    --font-family--hand-grace: 'Covered By Your Grace', system-ui, sans-serif;
+
     /* LAYOUT */
-    --layout-sidebar: 13.75rem;
-    --layout-width: calc(var(--layout-sidebar) * 2 + var(--layout-section));
-    --layout-spacing: var(--space-lg);
-    --layout-section: calc(100dvw - var(--layout-spacing) * 2);
-    --offset-margin-text: 0;
-    --offset-margin-img: calc(-1 * var(--layout-spacing));
+    --layout-content: 100%;
+    --layout-spacing: var(--space-xl);
     --radius-img: 0;
+
     /* SVG ICONS */
     --svg-size: 1.5rem;
+
     /* SPACING */
     --space-1px: 0.0625rem;
     --space-2px: 0.125rem;
@@ -93,6 +32,7 @@
     --space-2xl: 3rem;
     --space-3xl: 4rem;
     --space-4xl: 6rem;
+
     /* BORDER RADIUS */
     --radius-sm: 0.25rem;
     --radius-md: 0.375rem;
@@ -110,22 +50,19 @@
     --leading-sub: 1.4;
     --leading-heading: 1.12;
     --flow-space: 1em;
+
     /* LINKS */
     --underline-offset: 0.1em;
     --underline-thickness: 1px;
+
     /* TRANSITIONS */
     --transition--smooth: 0.12s cubic-bezier(0.25, 0.8, 0.3, 1);
     --transition-ease: 0.25s cubic-bezier(0, 0, 0, 0.63);
 }
 @media (width > 48rem) {
     :root {
-        --layout-section: 31.25rem;
-        --offset-margin-text: -1.5rem;
-        --offset-margin-img: -1.25rem;
+        --layout-content: 36.25rem;
         --radius-img: var(--radius-md);
-        --corner-spacing: var(--space-md);
-        --box-shadow-photo: var(--shadow-img);
-        --box-shadow-content: var(--shadow-content);
     }
 }
 
@@ -138,7 +75,8 @@ html[data-theme='light'] {
     --text: #464646;
     --text-alt: #232323;
     --text-muted: #9f9f9f;
-    --bg: #fcfcfc;
+    --bg: #f5f5f5;
+    --lines: #d4d4d4;
     --bg-trans: #fcfcfcd9;
     --bg-alt: #eeeeee;
     --bg-muted: #f7f7f7;
@@ -146,9 +84,6 @@ html[data-theme='light'] {
     --accent: #8e9867;
     --accent-alt: #9c705b;
     --accent-light: #f8f3ec;
-    --lines: #e6e6e6;
-    --shadow-img: 0 0.4px 3.25px #45454529, 0 6px 7.5px #63636347;
-    --shadow-content: 0 1px 1.5px 0px #c3c3c32b, 1px 5px 6px #b3b3b338;
 }
 
 html[data-theme='dark'] {
@@ -156,7 +91,8 @@ html[data-theme='dark'] {
     --text: #c7c7c7;
     --text-alt: #ffffff;
     --text-muted: #818181;
-    --bg: #0e0e0e;
+    --bg: #161616;
+    --lines: #252525;
     --bg-trans: #0e0e0ee0;
     --bg-alt: #212121;
     --bg-muted: #161616;
@@ -164,9 +100,6 @@ html[data-theme='dark'] {
     --accent: #929f5f;
     --accent-alt: #6b4d3f;
     --accent-light: #fff7eb;
-    --lines: #282828;
-    --shadow-img: 0 0.3px 1.5px #00000038, 1px 5px 6px #00000052;
-    --shadow-content: 1px 5px 7px 1px #0000004f;
 }
 
 /* =========================================
@@ -208,9 +141,16 @@ img {
 ========================================= */
 
 html {
-    scrollbar-color: var(--text) var(--bg-muted);
-    background-color: var(--bg-muted);
-    scrollbar-gutter: stable;
+    scrollbar-color: var(--text) var(--bg);
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(var(--lines) 1.5px, transparent 1.5px),
+        radial-gradient(var(--lines) 1.5px, transparent 1.5px);
+    background-size: 30px 30px;
+    background-position:
+        0 0,
+        15px 13px;
+    background-attachment: fixed;
     font-size: 100%;
     scroll-behavior: smooth;
     transition: none;
@@ -239,10 +179,9 @@ html {
 }
 
 body {
-    font-family: var(--font-body);
+    font-family: var(--font-family--body);
     font-size: var(--text-base);
     color: var(--text);
-    background-color: var(--bg);
     text-rendering: optimizeLegibility;
     font-optical-sizing: auto;
     -webkit-font-smoothing: antialiased;
@@ -250,8 +189,6 @@ body {
     overflow-wrap: break-word;
     line-height: 1;
     font-weight: 400;
-    min-height: 100vh;
-    overflow-y: clip;
 }
 
 .sr-only {
@@ -267,7 +204,7 @@ body {
 }
 
 code {
-    font-family: var(--font-mono);
+    font-family: var(--font-family--mono);
 }
 
 svg {
@@ -345,7 +282,7 @@ h6 {
     line-height: var(--leading-heading);
     font-weight: 500;
     text-wrap: pretty;
-    font-family: var(--font-heading);
+    font-family: var(--font-family--condensed);
 }
 
 h1 {
@@ -382,46 +319,38 @@ p {
 
 main {
     display: grid;
-    margin-inline: auto;
-    min-height: 100svh;
+    margin-inline: var(--layout-spacing);
+    gap: var(--space-4xl);
+    justify-content: center;
 }
+
 aside.sidebar {
     display: none;
 }
 section.main-content {
     width: 100%;
-    margin-inline: auto;
-    max-width: var(--layout-section);
-    padding-block: var(--space-4xl);
-    z-index: 1;
-}
-
-.sidebar-inner {
-    width: var(--layout-sidebar);
-    position: fixed;
-    top: 0;
-    padding-right: var(--space-3xl);
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
-    height: 100dvh;
-    bottom: 0;
 }
 
 @media (width > 48rem) {
-    section.main-content {
-        padding-inline: 0;
-        border-inline: var(--space-1px) dashed var(--lines);
+    main {
+        grid-template-columns: var(--layout-content);
     }
 }
 @media (width > 64rem) {
     main {
-        grid-template-columns: var(--layout-sidebar) var(--layout-section) var(--layout-sidebar);
-        max-width: var(--layout-width);
+        grid-template-columns: clamp(33.75rem, 45vw, var(--layout-content)) auto;
+        max-width: 90rem;
+        justify-content: normal;
     }
+
     aside.sidebar {
         display: block;
+    }
+}
+
+@media (width > 90rem) {
+    main {
+        margin-inline: auto;
+        padding-inline: var(--layout-spacing);
     }
 }

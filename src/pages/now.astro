@@ -47,7 +47,7 @@ const sortedEntries = entries.sort((a, b) => b.data.pubDate.getTime() - a.data.p
     article.log-entry time {
         display: flex;
         gap: var(--space-lg);
-        font-family: var(--font-mono);
+        font-family: var(--font-family--mono);
         font-weight: 600;
         color: var(--text-alt);
         align-items: center;
@@ -73,7 +73,7 @@ const sortedEntries = entries.sort((a, b) => b.data.pubDate.getTime() - a.data.p
 
     :global(.log-music) {
         font-size: var(--text-sm);
-        font-family: var(--font-mono);
+        font-family: var(--font-family--mono);
         margin-bottom: var(--space-md);
     }
     :global(svg.log-icon) {

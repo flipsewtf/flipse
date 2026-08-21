@@ -8,40 +8,38 @@ const current = Astro.url.pathname;
 const isActive = (path: string) => current === path;
 ---
 
-<nav class="main" aria-label="Main">
-    <ul>
-        {
-            navLinks.map((link) => (
-                <li>
-                    <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
-                        {link.label}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
-</nav>
+<div class="sidebar-inner">
+    <nav class="main" aria-label="Main">
+        <ul>
+            {
+                navLinks.map((link) => (
+                    <li>
+                        <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+                            {link.label}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
 
-<a
-    class="subscribe"
-    href="/rss.xml"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Subscribe via
+    <a
+        class="subscribe"
+        href="/rss.xml"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Subscribe via
             RSS (opens in a new tab)">
-    <IconRss />
-    <span>Subscribe</span>
-</a>
+        <IconRss />
+        <span>Subscribe</span>
+    </a>
+</div>
 
 <style>
-    a.monstera {
-        color: var(--text-alt);
-        display: inline-block;
-        margin-bottom: var(--space-lg);
-        margin-right: -1.125rem;
-    }
-    a.monstera:hover {
-        color: var(--accent);
+    .sidebar-inner {
+        position: sticky;
+        top: var(--space-4xl);
+        bottom: var(--space-4xl);
     }
 
     nav.main ul {
