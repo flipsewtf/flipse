@@ -7,7 +7,7 @@
 h2.blog-heading {
     color: var(--text-muted);
     font-size: var(--text-lg);
-    font-family: var(--font-mono);
+    font-family: var(--font-family--mono);
     margin-block: var(--space-xl);
 }
 ul.blog-list {
@@ -85,7 +85,7 @@ article.post figure figcaption {
 /* --------------------  POST META */
 
 .entry-meta {
-    font-family: var(--font-mono);
+    font-family: var(--font-family--mono);
     font-size: var(--text-sm);
     margin-left: var(--offset-margin-text);
     color: var(--text-alt);
@@ -113,7 +113,7 @@ ul.tags {
     gap: var(--space-xs);
     margin-top: var(--space-md);
     font-size: var(--text-sm);
-    font-family: var(--font-mono);
+    font-family: var(--font-family--mono);
     margin-left: var(--offset-margin-text);
 }
 
@@ -307,7 +307,7 @@ article.post mark {
 article.post kbd {
     background-color: var(--bg-alt);
     border-radius: var(--radius-sm);
-    font-family: var(--font-mono);
+    font-family: var(--font-family--mono);
     border: var(--space-1px) solid var(--border);
     padding: var(--space-4px);
 }
