@@ -4,6 +4,7 @@ import BaseHead from '@/components/base/BaseHead.astro';
 import ThemeToggle from '@/components/base/ThemeToggle.astro';
 import Sidebar from '@/components/base/Sidebar.astro';
 import SidebarMobile from '@/components/base/SidebarMobile.astro';
+import Sprite from '@/components/base/Sprite.astro';
 
 import { siteDescription } from '@/assets/data/site-desc';
 
@@ -22,6 +23,7 @@ const {
         <BaseHead title={seoTitle ?? pageTitle} description={pageDescription} image={pageImage} />
     </head>
     <body>
+        <Sprite />
         <SidebarMobile />
 
         <ThemeToggle />

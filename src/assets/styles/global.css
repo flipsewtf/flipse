@@ -5,11 +5,9 @@
 :root {
     /* FONTS */
     --font-family--body: 'Inter', system-ui, sans-serif;
-    --font-family--condensed: 'Roboto Condensed', system-ui, sans-serif;
+    --font-family--heading: 'Thinker', var(--font-family--body);
+    --font-family--accent: 'Gaegu', var(--font-family--body);
     --font-family--mono: 'Inconsolata', ui-monospace, monospace;
-    --font-family--hand-thinker: 'Thinker', system-ui, sans-serif;
-    --font-family--hand-nanum: 'Nanum Pen Script', system-ui, sans-serif;
-    --font-family--hand-grace: 'Covered By Your Grace', system-ui, sans-serif;
 
     /* LAYOUT */
     --layout-content: 100%;
@@ -38,14 +36,17 @@
     --radius-md: 0.375rem;
     --radius-full: 9999px;
 
-    /* TYPOGRAPHY */
+    /* FONT SIZE */
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
     --text-base: 1rem;
-    --text-lg: 1.125rem;
+    --text-lg: 1.25rem;
     --text-xl: 1.5rem;
     --text-2xl: 2rem;
     --text-3xl: 3.25rem;
+    --text-4xl: 4.5rem;
+
+    /* LINE-HEIGHT */
     --leading-p: 1.75;
     --leading-sub: 1.4;
     --leading-heading: 1.12;
@@ -76,11 +77,11 @@ html[data-theme='light'] {
     --text-alt: #232323;
     --text-muted: #9f9f9f;
     --bg: #f5f5f5;
-    --lines: #d4d4d4;
+    --lines: #e3e3e3;
     --bg-trans: #fcfcfcd9;
-    --bg-alt: #eeeeee;
+    --bg-alt: #e3e3e3;
     --bg-muted: #f7f7f7;
-    --border: #dcdcdc;
+    --border: #818181;
     --accent: #8e9867;
     --accent-alt: #9c705b;
     --accent-light: #f8f3ec;
@@ -91,8 +92,8 @@ html[data-theme='dark'] {
     --text: #c7c7c7;
     --text-alt: #ffffff;
     --text-muted: #818181;
-    --bg: #161616;
-    --lines: #252525;
+    --bg: #171717;
+    --lines: #202020;
     --bg-trans: #0e0e0ee0;
     --bg-alt: #212121;
     --bg-muted: #161616;
@@ -144,12 +145,10 @@ html {
     scrollbar-color: var(--text) var(--bg);
     background-color: var(--bg);
     background-image:
-        radial-gradient(var(--lines) 1.5px, transparent 1.5px),
-        radial-gradient(var(--lines) 1.5px, transparent 1.5px);
-    background-size: 30px 30px;
-    background-position:
-        0 0,
-        15px 13px;
+        linear-gradient(var(--lines) 1px, transparent 1px),
+        linear-gradient(to right, var(--lines) 1px, transparent 1px);
+    background-size: 29px 29px;
+    background-position: -1px -1px;
     background-attachment: fixed;
     font-size: 100%;
     scroll-behavior: smooth;
@@ -282,14 +281,13 @@ h6 {
     line-height: var(--leading-heading);
     font-weight: 500;
     text-wrap: pretty;
-    font-family: var(--font-family--condensed);
 }
 
 h1 {
-    font-size: var(--text-3xl);
-    margin-left: var(--offset-margin-text);
-    letter-spacing: -0.125rem;
-    margin-block-end: var(--space-lg);
+    font-size: var(--text-4xl);
+    margin-block-end: var(--space-xl);
+    font-family: var(--font-family--heading);
+    font-weight: 400;
 }
 
 h2 {
@@ -322,6 +320,7 @@ main {
     margin-inline: var(--layout-spacing);
     gap: var(--space-4xl);
     justify-content: center;
+    margin-block: var(--space-3xl);
 }
 
 aside.sidebar {

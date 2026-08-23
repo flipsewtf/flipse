@@ -1,35 +1,28 @@
 /* =========================================
    FONT FACES
 ========================================= */
-
 @font-face {
-    font-family: 'Inter';
+    font-family: 'Gaegu';
     font-style: normal;
-    font-weight: 100 900;
+    font-weight: 300;
     font-display: swap;
-    src: url('/assets/fonts/inter.woff2') format('woff2');
-}
-@font-face {
-    font-family: 'Inter';
-    font-style: italic;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url('/assets/fonts/inter-italic.woff2') format('woff2');
+    src: url(/assets/fonts/gaegu-300.woff2) format('woff2');
 }
 
 @font-face {
-    font-family: 'Roboto Condensed';
+    font-family: 'Gaegu';
     font-style: normal;
-    font-weight: 100 900;
+    font-weight: 400;
     font-display: swap;
-    src: url('/assets/fonts/roboto-condensed.woff2') format('woff2');
+    src: url(/assets/fonts/gaegu-400.woff2) format('woff2');
 }
+
 @font-face {
-    font-family: 'Roboto Condensed';
-    font-style: italic;
-    font-weight: 100 900;
+    font-family: 'Gaegu';
+    font-style: normal;
+    font-weight: 700;
     font-display: swap;
-    src: url('/assets/fonts/roboto-condensed-italic.woff2') format('woff2');
+    src: url(/assets/fonts/gaegu-700.woff2) format('woff2');
 }
 
 @font-face {
@@ -39,6 +32,7 @@
     font-display: swap;
     src: url('/assets/fonts/inconsolata-light.woff2') format('woff2');
 }
+
 @font-face {
     font-family: 'Inconsolata';
     font-style: normal;
@@ -46,6 +40,7 @@
     font-display: swap;
     src: url('/assets/fonts/inconsolata-regular.woff2') format('woff2');
 }
+
 @font-face {
     font-family: 'Inconsolata';
     font-style: normal;
@@ -53,6 +48,7 @@
     font-display: swap;
     src: url('/assets/fonts/inconsolata-medium.woff2') format('woff2');
 }
+
 @font-face {
     font-family: 'Inconsolata';
     font-style: normal;
@@ -62,19 +58,19 @@
 }
 
 @font-face {
-    font-family: 'Covered By Your Grace';
+    font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 100 900;
     font-display: swap;
-    src: url('/assets/fonts/handwriting-covered-by-your-grace.woff2') format('woff2');
+    src: url('/assets/fonts/inter.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'Nanum Pen Script';
-    font-style: normal;
-    font-weight: 400;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 100 900;
     font-display: swap;
-    src: url('/assets/fonts/handwriting-nanum-pen-script.woff2') format('woff2');
+    src: url('/assets/fonts/inter-italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -82,5 +78,5 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(/assets/fonts/handwriting-thinker.woff2) format('woff2');
+    src: url(/assets/fonts/thinker.woff2) format('woff2');
 }

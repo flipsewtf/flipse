@@ -10,11 +10,14 @@ const isActive = (path: string) => current === path;
 
 <div class="sidebar-inner">
     <nav class="main" aria-label="Main">
+        <svg class="paperclip"><use href="#paperclip"></use></svg>
         <ul>
             {
                 navLinks.map((link) => (
                     <li>
-                        <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+                        <a
+                            href={link.href}
+                            aria-current={isActive(link.href) ? 'page' : undefined}>
                             {link.label}
                         </a>
                     </li>
@@ -22,6 +25,10 @@ const isActive = (path: string) => current === path;
             }
         </ul>
     </nav>
+
+    <div>
+        <div class="papertest"></div>
+    </div>
 
     <a
         class="subscribe"
@@ -40,19 +47,34 @@ const isActive = (path: string) => current === path;
         position: sticky;
         top: var(--space-4xl);
         bottom: var(--space-4xl);
+        columns: 2;
+        column-gap: var(--space-4xl);
+    }
+
+    .sidebar-inner > * {
+        break-inside: avoid;
+        margin-bottom: var(--space-4xl);
+    }
+
+    nav.main svg.paperclip {
+        width: 2rem;
+        height: 2rem;
+        z-index: 3;
+        position: absolute;
+        margin-top: -0.625rem;
     }
 
     nav.main ul {
-        display: flex;
+        display: inline-flex;
         flex-direction: column;
         gap: var(--space-sm);
-        font-size: var(--text-sm);
-        font-weight: 520;
-    }
-
-    nav ul li {
-        display: inline-flex;
-        justify-content: flex-end;
+        font-size: var(--text-lg);
+        font-family: var(--font-family--accent);
+        font-weight: 700;
+        background-color: var(--bg-alt);
+        padding: var(--space-xl);
+        border-radius: var(--radius-sm);
+        min-width: 11.25rem;
     }
 
     nav.main ul a {
@@ -62,9 +84,7 @@ const isActive = (path: string) => current === path;
         color: var(--accent);
     }
     nav.main ul a[aria-current='page'] {
-        color: var(--text-muted);
-        margin-right: -0.75rem;
-        rotate: 10deg;
+        /* color: var(--text-muted); */
     }
     a.subscribe {
         display: inline-flex;
