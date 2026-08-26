@@ -93,6 +93,7 @@ html[data-theme='light'] {
     --accent: #8e9867;
     --accent-alt: #9c705b;
     --beige-paper: #ede5d8;
+    --beige-paper-stripe: #ffffff;
 }
 
 html[data-theme='dark'] {
@@ -109,7 +110,8 @@ html[data-theme='dark'] {
     --border: #474747;
     --accent: #929f5f;
     --accent-alt: #6b4d3f;
-    --beige-paper: #675539;
+    --beige-paper: #514432;
+    --beige-paper-stripe: #655642;
 }
 
 /* =========================================

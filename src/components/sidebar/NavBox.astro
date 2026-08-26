@@ -39,6 +39,8 @@ const isActive = (path: string) => current === path;
         z-index: 3;
         position: absolute;
         margin-top: -0.625rem;
+        stroke-width: 1.5;
+        stroke: var(--text);
     }
     nav.main::before {
         rotate: -8deg;
@@ -63,7 +65,11 @@ const isActive = (path: string) => current === path;
             100% 0%,
             0% 0%
         );
-        background-image: linear-gradient(to right, #ffffff 2px, transparent 2px);
+        background-image: linear-gradient(
+            to right,
+            var(--beige-paper-stripe) 2px,
+            transparent 2px
+        );
         background-size: 7px 7px;
         background-position: 4px 0px;
     }
