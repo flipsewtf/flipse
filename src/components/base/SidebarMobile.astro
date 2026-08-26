@@ -1,10 +1,7 @@
 ---
 //SidebarMobile.astro
 import { IconMenu2, IconX } from '@tabler/icons-astro';
-import { navLinks } from '@/assets/data/navLinks';
-
-const current = Astro.url.pathname;
-const isActive = (path: string) => current === path;
+import NavBox from '../sidebar/NavBox.astro';
 ---
 
 <button
@@ -19,25 +16,7 @@ const isActive = (path: string) => current === path;
 
 <aside id="mobile-sidebar">
     <div class="mobile-inner">
-        <nav class="mobile" aria-label="Main">
-            <svg class="paperclip"><use href="#paperclip"></use></svg>
-            <ul>
-                {
-                    navLinks.map((link) => (
-                        <li>
-                            <a
-                                href={link.href}
-                                aria-current={isActive(link.href) ? 'page' : undefined}>
-                                {link.label}
-                            </a>
-                        </li>
-                    ))
-                }
-                <li>
-                    <a href="/rss.xml" aria-label="Subscribe via RSS">RSS</a>
-                </li>
-            </ul>
-        </nav>
+        <NavBox />
     </div>
 </aside>
 
