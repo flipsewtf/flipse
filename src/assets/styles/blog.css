@@ -1,4 +1,27 @@
 /* blog.css */
+/* GRID-ALIGNED TYPOGRAPHY NOTES
+
+For text to visually align to the html background-image grid lines:
+
+1. line-height (in px) must equal background-size (in px).
+   e.g. --leading-p: 1.75 × --text-base: 1rem (16px) = 28px line-height
+        background-size: 28px 28px  -> matches.
+
+2. Inter-paragraph spacing (.flow margin-block-start) must ALSO equal
+   the grid unit — not an arbitrary "1em". 1em = font-size (16px),
+   which is NOT the same as line-height (28px) and will misalign
+   every paragraph after the first.
+
+   --flow-space: 1.75rem;  (= 28px, matches grid, NOT 1em)
+
+3. If background-position has a manual offset (e.g. -1px), factor
+   that in when eyeballing initial alignment-- you're aligning against
+   an already-shifted grid, not a clean 0-start one.
+
+Rule of thumb: any block-level vertical spacing near grid-lined text
+should be a multiple of the grid unit (28px / 1.75rem here) not a
+relative unit like em/rem picked for unrelated reasons.
+*/
 
 /* =========================================
    BLOG LIST blog.astro, [tag].astro
@@ -15,9 +38,7 @@ ul.blog-list {
     flex-direction: column;
     gap: var(--space-md);
 }
-li.blog-title h3 {
-    font-size: var(--text-2xl);
-}
+
 li.blog-title h3 a.prose-link {
     color: var(--text-alt);
 }
@@ -82,7 +103,7 @@ time.updated {
 
 p.entry-desc {
     margin-block: 0 var(--space-xl);
-    border-bottom: 1px solid var(--lines);
+    border-bottom: 1px solid var(--bg-lines);
     padding: 0 var(--space-lg) var(--space-lg);
 }
 
@@ -125,7 +146,7 @@ article.post hr {
     background-image: repeating-linear-gradient(
         to right,
         transparent 0 2px,
-        var(--lines) 2px 5px
+        var(--bg-lines) 2px 5px
     );
 }
 
@@ -232,7 +253,7 @@ section.footnotes::before {
     display: block;
     height: var(--space-1px);
     margin-block: var(--space-xl);
-    border-top: 1px solid var(--lines);
+    border-top: 1px solid var(--bg-lines);
 }
 
 sup a[data-footnote-ref] {

@@ -40,7 +40,33 @@ const isActive = (path: string) => current === path;
         position: absolute;
         margin-top: -0.625rem;
     }
-
+    nav.main::before {
+        rotate: -8deg;
+        content: '';
+        position: absolute;
+        background-color: var(--beige-paper);
+        z-index: 1;
+        border-radius: var(--radius-sm);
+        margin-top: -0.1875rem;
+        height: 3.25rem;
+        width: 5rem;
+        clip-path: polygon(
+            evenodd,
+            0% 100%,
+            13.33% 78.67%,
+            22% 78.33%,
+            27.08% 61.83%,
+            56% 69%,
+            66% 53.5%,
+            81.66% 42.46%,
+            100% 52%,
+            100% 0%,
+            0% 0%
+        );
+        background-image: linear-gradient(to right, #ffffff 2px, transparent 2px);
+        background-size: 7px 7px;
+        background-position: 4px 0px;
+    }
     nav.main ul {
         display: inline-flex;
         flex-direction: column;
