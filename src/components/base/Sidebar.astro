@@ -2,90 +2,23 @@
 //Sidebar.astro
 
 import { IconRss } from '@tabler/icons-astro';
-import { navLinks } from '@/assets/data/navLinks';
-
-const current = Astro.url.pathname;
-const isActive = (path: string) => current === path;
+import NavBox from '../sidebar/NavBox.astro';
 ---
 
-<div class="sidebar-inner">
-    <nav class="main" aria-label="Main">
-        <svg class="paperclip"><use href="#paperclip"></use></svg>
-        <ul>
-            {
-                navLinks.map((link) => (
-                    <li>
-                        <a
-                            href={link.href}
-                            aria-current={isActive(link.href) ? 'page' : undefined}>
-                            {link.label}
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
-    </nav>
+<NavBox />
 
-    <div>
-        <div class="papertest"></div>
-    </div>
-
-    <a
-        class="subscribe"
-        href="/rss.xml"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Subscribe via
+<a
+    class="subscribe"
+    href="/rss.xml"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Subscribe via
             RSS (opens in a new tab)">
-        <IconRss />
-        <span>Subscribe</span>
-    </a>
-</div>
+    <IconRss />
+    <span>Subscribe</span>
+</a>
 
 <style>
-    .sidebar-inner {
-        position: sticky;
-        top: var(--space-4xl);
-        bottom: var(--space-4xl);
-        columns: 2;
-        column-gap: var(--space-4xl);
-    }
-
-    .sidebar-inner > * {
-        break-inside: avoid;
-        margin-bottom: var(--space-4xl);
-    }
-
-    nav.main svg.paperclip {
-        width: 2rem;
-        height: 2rem;
-        z-index: 3;
-        position: absolute;
-        margin-top: -0.625rem;
-    }
-
-    nav.main ul {
-        display: inline-flex;
-        flex-direction: column;
-        gap: var(--space-sm);
-        font-size: var(--text-lg);
-        font-family: var(--font-family--accent);
-        font-weight: 700;
-        background-color: var(--bg-alt);
-        padding: var(--space-xl);
-        border-radius: var(--radius-sm);
-        min-width: 11.25rem;
-    }
-
-    nav.main ul a {
-        color: var(--text);
-    }
-    nav.main ul a:hover {
-        color: var(--accent);
-    }
-    nav.main ul a[aria-current='page'] {
-        /* color: var(--text-muted); */
-    }
     a.subscribe {
         display: inline-flex;
         align-items: center;

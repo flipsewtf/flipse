@@ -1,0 +1,79 @@
+---
+//NavBox.astro
+
+import { navLinks } from '@/assets/data/navLinks';
+
+const current = Astro.url.pathname;
+const isActive = (path: string) => current === path;
+---
+
+<div class="">
+    <nav class="main" aria-label="Main">
+        <svg class="paperclip"><use href="#paperclip"></use></svg>
+        <ul>
+            {
+                navLinks.map((link) => (
+                    <li>
+                        <a
+                            href={link.href}
+                            aria-current={isActive(link.href) ? 'page' : undefined}>
+                            {link.label}
+                            <svg
+                                class="under"
+                                viewBox="0 0 24 3"
+                                preserveAspectRatio="none"
+                                aria-hidden="true">
+                                <use href="#underline" />
+                            </svg>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
+</div>
+<style>
+    nav.main svg.paperclip {
+        width: 2rem;
+        height: 2rem;
+        z-index: 3;
+        position: absolute;
+        margin-top: -0.625rem;
+    }
+
+    nav.main ul {
+        display: inline-flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        font-size: var(--text-lg);
+        font-family: var(--font-family--accent);
+        font-weight: 700;
+        background-color: var(--bg-alt);
+        padding: var(--space-xl);
+        border-radius: var(--radius-sm);
+        min-width: 10rem;
+        align-items: flex-start;
+    }
+
+    nav.main ul a {
+        color: var(--text);
+        position: relative;
+        display: inline-block;
+    }
+    nav.main ul a:hover {
+        color: var(--accent);
+    }
+
+    nav.main .under {
+        display: none;
+        position: absolute;
+        left: 0;
+        bottom: var(--space-1px);
+        width: 100%;
+        height: 3px;
+        rotate: 2deg;
+    }
+    nav.main ul a[aria-current='page'] .under {
+        display: block;
+    }
+</style>

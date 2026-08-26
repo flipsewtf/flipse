@@ -11,7 +11,9 @@ export interface Props {
 
 const { title, description, image } = Astro.props;
 
-const ogImage = image ? new URL(image, Astro.site) : new URL('/social-default.png', Astro.site);
+const ogImage = image
+    ? new URL(image, Astro.site)
+    : new URL('/social-default.png', Astro.site);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -39,7 +41,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta name="generator" content={Astro.generator} />
 <meta name="color-scheme" content="dark light" />
 
-<link rel="alternate" type="application/rss+xml" title="Flipse.wtf RSS Feed" href="/rss.xml" />
+<link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Flipse.wtf RSS Feed"
+    href="/rss.xml"
+/>
 
 {description && <meta name="description" content={description} />}
 

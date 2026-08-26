@@ -12,6 +12,10 @@ export default defineConfig({
         enabled: false,
     },
 
+    server: {
+        host: true,
+    },
+
     vite: {
         resolve: {
             alias: {

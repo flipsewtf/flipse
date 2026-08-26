@@ -20,7 +20,11 @@ const {
 
 <html lang="en">
     <head>
-        <BaseHead title={seoTitle ?? pageTitle} description={pageDescription} image={pageImage} />
+        <BaseHead
+            title={seoTitle ?? pageTitle}
+            description={pageDescription}
+            image={pageImage}
+        />
     </head>
     <body>
         <Sprite />
@@ -28,14 +32,17 @@ const {
 
         <ThemeToggle />
 
+        <div class="margin-line"></div>
         <main class:list={[mainClass]}>
+            <aside class:list={['sidebar', { '': mainClass === 'homepage' }]}>
+                <div class="sidebar-inner">
+                    <Sidebar />
+                </div>
+            </aside>
             <section class="main-content">
                 {!hasOwnTitle && pageTitle && <h1>{pageTitle}</h1>}
                 <slot />
             </section>
-            <aside class:list={['sidebar', { '': mainClass === 'homepage' }]}>
-                <Sidebar />
-            </aside>
         </main>
     </body>
 </html>

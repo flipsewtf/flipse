@@ -39,34 +39,13 @@ article.post figure.feature img {
     aspect-ratio: 6/4;
 }
 article.post figure img {
-    width: calc(var(--layout-section) + var(--layout-spacing) * 2);
+    width: 100%;
     height: auto;
     margin-block-start: var(--space-xl);
     overflow: hidden;
     border-radius: var(--radius-img);
-    margin-inline: calc(-1 * var(--layout-spacing));
-    box-shadow: var(--box-shadow-photo);
     max-width: unset;
     object-fit: cover;
-    transition: transform var(--transition-ease);
-    transform-style: preserve-3d;
-    will-change: transform;
-}
-
-@media (width > 48rem) {
-    article.post figure img {
-        width: calc(var(--layout-section) + var(--space-lg) * 2);
-    }
-
-    article.post figure img:hover {
-        transform: perspective(250px) rotateX(0) rotateY(-1deg);
-    }
-
-    article.post figure img:active {
-        transform: perspective(250px) rotateX(0) rotateY(0);
-
-        transition-duration: 0.2s;
-    }
 }
 
 figure.post-feature-figure img {
@@ -143,7 +122,11 @@ article.post hr {
     height: var(--space-1px);
     margin-block: var(--space-2xl);
     background-size: auto 100%;
-    background-image: repeating-linear-gradient(to right, transparent 0 2px, var(--lines) 2px 5px);
+    background-image: repeating-linear-gradient(
+        to right,
+        transparent 0 2px,
+        var(--lines) 2px 5px
+    );
 }
 
 /* --------------------  BLOCKQUOTE */

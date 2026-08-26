@@ -14,7 +14,8 @@ const latestPosts = posts
 const pageTitle = `Flipse.wtf`;
 ---
 
-<BaseLayout hasOwnTitle={false} pageTitle={pageTitle} mainClass="homepage">
+<BaseLayout hasOwnTitle={true} pageTitle={pageTitle} mainClass="homepage">
+    <h1>Flipse<span>.wtf</span></h1>
     <div class="listened">
         <IconHeadphones aria-hidden="true" />
 
@@ -58,6 +59,9 @@ const pageTitle = `Flipse.wtf`;
     </section>
 </BaseLayout>
 <style>
+    h1 span {
+        display: inline-block;
+    }
     .listened {
         margin-left: var(--space-2px);
         font-weight: 480;

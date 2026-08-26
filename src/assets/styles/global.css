@@ -12,6 +12,7 @@
     /* LAYOUT */
     --layout-content: 100%;
     --layout-spacing: var(--space-xl);
+    --layout-red-margin: calc(var(--layout-spacing) - var(--space-xs));
     --radius-img: 0;
 
     /* SVG ICONS */
@@ -64,6 +65,7 @@
     :root {
         --layout-content: 36.25rem;
         --radius-img: var(--radius-md);
+        --layout-red-margin: 5rem;
     }
 }
 
@@ -76,10 +78,11 @@ html[data-theme='light'] {
     --text: #464646;
     --text-alt: #232323;
     --text-muted: #9f9f9f;
-    --bg: #f5f5f5;
-    --lines: #e3e3e3;
+    --bg: #f0f0f0;
+    --lines: #e2e2e2;
+    --red-line: #ffb2b287;
     --bg-trans: #fcfcfcd9;
-    --bg-alt: #e3e3e3;
+    --bg-alt: #f9f9f9;
     --bg-muted: #f7f7f7;
     --border: #818181;
     --accent: #8e9867;
@@ -94,6 +97,7 @@ html[data-theme='dark'] {
     --text-muted: #818181;
     --bg: #171717;
     --lines: #202020;
+    --red-line: #8d292945;
     --bg-trans: #0e0e0ee0;
     --bg-alt: #212121;
     --bg-muted: #161616;
@@ -144,11 +148,9 @@ img {
 html {
     scrollbar-color: var(--text) var(--bg);
     background-color: var(--bg);
-    background-image:
-        linear-gradient(var(--lines) 1px, transparent 1px),
-        linear-gradient(to right, var(--lines) 1px, transparent 1px);
-    background-size: 29px 29px;
-    background-position: -1px -1px;
+    background-image: linear-gradient(var(--lines) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: 0px -1px;
     background-attachment: fixed;
     font-size: 100%;
     scroll-behavior: smooth;
@@ -314,36 +316,61 @@ p {
 /* =========================================
    LAYOUT
 ========================================= */
-
+.margin-line {
+    pointer-events: none;
+    width: var(--space-1px);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: var(--layout-red-margin);
+    background: var(--red-line);
+    z-index: -2;
+    box-shadow: 0px 0px 2px 0px var(--red-line);
+}
+/* test margin as ::before on main and abolute position it idk?? */
 main {
     display: grid;
     margin-inline: var(--layout-spacing);
-    gap: var(--space-4xl);
+    gap: var(--space-3xl);
     justify-content: center;
     margin-block: var(--space-3xl);
+    grid-template-columns: var(--layout-content);
 }
 
 aside.sidebar {
     display: none;
 }
+
+.sidebar-inner {
+    position: sticky;
+    top: var(--space-3xl);
+    bottom: var(--space-3xl);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    justify-items: start;
+    align-items: center;
+}
+
 section.main-content {
     width: 100%;
 }
 
-@media (width > 48rem) {
-    main {
-        grid-template-columns: var(--layout-content);
-    }
-}
 @media (width > 64rem) {
     main {
-        grid-template-columns: clamp(33.75rem, 45vw, var(--layout-content)) auto;
+        grid-template-columns: auto clamp(31.25rem, 45vw, var(--layout-content));
         max-width: 90rem;
         justify-content: normal;
     }
 
     aside.sidebar {
         display: block;
+        padding-left: var(--layout-red-margin);
+    }
+}
+@media (width > 80rem) {
+    .sidebar-inner {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
