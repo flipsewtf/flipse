@@ -5,4 +5,5 @@ export const navLinks = [
     { href: '/blog/', label: 'Weblog' },
     { href: '/now/', label: 'Now' },
     { href: '/uses/', label: 'Uses' },
+    { href: '/colophon/', label: 'Colophon' },
 ];

@@ -1,46 +1,10 @@
 ---
 //Sidebar.astro
 
-import { IconRss } from '@tabler/icons-astro';
 import NavBox from '../sidebar/NavBox.astro';
+import RssBox from '../sidebar/RssBox.astro';
 ---
 
 <NavBox />
 
-<a
-    class="subscribe"
-    href="/rss.xml"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Subscribe via
-            RSS (opens in a new tab)">
-    <IconRss />
-    <span>Subscribe</span>
-</a>
-
-<style>
-    a.subscribe {
-        display: inline-flex;
-        align-items: center;
-        gap: var(--space-xs);
-        margin-block: var(--space-lg);
-        text-align: center;
-        background-color: var(--bg-alt);
-        padding: var(--space-xs);
-        border-radius: var(--radius-sm);
-        font-weight: 600;
-        font-size: var(--text-sm);
-        letter-spacing: 0;
-        color: var(--text-alt);
-        box-shadow: var(--box-shadow-content);
-    }
-    a.subscribe:hover {
-        background-color: var(--accent);
-        color: var(--beige-paper);
-    }
-    a.subscribe svg {
-        stroke-width: 2;
-        width: var(--space-md);
-        height: var(--space-md);
-    }
-</style>
+<RssBox />

@@ -122,7 +122,6 @@ ul.tags a {
     display: inline-flex;
     padding: var(--space-4px) var(--space-xs);
     border-radius: var(--radius-full);
-    background-color: var(--bg-muted);
 }
 ul.tags a:hover {
     border-color: inherit;
@@ -156,7 +155,7 @@ article.post blockquote {
     padding: var(--space-xl);
     font-style: italic;
     overflow: hidden;
-    background-color: var(--bg-muted);
+
     color: var(--text-muted);
     border-left: var(--space-xs) solid var(--accent);
 }

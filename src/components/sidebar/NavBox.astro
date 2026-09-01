@@ -9,7 +9,7 @@ const isActive = (path: string) => current === path;
 
 <div class="">
     <nav class="main" aria-label="Main">
-        <svg class="paperclip"><use href="#paperclip"></use></svg>
+        <!-- <svg class="paperclip"><use href="#paperclip"></use></svg> -->
         <ul>
             {
                 navLinks.map((link) => (
@@ -33,45 +33,46 @@ const isActive = (path: string) => current === path;
     </nav>
 </div>
 <style>
+    nav.main {
+        position: relative;
+    }
     nav.main svg.paperclip {
         width: 2rem;
         height: 2rem;
         z-index: 3;
         position: absolute;
-        margin-top: -0.625rem;
-        stroke-width: 1.5;
+        margin-top: -0.8125rem;
+        right: 0;
+        stroke-width: 1.5px;
         stroke: var(--text);
+        rotate: 4deg;
     }
     nav.main::before {
-        rotate: -8deg;
+        rotate: 27deg;
         content: '';
         position: absolute;
-        background-color: var(--beige-paper);
         z-index: 1;
         border-radius: var(--radius-sm);
-        margin-top: -0.1875rem;
-        height: 3.25rem;
-        width: 5rem;
+        margin-top: -0.125rem;
+        right: -1.75rem;
+        height: 2rem;
+        width: 7rem;
+        background-color: var(--tape);
         clip-path: polygon(
-            evenodd,
-            0% 100%,
-            13.33% 78.67%,
-            22% 78.33%,
-            27.08% 61.83%,
-            56% 69%,
-            66% 53.5%,
-            81.66% 42.46%,
-            100% 52%,
-            100% 0%,
-            0% 0%
+            5% 0%,
+            95% 0%,
+            100% 23%,
+            92% 43%,
+            95% 75%,
+            91% 86%,
+            93% 100%,
+            2% 100%,
+            5% 79%,
+            3% 55%,
+            8% 38%,
+            1% 21%,
+            3% 10%
         );
-        background-image: linear-gradient(
-            to right,
-            var(--beige-paper-stripe) 2px,
-            transparent 2px
-        );
-        background-size: 7px 7px;
-        background-position: 4px 0px;
     }
     nav.main ul {
         display: inline-flex;
@@ -81,13 +82,13 @@ const isActive = (path: string) => current === path;
         font-family: var(--font-family--accent);
         font-weight: 700;
         background-color: var(--bg-alt);
-        padding: var(--space-xl);
+        padding: var(--space-lg);
         border-radius: var(--radius-sm);
-        min-width: 10rem;
-        align-items: flex-start;
+        min-width: 11rem;
+        box-shadow: 0px 0px 11px 0 var(--box-shadow);
     }
 
-    nav.main ul a {
+    nav.main a {
         color: var(--text);
         position: relative;
         display: inline-block;
