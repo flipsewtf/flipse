@@ -1,60 +1,13 @@
 /* =========================================
    FONT FACES
 ========================================= */
-@font-face {
-    font-family: 'Gaegu';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: url(/assets/fonts/gaegu-300.woff2) format('woff2');
-}
-
-@font-face {
-    font-family: 'Gaegu';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/assets/fonts/gaegu-400.woff2) format('woff2');
-}
-
-@font-face {
-    font-family: 'Gaegu';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url(/assets/fonts/gaegu-700.woff2) format('woff2');
-}
 
 @font-face {
     font-family: 'Inconsolata';
     font-style: normal;
-    font-weight: 300;
+    font-weight: 100 900;
     font-display: swap;
-    src: url('/assets/fonts/inconsolata-light.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Inconsolata';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/assets/fonts/inconsolata-regular.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Inconsolata';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url('/assets/fonts/inconsolata-medium.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Inconsolata';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url('/assets/fonts/inconsolata-semibold.woff2') format('woff2');
+    src: url('/assets/fonts/inconsolata.woff2') format('woff2');
 }
 
 @font-face {
@@ -74,9 +27,32 @@
 }
 
 @font-face {
-    font-family: 'Thinker';
+    font-family: 'Besley';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 200 900;
     font-display: swap;
-    src: url(/assets/fonts/thinker.woff2) format('woff2');
+    src: url('/assets/fonts/besley-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Besley';
+    font-style: italic;
+    font-weight: 200 900;
+    font-display: swap;
+    src: url('/assets/fonts/besley-italic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/assets/fonts/roboto-condensed.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Roboto Condensed';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/assets/fonts/roboto-condensed-italic.woff2') format('woff2');
 }

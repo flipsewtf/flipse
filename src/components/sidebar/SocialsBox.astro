@@ -1,0 +1,74 @@
+---
+//SocialsBox.astro
+import { socialLinks } from '@/assets/data/socialLinks';
+import { IconBrandBluesky } from '@tabler/icons-astro';
+import { IconBrandDiscord } from '@tabler/icons-astro';
+import { IconBrandGithub } from '@tabler/icons-astro';
+import { IconBrandInstagram } from '@tabler/icons-astro';
+
+const icons = {
+    bluesky: IconBrandBluesky,
+    discord: IconBrandDiscord,
+    github: IconBrandGithub,
+    instagram: IconBrandInstagram,
+};
+
+const { class: className } = Astro.props;
+---
+
+<nav aria-labelledby="find-me-label" class={className}>
+    <span class="sr-only" id="find-me-label">Find me elsewhere</span>
+    <ul>
+        {
+            socialLinks.map((link) => {
+                const Icon = icons[link.icon];
+                return (
+                    <li>
+                        <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${link.label} (opens in a new tab)`}>
+                            <Icon aria-hidden="true" />
+                        </a>
+                    </li>
+                );
+            })
+        }
+    </ul>
+</nav>
+
+<style>
+    nav::before {
+        content: '';
+        display: block;
+        width: 3rem;
+        height: var(--space-1px);
+        background-color: var(--bg-lines);
+        margin-left: auto;
+        margin-block: var(--space-xl) var(--space-md);
+    }
+    ul {
+        display: flex;
+        gap: var(--space-xs);
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    li,
+    a {
+        display: inline-flex;
+    }
+    a:hover {
+        color: var(--accent);
+    }
+    a svg {
+        stroke-width: 1.75;
+        height: 1.25rem;
+        width: 1.25rem;
+    }
+    nav.mobile-social ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+</style>

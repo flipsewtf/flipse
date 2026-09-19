@@ -16,6 +16,12 @@ export default defineConfig({
         host: true,
     },
 
+    markdown: {
+        shikiConfig: {
+            theme: 'gruvbox-dark-hard',
+        },
+    },
+
     vite: {
         resolve: {
             alias: {

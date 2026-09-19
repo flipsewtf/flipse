@@ -2,42 +2,59 @@
 //RssBox.astro
 
 import { IconRss } from '@tabler/icons-astro';
+const { class: className } = Astro.props;
 ---
 
 <a
-    class="subscribe"
+    class:list={['subscribe', className]}
     href="/rss.xml"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="(opens in a new tab)">
-    <!-- <span class="rss-badge"><IconRss /></span> -->
-    <span class="rss-text">Subscribe via RSS</span>
-    <svg class="rss-badge"><use href="#rss-badge"></use></svg>
+    aria-label="Subscribe via RSS (opens in a new tab)">
+    <!-- <svg class="rss-bg"><use href="#rss-badge"></use></svg> -->
+    <div class="rss-inner">
+        <IconRss class="rss-icon" aria-hidden="true" />
+        <div class="rss-text">RSS</div>
+    </div>
 </a>
 
 <style>
     a.subscribe {
-        /* display: inline-flex; */
+        position: relative;
         align-items: center;
-        gap: var(--space-xs);
-        margin-block: var(--space-lg);
-        text-align: center;
-        background-color: var(--bg-alt);
-        padding: var(--space-xs);
-        border-radius: var(--radius-sm);
-        font-weight: 600;
-        font-size: var(--text-sm);
-        letter-spacing: 0;
-        color: var(--text-alt);
-        box-shadow: var(--box-shadow-content);
+        color: var(--bg);
+        background-
+        border-radius: var(--radius-full);
+        border: var(--space-4px) solid var(--text-bold);
+        width: 5rem;
+        height: 5rem;
     }
     a.subscribe:hover {
-        background-color: var(--accent);
-        color: var(--beige-paper);
+        color: var(--accent);
     }
-    a.subscribe svg {
-        stroke-width: 2;
-        width: 12rem;
-        height: 12rem;
+
+    .rss-inner {
+        text-align: center;
+        border-radius: var(--radius-full);
+        border: var(--space-2px) dashed var(--bg);
+        aspect-ratio: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-3px);
+    }
+
+    .rss-icon {
+        color: inherit;
+        stroke-width: 2.5;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+    .rss-text {
+        font-family: var(--font-family--mono);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        letter-spacing: 0.03125rem;
     }
 </style>

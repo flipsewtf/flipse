@@ -2,6 +2,14 @@
 const fixEncoding = (s) =>
     new TextDecoder().decode(new Uint8Array([...s].map((c) => c.charCodeAt(0))));
 
+function truncateWords(text, maxWords) {
+    const words = text.split(' ');
+    if (words.length <= maxWords) {
+        return text;
+    }
+    return words.slice(0, maxWords).join(' ') + '…';
+}
+
 (async () => {
     const trackLink = document.querySelector('.listened .track');
     if (!trackLink) return;
@@ -12,7 +20,10 @@ const fixEncoding = (s) =>
         );
         const t = (await res.json()).payload.listens?.[0]?.track_metadata;
         if (t) {
-            trackLink.textContent = `${t.track_name} — ${t.artist_name}`;
+            trackLink.textContent = truncateWords(
+                `${t.track_name} — ${t.artist_name}`,
+                10,
+            );
         }
     } catch (e) {
         console.error('Failed to fetch ListenBrainz data:', e);

@@ -7,20 +7,19 @@ import { z } from 'astro/zod';
 // BLOG COLLECTION
 const blog = defineCollection({
     loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/blog' }),
-    schema: ({ image }) =>
-        z.object({
-            title: z.string(),
-            pubDate: z.date(),
-            description: z.string(),
-            image: z
-                .object({
-                    url: image(),
-                    alt: z.string(),
-                })
-                .optional(),
-            tags: z.array(z.string()),
-            lastUpdated: z.date().optional(),
-        }),
+    schema: z.object({
+        title: z.string(),
+        pubDate: z.date(),
+        description: z.string(),
+        image: z
+            .object({
+                url: z.string(),
+                alt: z.string(),
+            })
+            .optional(),
+        tags: z.array(z.string()),
+        lastUpdated: z.date().optional(),
+    }),
 });
 
 const log = defineCollection({

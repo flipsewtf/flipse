@@ -1,8 +1,8 @@
 ---
 //index.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import ExternalLink from '@/components/base/ExternalLink.astro';
-import { IconHeadphones } from '@tabler/icons-astro';
+import Scrobble from '@/components/other/Scrobble.astro';
+import Intro from '@/components/other/Intro.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 const MAX_POSTS = 5;
@@ -11,135 +11,10 @@ const posts: CollectionEntry<'blog'>[] = await getCollection('blog');
 const latestPosts = posts
     .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
     .slice(0, MAX_POSTS);
-const pageTitle = `Flipse.wtf`;
+const pageTitle = ``;
 ---
 
 <BaseLayout hasOwnTitle={true} pageTitle={pageTitle} mainClass="homepage">
-    <h1>Flipse<span>.wtf</span></h1>
-    <div class="listened">
-        <IconHeadphones aria-hidden="true" />
-
-        <a
-            class="track"
-            href="https://listenbrainz.org/user/flipse"
-            aria-label="See my latest scrobbled songs on my ListenBrainz profile (opens in new tab)"
-            target="_blank"
-            rel="noopener noreferrer">
-            Loading last played track…
-        </a>
-    </div>
-
-    <section class="blog">
-        <h2 class="sr-only">Latest posts</h2>
-        <ul class="post-list">
-            {
-                latestPosts.map((post) => (
-                    <li>
-                        <time datetime={post.data.pubDate.toISOString()}>
-                            {new Intl.DateTimeFormat('en-GB', {
-                                day: '2-digit',
-                                month: '2-digit',
-                                year: '2-digit',
-                            })
-                                .formatToParts(post.data.pubDate)
-                                .filter((part) => part.type !== 'literal')
-                                .map((part) => part.value)
-                                .join('.')}
-                        </time>
-                        <div>
-                            <h3>
-                                <a href={`/blog/${post.id}`}>{post.data.title}</a>
-                            </h3>
-                            <p class="desc">{post.data.description}</p>
-                        </div>
-                    </li>
-                ))
-            }
-        </ul>
-    </section>
+    <Scrobble />
+    <Intro />
 </BaseLayout>
-<style>
-    h1 span {
-        display: inline-block;
-    }
-    .listened {
-        margin-left: var(--space-2px);
-        font-weight: 480;
-    }
-    .listened svg {
-        height: 1.25rem;
-        width: 1.25rem;
-        stroke-width: 2;
-        stroke: var(--accent);
-        vertical-align: bottom;
-        margin-right: var(--space-4px);
-    }
-    a.track {
-        line-height: var(--leading-heading);
-        font-family: var(--font-family--mono);
-        color: var(--text-muted);
-        font-size: var(--text-sm);
-    }
-    a.track:hover {
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: var(--underline-offset);
-        text-decoration-thickness: var(--underline-thickness);
-    }
-
-    section.blog {
-        margin-block-start: var(--space-lg);
-    }
-    ul.post-list {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-lg);
-    }
-    ul.post-list li {
-        display: grid;
-        grid-template-columns: 1fr;
-        align-items: start;
-        gap: var(--space-md);
-        justify-items: start;
-    }
-    ul.post-list li time {
-        font-family: var(--font-family--mono);
-        margin-top: var(--space-3px);
-        font-size: var(--text-sm);
-        font-weight: 500;
-    }
-    ul.post-list li h3 {
-        font-weight: 630;
-    }
-    ul.post-list li h3 a {
-        text-decoration: underline;
-        text-decoration-color: var(--text);
-        color: var(--text-alt);
-        overflow-wrap: anywhere;
-        text-decoration-skip-ink: auto;
-        text-decoration-style: dotted;
-        text-underline-offset: var(--underline-offset);
-        text-decoration-thickness: var(--underline-thickness);
-    }
-    ul.post-list li h3 a:hover {
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: var(--underline-offset);
-        text-decoration-thickness: var(--underline-thickness);
-    }
-    ul.post-list li p.desc {
-        margin-top: var(--space-4px);
-        font-size: var(--text-sm);
-    }
-
-    @media (width > 48rem) {
-        ul.post-list {
-            gap: var(--space-md);
-        }
-        ul.post-list li {
-            grid-template-columns: auto 1fr;
-        }
-    }
-</style>
-
-<script src="/scripts/scrobble.js" defer></script>

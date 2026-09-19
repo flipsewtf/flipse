@@ -1,7 +1,7 @@
 ---
 title: 'Markdown Syntax'
 pubDate: 2026-08-02T19:20:00+02:00
-lastUpdated: 2026-08-04T15:45:00+02:00
+lastUpdated: 2026-09-08T13:45:00+02:00
 description: 'A memory aid for my brain that refuses to retain syntax, at times.'
 author: 'Flipse'
 # image:
@@ -29,7 +29,7 @@ import Figure from '../../components/base/Figure.astro';
 
 This is a paragraph. It exists to contain excuses for why this post exists.
 
-This text means nothing and exists solely to demonstrate that Markdown paragraphs do not care about your intentions or feelings.
+This text means nothing and exists solely to demonstrate that Markdown paragraphs do not care about your feelings.
 
 If you leave a blank line, Markdown considers it a new paragraph.
 If you forget the blank line, Markdown silently does not care.  
@@ -55,35 +55,19 @@ if you need a `<br   />` make two spacings after.
 
 If the image doesn't load, at least the alt text will politely explain what _should_ have been there. For blog posts use `/assets` inside `/public` for images.
 
-If the image doesn’t load, at least the alt text will politely explain what _should_ have been there. For blog posts use /public folder for images.
-
 ## Blockquote
 
-The fancy blockquote. With a citation, within a `cite` element.
-
 ### Syntax
 
 ```markdown
-> This sounds important.
 > **Note** that you can use _Markdown syntax_ within a blockquote.
-```
-
-### Output
-
-> This sounds important.
-> **Note** that you can use _Markdown syntax_ within a blockquote.
-
-### Blockquote with attribution
-
-### Syntax
-
-```markdown
 > I think more people need to make out.<br  />
 > — <cite>Josh Homme [^1]</cite>
 ```
 
 ### Output
 
+> **Note** that you can use _Markdown syntax_ within a blockquote.
 > I think more people need to make out.<br  />
 > — <cite>Josh Homme [^1]</cite>
 
@@ -108,21 +92,6 @@ Tables are annoying to maintain.. I will without a doubt not ever need this. unl
 ## Code Blocks
 
 Markdown supports fenced code blocks. You _will_ forget how many backticks are needed.
-
-Strikethrough (GFM):
-
-~~This was a bad idea~~
-
-Task lists (GFM):
-
-- [x] Look at me checking all the boxes
-- [ ] just kidding
-
-links:
-
-[https://example.com](https://example.com)
-
-[email@example.com](mailto:email@example.com)
 
 ### Syntax Example
 

@@ -63,17 +63,22 @@ function timeAgo(date: Date) {
                     <time
                         class="updated"
                         datetime={frontmatter.lastUpdated.toISOString()}
-                        aria-label={`Updated: ${frontmatter.lastUpdated.toLocaleDateString('en-GB', {
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric',
-                        })}`}>
+                        aria-label={`Updated: ${frontmatter.lastUpdated.toLocaleDateString(
+                            'en-GB',
+                            {
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric',
+                            },
+                        )}`}>
                         {' + '} updated {timeAgo(frontmatter.lastUpdated)}
                     </time>
                 )
             }
 
-            <div class="reading" aria-label={`Estimated reading time: ${readingTime} minutes`}>
+            <div
+                class="reading"
+                aria-label={`Estimated reading time: ${readingTime} minutes`}>
                 {' / '}{readingTime} min read
             </div>
         </div>
@@ -95,7 +100,7 @@ function timeAgo(date: Date) {
                 <figure class="feature">
                     <img
                         class="post-feature lbox"
-                        src={frontmatter.image.url.src}
+                        src={frontmatter.image.url}
                         alt={frontmatter.image.alt ?? ''}
                     />
                 </figure>

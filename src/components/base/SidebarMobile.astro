@@ -2,6 +2,8 @@
 //SidebarMobile.astro
 import { IconMenu2, IconX } from '@tabler/icons-astro';
 import NavBox from '../sidebar/NavBox.astro';
+
+import SocialsBox from '../sidebar/SocialsBox.astro';
 ---
 
 <button
@@ -17,15 +19,15 @@ import NavBox from '../sidebar/NavBox.astro';
 <aside id="mobile-sidebar">
     <div class="mobile-inner">
         <NavBox />
+        <SocialsBox class="mobile-social" />
     </div>
 </aside>
 
 <style>
     .nav-toggle {
-        color: var(--text-alt);
         position: fixed;
         top: calc(var(--space-lg) + var(--svg-size) + var(--space-sm));
-        right: var(--layout-spacing);
+        right: var(--space-lg);
         z-index: 3;
     }
 
@@ -48,19 +50,17 @@ import NavBox from '../sidebar/NavBox.astro';
     #mobile-sidebar {
         position: fixed;
         animation: none;
-        top: 0;
-        left: var(--layout-grid-lines);
+        inset: 0;
         height: 100%;
         max-height: 100dvh;
         width: 100%;
-        max-width: calc(100dvw - var(--layout-grid-lines) * 2);
         overflow-y: auto;
-        background-color: var(--bg);
+        background-color: var(--bg-trans);
+        backdrop-filter: blur(11px);
         z-index: 2;
         opacity: 0;
         pointer-events: none;
         visibility: hidden;
-        display: flex;
     }
 
     body[data-nav-open='true'] #mobile-sidebar {
@@ -78,9 +78,9 @@ import NavBox from '../sidebar/NavBox.astro';
 
     .mobile-inner {
         margin-block: auto;
-        margin: auto;
         text-align: center;
         padding: var(--space-xl);
+        padding-right: calc(var(--space-lg) + var(--svg-size) + var(--space-sm) * 2);
     }
 
     nav.mobile svg.paperclip {
@@ -96,7 +96,6 @@ import NavBox from '../sidebar/NavBox.astro';
         flex-direction: column;
         gap: var(--space-sm);
         font-size: var(--text-lg);
-        font-family: var(--font-family--accent);
         font-weight: 700;
         background-color: var(--bg-alt);
         padding: var(--space-xl);
@@ -112,16 +111,6 @@ import NavBox from '../sidebar/NavBox.astro';
     }
     nav.mobile ul a[aria-current='page'] {
         color: var(--text-muted);
-    }
-
-    @media (width < 28rem) {
-        .mobile-inner {
-            margin: auto 0 0 auto;
-            text-align: right;
-        }
-        nav.mobile ul {
-            align-items: flex-end;
-        }
     }
 </style>
 <script>

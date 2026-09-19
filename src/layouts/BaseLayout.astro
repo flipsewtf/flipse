@@ -28,11 +28,11 @@ const {
     </head>
     <body>
         <Sprite />
+        <ThemeToggle />
         <SidebarMobile />
 
-        <ThemeToggle />
-
-        <div class="margin-line"></div>
+        <!-- <div class="lines left"></div>
+        <div class="lines right"></div> -->
         <main class:list={[mainClass]}>
             <aside class:list={['sidebar', { '': mainClass === 'homepage' }]}>
                 <div class="sidebar-inner">
