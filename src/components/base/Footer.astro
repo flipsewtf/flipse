@@ -1,0 +1,121 @@
+---
+//Footer.astro
+
+import { navLinks } from '@/assets/data/navLinks';
+import { socialLinks } from '@/assets/data/socialLinks';
+import { IconBrandBluesky } from '@tabler/icons-astro';
+import { IconBrandDiscord } from '@tabler/icons-astro';
+import { IconBrandGithub } from '@tabler/icons-astro';
+import { IconBrandInstagram } from '@tabler/icons-astro';
+
+const icons = {
+    bluesky: IconBrandBluesky,
+    discord: IconBrandDiscord,
+    github: IconBrandGithub,
+    instagram: IconBrandInstagram,
+};
+
+const { class: className } = Astro.props;
+const current = Astro.url.pathname;
+const isActive = (path: string) => current === path;
+---
+
+<footer>
+    <div class="inner">
+        <nav class="main" aria-label="Footer links">
+            <ul>
+                {
+                    navLinks.map((link) => (
+                        <li>
+                            <a
+                                href={link.href}
+                                aria-current={isActive(link.href) ? 'page' : undefined}>
+                                {link.label}
+                            </a>
+                        </li>
+                    ))
+                }
+                <li>
+                    <a
+                        href="/rss.xml"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Subscribe via RSS (opens in a new tab)">
+                        RSS
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav aria-labelledby="find-me-label">
+            <span class="sr-only" id="find-me-label">Find me elsewhere</span>
+            <ul class="findme">
+                {
+                    socialLinks.map((link) => {
+                        const Icon = icons[link.icon];
+                        return (
+                            <li>
+                                <a
+                                    href={link.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={`${link.label} (opens in a new tab)`}>
+                                    <Icon aria-hidden="true" />
+                                </a>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+        </nav>
+    </div>
+</footer>
+
+<style>
+    footer {
+        width: 100%;
+        padding-block: var(--space-2xl) var(--space-xl);
+        background-image: repeating-linear-gradient(
+            to left,
+            var(--bg-lines) 0 3px,
+            transparent 3px 5px
+        );
+        background-size: auto 1px;
+        background-position: top;
+        background-repeat: no-repeat;
+    }
+    .inner {
+        max-width: var(--layout-content);
+        margin-inline: auto;
+        padding-inline: var(--layout-spacing);
+        display: flex;
+        justify-content: space-between;
+        gap: var(--space-2xl);
+    }
+    nav.main ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-sm) var(--space-xl);
+        align-items: flex-end;
+        font-weight: 560;
+        text-transform: capitalize;
+    }
+
+    nav.main ul a:hover {
+        color: var(--accent);
+    }
+
+    nav.main ul a[aria-current='page'] {
+        /* display: block; */
+    }
+    ul.findme {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+    }
+    @media (max-width: 28rem) {
+        .inner {
+            flex-direction: column;
+        }
+    }
+</style>

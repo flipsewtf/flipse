@@ -27,9 +27,6 @@ article.post {
 
     /* IMAGES */
 
-    figure.feature img {
-        aspect-ratio: 6/4;
-    }
     figure.feature,
     figure.image-wrapper {
         margin-inline: var(--offset-margin-img);
@@ -47,6 +44,7 @@ article.post {
         border-radius: var(--radius-img);
         max-width: unset;
         object-fit: cover;
+        aspect-ratio: 6/4;
     }
 
     figure.feature img {
@@ -66,7 +64,6 @@ article.post {
     .entry-meta {
         font-family: var(--font-family--mono);
         font-size: var(--text-xs);
-        margin-left: var(--offset-margin-text);
     }
 
     time.updated {
@@ -80,9 +77,7 @@ article.post {
     }
 
     p.entry-desc {
-        margin-block: var(--space-md) var(--space-xl);
-        border-bottom: 1px solid var(--bg-lines);
-        padding: 0 var(--space-lg) var(--space-lg);
+        color: var(--text-muted);
     }
 
     ul.tags {
@@ -92,7 +87,6 @@ article.post {
         margin-top: var(--space-md);
         font-size: var(--text-xs);
         font-family: var(--font-family--mono);
-        margin-left: var(--offset-margin-text);
     }
 
     ul.tags a {
@@ -200,7 +194,7 @@ article.post {
     ul:not(.tags) li::marker {
         color: var(--text-muted);
         content: '–';
-        transition: color var(--transition--smooth);
+        transition: color var(--transition-smooth);
     }
 
     ol {

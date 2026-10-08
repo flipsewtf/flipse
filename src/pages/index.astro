@@ -15,6 +15,67 @@ const pageTitle = ``;
 ---
 
 <BaseLayout hasOwnTitle={true} pageTitle={pageTitle} mainClass="homepage">
-    <Scrobble />
     <Intro />
+    <Scrobble />
+    <hr />
+    <section>
+        <h2>Latest words</h2>
+        <ul class="post-list">
+            {
+                latestPosts.map((post) => (
+                    <li>
+                        <time datetime={post.data.pubDate.toISOString()}>
+                            {new Intl.DateTimeFormat('en-GB', {
+                                day: '2-digit',
+                                month: '2-digit',
+                                year: '2-digit',
+                            })
+                                .formatToParts(post.data.pubDate)
+                                .filter((part) => part.type !== 'literal')
+                                .map((part) => part.value)
+                                .join('.')}
+                        </time>
+                        <div>
+                            <h3>
+                                <a class="prose-link" href={`/blog/${post.id}`}>
+                                    {post.data.title}
+                                </a>
+                            </h3>
+                            <p class="desc">{post.data.description}</p>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
 </BaseLayout>
+
+<style>
+    h2 {
+        font-size: var(--text-h1);
+        margin-block-end: var(--space-xl);
+        text-wrap: balance;
+        margin-inline-start: var(--offset-margin-text);
+        letter-spacing: -0.125rem;
+        font-weight: 460;
+    }
+
+    ul.post-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+    ul.post-list time {
+        display: block;
+        font-family: var(--font-family--mono);
+        margin-bottom: var(--space-sm);
+        font-size: var(--text-sm);
+        font-weight: 500;
+    }
+    ul.post-list p {
+        margin-top: var(--space-4px);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        font-style: italic;
+    }
+</style>
