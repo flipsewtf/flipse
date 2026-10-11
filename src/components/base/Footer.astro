@@ -15,7 +15,6 @@ const icons = {
     instagram: IconBrandInstagram,
 };
 
-const { class: className } = Astro.props;
 const current = Astro.url.pathname;
 const isActive = (path: string) => current === path;
 ---
@@ -97,7 +96,7 @@ const isActive = (path: string) => current === path;
         grid-template-columns: 1fr 1fr;
         gap: var(--space-sm) var(--space-xl);
         align-items: flex-end;
-        font-weight: 560;
+        font-weight: 600;
         text-transform: capitalize;
     }
 

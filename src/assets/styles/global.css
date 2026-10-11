@@ -86,9 +86,9 @@
     --text-xl: 1.25rem;
 
     --text-h4: clamp(1.125rem, 2.5vw, 1.25rem);
-    --text-h3: clamp(1.25rem, 3vw, 1.5rem);
+    --text-h3: clamp(1.25rem, 3vw, 1.625rem);
     --text-h2: clamp(1.75rem, 5vw, 2.5rem);
-    --text-h1: clamp(3rem, 8vw, 3.75rem);
+    --text-h1: clamp(3rem, 8vw, 4rem);
 
     /* LINE-HEIGHT */
     --leading-p: 1.75;
@@ -102,7 +102,7 @@
 }
 @media (min-width: 48rem) {
     :root {
-        --layout-content: 36.25rem;
+        --layout-content: 37.5rem;
         --radius-img: var(--radius-md);
         --layout-spacing: 0;
         --offset-margin-text: -2rem;
@@ -133,6 +133,7 @@ html[data-theme='dark'] {
     --text-subtle: oklch(85% 0 0);
     --text-muted: oklch(60% 0 0);
     --bg: oklch(18% 0 0);
+
     --bg-trans: oklch(18% 0 0 / 89%);
     --bg-lines: oklch(28% 0 0);
     --bg-alt: oklch(26% 0 0);
@@ -182,10 +183,33 @@ html {
     scrollbar-color: var(--text) var(--bg);
     background-color: var(--bg);
     font-size: 100%;
-    scroll-behavior: smooth;
     transition: none;
     overflow-x: hidden;
     position: relative;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ::view-transition {
+    background: var(--bg) !important;
+} */
+::view-transition-old(root) {
+    animation: none !important;
+    mix-blend-mode: normal !important;
+}
+
+::view-transition-new(root) {
+    animation-name: fadeIn !important;
+    mix-blend-mode: normal !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -197,9 +221,6 @@ html {
     }
     html[data-ready='true'] {
         transition: none;
-    }
-    .fade-in {
-        animation: none !important;
     }
     a {
         transition: none !important;
@@ -222,7 +243,6 @@ body {
     line-height: 1;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     min-height: 100vh;
 }
 
@@ -285,9 +305,10 @@ a:hover {
 /* =========================================
    TYPOGRAPHY
 ========================================= */
+
 b,
 strong {
-    font-weight: 670;
+    font-weight: 700;
 }
 
 h1,
@@ -306,7 +327,8 @@ h1 {
     text-wrap: balance;
     margin-inline-start: var(--offset-margin-text);
     letter-spacing: -0.125rem;
-    font-weight: 460;
+    font-weight: 450;
+    line-height: 1;
 }
 
 h2 {
@@ -360,6 +382,7 @@ hr {
     height: var(--space-1px);
     margin-block: var(--space-2xl);
 }
+
 /* =========================================
    LAYOUT
 ========================================= */

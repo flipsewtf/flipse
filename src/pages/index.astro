@@ -4,6 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Scrobble from '@/components/other/Scrobble.astro';
 import Intro from '@/components/other/Intro.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { IconCaretRightFilled } from '@tabler/icons-astro';
 
 const MAX_POSTS = 5;
 const posts: CollectionEntry<'blog'>[] = await getCollection('blog');
@@ -20,6 +21,7 @@ const pageTitle = ``;
     <hr />
     <section>
         <h2>Latest words</h2>
+
         <ul class="post-list">
             {
                 latestPosts.map((post) => (
@@ -47,6 +49,9 @@ const pageTitle = ``;
                 ))
             }
         </ul>
+        <a class="view-all" href="/blog"
+            >View all <IconCaretRightFilled aria-hidden="true" /></a
+        >
     </section>
 </BaseLayout>
 
@@ -57,7 +62,7 @@ const pageTitle = ``;
         text-wrap: balance;
         margin-inline-start: var(--offset-margin-text);
         letter-spacing: -0.125rem;
-        font-weight: 460;
+        font-weight: 400;
     }
 
     ul.post-list {
@@ -76,6 +81,22 @@ const pageTitle = ``;
         margin-top: var(--space-4px);
         font-size: var(--text-sm);
         color: var(--text-muted);
-        font-style: italic;
+    }
+    a.view-all {
+        display: inline-flex;
+        align-items: center;
+        text-transform: uppercase;
+        margin-top: var(--space-lg);
+        font-family: var(--font-family--heading);
+        font-weight: 600;
+    }
+    a.view-all svg {
+        fill: var(--text);
+        transform: translateX(0);
+        transition: var(--transition-ease);
+    }
+
+    a.view-all:hover svg {
+        transform: translateX(0.25rem);
     }
 </style>

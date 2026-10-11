@@ -11,7 +11,9 @@ const allPosts = (await getCollection('blog')).sort(
 );
 
 const postsByMonth = Object.groupBy(allPosts, (post) =>
-    new Intl.DateTimeFormat('en-GB', { month: 'short', year: 'numeric' }).format(post.data.pubDate),
+    new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric' }).format(
+        post.data.pubDate,
+    ),
 );
 ---
 

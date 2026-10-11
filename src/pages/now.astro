@@ -62,9 +62,9 @@ const sortedEntries = entries.sort(
         display: block;
         width: calc(var(--space-sm) + var(--space-2px));
         height: calc(var(--space-sm) + var(--space-2px));
-        background-color: var(--bg-alt);
+        background-color: var(--bg);
         border-radius: var(--radius-full);
-        border: var(--space-3px) solid var(--border);
+        border: var(--space-3px) solid var(--text-muted);
         margin-left: calc(-0.5 * calc(var(--space-sm) + var(--space-2px)));
     }
 
@@ -87,17 +87,5 @@ const sortedEntries = entries.sort(
     }
     :global(.log-music p) {
         display: inline;
-    }
-    @media (max-width: 48rem) {
-        article.log-entry {
-            margin-left: var(--space-md);
-        }
-
-        article.log-entry time {
-            gap: var(--space-md);
-        }
-        .log-content {
-            margin-inline: var(--space-md);
-        }
     }
 </style>

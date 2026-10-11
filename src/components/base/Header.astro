@@ -1,14 +1,9 @@
 ---
 //Header.astro
-
-const current = Astro.url.pathname;
-const isActive = (path: string) => current === path;
 ---
 
 <header>
-    <a class="home" href="/" aria-current={isActive('/') ? 'page' : undefined}
-        >Flipse<span>.</span><span>wtf</span></a
-    >
+    <a class="home" href="/">Flipse<span>.</span><span>wtf</span></a>
 
     <button class="theme-toggle" type="button" aria-label="Toggle theme">
         <svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor">
