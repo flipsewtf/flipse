@@ -10,9 +10,7 @@ export interface Props {
 
 const { title, description, image } = Astro.props;
 
-const ogImage = image
-    ? new URL(image, Astro.site)
-    : new URL('/social-default.png', Astro.site);
+const ogImage = image ? new URL(image, Astro.site) : new URL('/social-default.png', Astro.site);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -21,12 +19,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <title>Flipse.WTF{title ? ` | ${title}` : ''}</title>
 
+<link rel="preload" href="/assets/fonts/thinker.woff2" as="font" type="font/woff2" crossorigin />
+
 <script is:inline>
     const stored = localStorage.getItem('theme-mode');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const theme = stored || (prefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
-    document.documentElement.classList.add('no-transition');
     document.documentElement.dataset.ready = 'true';
 </script>
 
@@ -40,12 +39,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta name="generator" content={Astro.generator} />
 <meta name="color-scheme" content="dark light" />
 
-<link
-    rel="alternate"
-    type="application/rss+xml"
-    title="Flipse.wtf RSS Feed"
-    href="/rss.xml"
-/>
+<link rel="alternate" type="application/rss+xml" title="Flipse.wtf RSS Feed" href="/rss.xml" />
 
 {description && <meta name="description" content={description} />}
 

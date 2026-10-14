@@ -1,9 +1,28 @@
 ---
 //Header.astro
+import { headerLinks } from '@/assets/data/headerLinks';
+
+const current = Astro.url.pathname;
+const isActive = (path: string) => current === path;
 ---
 
 <header>
-    <a class="home" href="/">Flipse<span>.</span><span>wtf</span></a>
+    <nav class="main" aria-label="Main links">
+        <ul>
+            <li><a class="home" href="/">Flipse<span>.</span><span>wtf</span></a></li>
+            {
+                headerLinks.map((link) => (
+                    <li>
+                        <a
+                            href={link.href}
+                            aria-current={isActive(link.href) ? 'page' : undefined}>
+                            {link.label}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
 
     <button class="theme-toggle" type="button" aria-label="Toggle theme">
         <svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor">
@@ -21,15 +40,24 @@
         max-width: var(--layout-content);
         margin-inline: auto;
         display: flex;
+        gap: var(--space-md);
         justify-content: space-between;
         align-items: center;
         padding-block: var(--space-xl);
         padding-inline: var(--layout-spacing);
     }
-    a.home {
+    nav.main ul {
+        display: inline-flex;
+        gap: var(--space-sm);
+    }
+    nav.main ul a {
+        font-weight: 600;
+    }
+    nav.main ul a.home {
         font-weight: 520;
         font-family: var(--font-family--mono);
-        letter-spacing: var(--space-1px);
+        letter-spacing: calc(0.5 * var(--space-1px));
+        margin-right: var(--space-sm);
     }
     a.home span:first-child {
         font-size: 2rem;
@@ -51,4 +79,4 @@
     }
 </style>
 
-<script src="/assets/scripts/theme-toggle.js" is:inline></script>
+<script src="/assets/scripts/theme-toggle.js" is:inline defer></script>

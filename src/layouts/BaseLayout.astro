@@ -19,14 +19,10 @@ const {
 
 <html lang="en">
     <head>
-        <BaseHead
-            title={seoTitle ?? pageTitle}
-            description={pageDescription}
-            image={pageImage}
-        />
+        <BaseHead title={seoTitle ?? pageTitle} description={pageDescription} image={pageImage} />
     </head>
     <body>
-        <Header transition:persist />
+        <Header />
         <main class:list={[mainClass]}>
             <section class="main-content">
                 {!hasOwnTitle && pageTitle && <h1>{pageTitle}</h1>}
