@@ -4,16 +4,14 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import '@/assets/styles/blog.css';
 
-const pageTitle = 'Blog';
+const pageTitle = 'Weblog';
 
 const allPosts = (await getCollection('blog')).sort(
     (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 );
 
 const postsByMonth = Object.groupBy(allPosts, (post) =>
-    new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric' }).format(
-        post.data.pubDate,
-    ),
+    new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric' }).format(post.data.pubDate),
 );
 ---
 

@@ -1,5 +1,5 @@
 // navLinks.ts
-export const navLinks = [
+export const footerLinks = [
     { href: '/', label: 'Home' },
     { href: '/about/', label: 'About' },
     { href: '/blog/', label: 'Weblog' },

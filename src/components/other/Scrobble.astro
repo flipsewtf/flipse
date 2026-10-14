@@ -1,9 +1,14 @@
 ---
 //ScrobbleBox.astro
 import { IconHeadphones } from '@tabler/icons-astro';
+
+interface Props {
+    class?: string;
+}
+const { class: className } = Astro.props;
 ---
 
-<div class="listened">
+<div class:list={['listened', className]}>
     <IconHeadphones aria-hidden="true" />
     <a
         class="track"
@@ -25,7 +30,7 @@ import { IconHeadphones } from '@tabler/icons-astro';
         width: 1.25rem;
         vertical-align: bottom;
         margin-right: var(--space-sm);
-        stroke-width: 2;
+        stroke-width: 1.75;
         stroke: var(--text);
         flex: none;
     }

@@ -1,7 +1,7 @@
 ---
 //index.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Scrobble from '@/components/other/Scrobble.astro';
+
 import Intro from '@/components/other/Intro.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { IconCaretRightFilled } from '@tabler/icons-astro';
@@ -17,10 +17,14 @@ const pageTitle = ``;
 
 <BaseLayout hasOwnTitle={true} pageTitle={pageTitle} mainClass="homepage">
     <Intro />
-    <Scrobble />
+
     <hr />
     <section>
         <h2>Latest words</h2>
+        <a class="view-all" href="/blog"
+            >View all <span class="sr-only">blog posts</span>
+            <IconCaretRightFilled aria-hidden="true" /></a
+        >
 
         <ul class="post-list">
             {
@@ -49,22 +53,26 @@ const pageTitle = ``;
                 ))
             }
         </ul>
-        <a class="view-all" href="/blog"
-            >View all <IconCaretRightFilled aria-hidden="true" /></a
-        >
     </section>
 </BaseLayout>
 
 <style>
-    h2 {
-        font-size: var(--text-h1);
-        margin-block-end: var(--space-xl);
-        text-wrap: balance;
-        margin-inline-start: var(--offset-margin-text);
-        letter-spacing: -0.125rem;
-        font-weight: 400;
+    a.view-all {
+        display: inline-flex;
+        align-items: center;
+        font-family: var(--font-family--mono);
+        font-weight: 500;
+        margin-block: var(--space-sm) var(--space-xl);
+    }
+    a.view-all svg {
+        fill: var(--text);
+        transform: translateX(0);
+        transition: var(--transition-ease);
     }
 
+    a.view-all:hover svg {
+        transform: translateX(0.25rem);
+    }
     ul.post-list {
         display: flex;
         flex-direction: column;
@@ -81,22 +89,5 @@ const pageTitle = ``;
         margin-top: var(--space-4px);
         font-size: var(--text-sm);
         color: var(--text-muted);
-    }
-    a.view-all {
-        display: inline-flex;
-        align-items: center;
-        text-transform: uppercase;
-        margin-top: var(--space-lg);
-        font-family: var(--font-family--heading);
-        font-weight: 600;
-    }
-    a.view-all svg {
-        fill: var(--text);
-        transform: translateX(0);
-        transition: var(--transition-ease);
-    }
-
-    a.view-all:hover svg {
-        transform: translateX(0.25rem);
     }
 </style>
