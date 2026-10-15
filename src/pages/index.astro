@@ -1,10 +1,8 @@
 ---
 //index.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
-
 import Intro from '@/components/other/Intro.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { IconCaretRightFilled } from '@tabler/icons-astro';
 
 const MAX_POSTS = 5;
 const posts: CollectionEntry<'blog'>[] = await getCollection('blog');
