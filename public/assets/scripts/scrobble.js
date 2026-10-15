@@ -15,15 +15,10 @@ function truncateWords(text, maxWords) {
     if (!trackLink) return;
 
     try {
-        const res = await fetch(
-            'https://api.listenbrainz.org/1/user/flipse/listens?count=1',
-        );
+        const res = await fetch('https://api.listenbrainz.org/1/user/flipse/listens?count=1');
         const t = (await res.json()).payload.listens?.[0]?.track_metadata;
         if (t) {
-            trackLink.textContent = truncateWords(
-                `${t.track_name} — ${t.artist_name}`,
-                10,
-            );
+            trackLink.textContent = truncateWords(`${t.track_name} — ${t.artist_name}`, 10);
         }
     } catch (e) {
         console.error('Failed to fetch ListenBrainz data:', e);
