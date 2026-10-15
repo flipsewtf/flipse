@@ -11,56 +11,61 @@ import { IconX } from '@tabler/icons-astro';
 </dialog>
 
 <script>
-    const dialog = document.getElementById('lightbox') as HTMLDialogElement;
-    const img = document.getElementById('lightbox-img') as HTMLImageElement;
-    const closeBtn = document.getElementById('lightbox-close') as HTMLButtonElement;
+    document.addEventListener('astro:page-load', () => {
+        const dialog = document.getElementById('lightbox') as HTMLDialogElement | null;
+        const img = document.getElementById('lightbox-img') as HTMLImageElement | null;
+        const closeBtn = document.getElementById('lightbox-close') as HTMLButtonElement | null;
 
-    let closing = false;
+        // Pages without a lightbox (home, etc.) also fire this event
+        if (!dialog || !img || !closeBtn) return;
 
-    function openLightbox(sourceEl: HTMLImageElement) {
-        img.src = sourceEl.getAttribute('src') ?? '';
-        img.alt = sourceEl.getAttribute('alt') ?? '';
+        let closing = false;
 
-        dialog.showModal();
-        document.documentElement.style.overflow = 'hidden';
+        const openLightbox = (sourceEl: HTMLImageElement) => {
+            img.src = sourceEl.getAttribute('src') ?? '';
+            img.alt = sourceEl.getAttribute('alt') ?? '';
 
-        requestAnimationFrame(() => {
-            dialog.classList.add('is-open');
+            dialog.showModal();
+            document.documentElement.style.overflow = 'hidden';
+
+            requestAnimationFrame(() => {
+                dialog.classList.add('is-open');
+            });
+        };
+
+        const closeLightbox = () => {
+            if (closing) return;
+
+            closing = true;
+            dialog.classList.remove('is-open');
+
+            dialog.addEventListener(
+                'transitionend',
+                () => {
+                    dialog.close();
+                    document.documentElement.style.overflow = '';
+                    closing = false;
+                },
+                { once: true },
+            );
+        };
+
+        document.querySelectorAll('.post img, img.lbox').forEach((postImg) => {
+            const el = postImg as HTMLImageElement;
+            el.style.cursor = 'zoom-in';
+            el.addEventListener('click', () => openLightbox(el));
         });
-    }
 
-    function closeLightbox() {
-        if (closing) return;
+        closeBtn.addEventListener('click', closeLightbox);
 
-        closing = true;
-        dialog.classList.remove('is-open');
+        dialog.addEventListener('click', (e) => {
+            if (e.target === dialog) closeLightbox();
+        });
 
-        dialog.addEventListener(
-            'transitionend',
-            () => {
-                dialog.close();
-                document.documentElement.style.overflow = '';
-                closing = false;
-            },
-            { once: true },
-        );
-    }
-
-    document.querySelectorAll('.post img, img.lbox').forEach((postImg) => {
-        const el = postImg as HTMLImageElement;
-        el.style.cursor = 'zoom-in';
-        el.addEventListener('click', () => openLightbox(el));
-    });
-
-    closeBtn.addEventListener('click', closeLightbox);
-
-    dialog.addEventListener('click', (e) => {
-        if (e.target === dialog) closeLightbox();
-    });
-
-    dialog.addEventListener('cancel', (e) => {
-        e.preventDefault();
-        closeLightbox();
+        dialog.addEventListener('cancel', (e) => {
+            e.preventDefault();
+            closeLightbox();
+        });
     });
 </script>
 
